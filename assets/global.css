@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'Poppins';
+  src: url('./fonts/Poppins-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./fonts/Poppins-Bold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./fonts/Poppins-Italic.ttf') format('truetype');
+  font-weight: 100;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
+}
