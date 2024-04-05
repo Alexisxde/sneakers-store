@@ -1,0 +1,38 @@
+.image-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: #f1f1f1;
+  padding: 0 40px 0 40px;
+  div {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    span {
+      position: absolute;
+      font-family: 'Poppins-Bold';
+      font-size: 10em;
+      width: max-content;
+      &:nth-child(1) {
+        z-index: 1;
+        left: 15%;
+      }
+      &:nth-child(2) {
+        right: 20%;
+      }
+    }
+    min-width: 1315px;
+    max-width: 1415px;
+    img {
+      margin-top: 25px;
+      width: 550px;
+      height: 550px;
+      aspect-ratio: 1 / 1;
+      transform: scaleX(-1);
+      rotate: 5deg;
+    }
+  }
+}

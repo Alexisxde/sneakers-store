@@ -1,0 +1,71 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: black;
+
+  .company-inc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem;
+    span {
+      font-size: 1rem;
+      color: white;
+    }
+  }
+
+  .logo {
+    text-decoration: none;
+    color: white;
+    &:hover {
+      color: #555555;
+      scale: 105%;
+    }
+  }
+
+  .social-networks {
+    display: flex;
+    align-items: center;
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 2rem;
+      margin: 0;
+      gap: 10px;
+      li {
+        list-style: none;
+        a {
+          i {
+            font-size: 1.5rem;
+            color: white;
+          }
+          .bi-whatsapp {
+            &:hover {
+              color: #25d366;
+            }
+          }
+          .bi-twitter {
+            &:hover {
+              color: #1da1f2;
+            }
+          }
+          .bi-facebook {
+            &:hover {
+              color: #405de6;
+            }
+          }
+          .bi-instagram {
+            &:hover {
+              color: #c13584;
+            }
+          }
+        }
+      }
+    }
+  }
+}

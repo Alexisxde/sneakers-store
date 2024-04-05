@@ -4,7 +4,10 @@ namespace App\Controllers;
 
 class Home extends BaseController {
   public function home() {
-    echo view('Nav');
-    echo view('Carousel');
+    echo view('Home');
+  }
+
+  public function aboutUs() {
+    echo view('AboutUs');
   }
 }

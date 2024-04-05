@@ -5,22 +5,23 @@
 }
 
 @font-face {
-  font-family: 'Poppins';
+  font-family: 'Poppins-Bold';
   src: url('./fonts/Poppins-Bold.ttf') format('truetype');
   font-weight: bold;
 }
 
-@font-face {
-  font-family: 'Poppins';
-  src: url('./fonts/Poppins-Italic.ttf') format('truetype');
-  font-weight: 100;
+:root {
+  color-scheme: ligth dark;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
-}
-
-.navbar-toggler:focus {
-  outline: none;
-  box-shadow: none;
+  overflow-x: hidden;
 }
