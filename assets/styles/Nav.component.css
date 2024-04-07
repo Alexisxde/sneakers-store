@@ -10,6 +10,7 @@
 
   .navbar-toggler {
     border: none;
+
     &:focus {
       outline: none;
       box-shadow: none;
@@ -19,6 +20,7 @@
   .nav-link {
     color: black;
     font-weight: bold;
+
     &:hover {
       scale: 103%;
       color: #555555;
@@ -29,18 +31,22 @@
     button {
       border: none;
       font-weight: bold;
+
       &:nth-child(1) {
         color: black;
         background-color: transparent;
+
         &:hover {
           scale: 103%;
           color: #555555;
         }
       }
+
       &:nth-child(2) {
         background-color: black;
         color: white;
         border-radius: 12px;
+
         &:hover {
           background-color: #555555;
           scale: 103%;

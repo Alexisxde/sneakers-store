@@ -17,20 +17,24 @@
     justify-content: center;
     align-items: center;
     border: none;
+
     img {
       width: 200px;
       height: 200px;
       aspect-ratio: 1 / 1;
     }
+
     .price {
       span {
+        color: black;
+
         &:first-child {
           opacity: 75%;
           text-decoration: line-through;
         }
-        color: black;
       }
     }
+
     &:hover {
       cursor: pointer;
       img {
@@ -45,8 +49,10 @@
     align-items: center;
     position: relative;
     margin: 20px;
+
     span {
       font-size: 5em;
+
       &:first-child {
         font-size: 10em;
         font-family: 'Poppins-Bold';
