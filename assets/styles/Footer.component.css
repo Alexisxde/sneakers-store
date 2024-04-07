@@ -1,71 +1,66 @@
-.footer {
+footer {
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  padding: 20px;
+  flex-direction: column;
   background-color: black;
-
-  .company-inc {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 2rem;
-    span {
-      font-size: 1rem;
-      color: white;
-    }
-  }
+  color: white;
+  padding: 20px;
 
   .logo {
-    text-decoration: none;
     color: white;
+    text-decoration: none;
+    padding: 20px;
+
     &:hover {
-      color: #555555;
+      cursor: pointer;
       scale: 105%;
     }
   }
 
-  .social-networks {
+  section {
     display: flex;
+    justify-content: center;
     align-items: center;
-    ul {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 2rem;
-      margin: 0;
-      gap: 10px;
-      li {
-        list-style: none;
-        a {
-          i {
-            font-size: 1.5rem;
-            color: white;
-          }
-          .bi-whatsapp {
-            &:hover {
-              color: #25d366;
-            }
-          }
-          .bi-twitter {
-            &:hover {
-              color: #1da1f2;
-            }
-          }
-          .bi-facebook {
-            &:hover {
-              color: #405de6;
-            }
-          }
-          .bi-instagram {
-            &:hover {
-              color: #c13584;
-            }
-          }
+
+    a {
+      i {
+        font-size: 1.5rem;
+        color: #848d97;
+        cursor: pointer;
+      }
+
+      .bi-whatsapp {
+        &:hover {
+          color: #25d366;
+        }
+      }
+
+      .bi-twitter-x,
+      .bi-github {
+        &:hover {
+          color: white;
+        }
+      }
+
+      .bi-facebook {
+        &:hover {
+          color: #405de6;
+        }
+      }
+
+      .bi-instagram {
+        &:hover {
+          color: #c13584;
         }
       }
     }
+  }
+
+  div {
+    font-size: 0.75em;
+    color: gray;
+    text-align: center;
+    padding: 16px;
   }
 }

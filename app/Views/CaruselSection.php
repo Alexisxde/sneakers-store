@@ -5,16 +5,16 @@
     <div class="carousel-inner">
       <div class="carousel-item px-4 py-2 active">
         <p>Envío gratis a partir de $215.000</p>
-        <a href="#">Ver productos</a>
+        <a href="/products">Ver productos</a>
       </div>
       <div class="carousel-item px-4 py-2">
-        <p>¡Llega hoy! Comprando antes de las 11hs</p>
-        <a href="#">Exclusivo Corrientes</a>
+        <p>Pagar es fácil, comodo y seguro</p>
+        <a href="/payment">Ver metodos de pago</a>
       </div>
-      <div class="carousel-item px-4 py-2">
+      <!-- <div class="carousel-item px-4 py-2">
         <p>Hasta 6 cuotas sin interés con bancos seleccionados</p>
         <a href="#">Ver promociones bancarias</a>
-      </div>
+      </div> -->
     </div>
     <button class="carousel-control-prev" data-bs-target="#carouselRide" data-bs-slide="prev">
       <i class="bi bi-chevron-left text-black" aria-hidden="true"></i>

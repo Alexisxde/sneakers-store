@@ -2,7 +2,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   padding: 0 40px 0 40px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .card {
     width: 15em;
     display: flex;
@@ -32,8 +40,21 @@
   }
 
   .cards-presentation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 20px;
     span {
       font-size: 5em;
+      &:first-child {
+        font-size: 10em;
+        font-family: 'Poppins-Bold';
+        opacity: 15%;
+        position: absolute;
+        z-index: -1;
+        letter-spacing: 25px;
+      }
     }
   }
 }

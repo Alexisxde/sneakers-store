@@ -4,10 +4,14 @@ namespace App\Controllers;
 
 class Home extends BaseController {
   public function home() {
-    echo view('Home');
+    echo view('HomePage');
   }
 
   public function aboutUs() {
-    echo view('AboutUs');
+    echo view('AboutUsPage');
+  }
+
+  public function payments() {
+    echo view("PaymentsPage.php");
   }
 }

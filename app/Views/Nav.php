@@ -1,6 +1,11 @@
 <link rel="stylesheet" href="./assets/styles/Nav.component.css">
 
-<header id="navbarId">
+<header>
+  <div class="container-fluid pb-3">
+    <div class="text-black fw-bold text-center fs-4 p-2">
+      SNEAKERS
+    </div>
+  </div>
   <nav class="navbar navbar-expand-lg bg-white p-2">
     <div class="container-fluid">
       <div class="fw-bold text-center fs-4 m-2">
@@ -22,10 +27,10 @@
               <a class="nav-link" href="/contacts">CONTACTS</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">MARKETING</a>
+              <a class="nav-link" href="#">PRODUCTS</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">TERMS & USES</a>
+              <a class="nav-link" href="/payment-methods">PAYMENT METHODS</a>
             </li>
           </ul>
         </div>

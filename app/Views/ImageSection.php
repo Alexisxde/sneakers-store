@@ -2,8 +2,10 @@
 
 <section class="image-section container-fluid">
   <div class="row">
-    <span class="">snea.</span>
-    <span class="">ker</span>
+    <span>snea.</span>
+    <span>ker</span>
+    <span>UP TO 40% OFF</span>
+    <span>AT THE BEST PRICE</span>
     <img src="./assets/img/snaker-image.png">
   </div>
 </section>
