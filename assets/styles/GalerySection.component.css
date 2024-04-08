@@ -1,12 +1,12 @@
 .galery-section {
   display: flex;
   align-items: center;
-  justify-content: start;
-  max-width: 1920px;
-  margin: 0 auto;
+  justify-content: center;
   height: 600px;
   padding: 40px;
   background-color: #f1f1f1;
+  max-width: 1920px;
+  margin: 0 auto;
 
   .galery-title {
     display: flex;
@@ -32,6 +32,8 @@
     width: 500px;
     height: 500px;
     flex: 1;
+    max-width: 650px;
+    margin: 0;
 
     img {
       position: absolute;

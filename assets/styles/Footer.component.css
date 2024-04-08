@@ -6,6 +6,8 @@ footer {
   background-color: black;
   color: white;
   padding: 20px;
+  max-width: 1920px;
+  margin: 0 auto;
 
   .logo {
     color: white;

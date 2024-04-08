@@ -1,0 +1,76 @@
+{
+  "featured": [
+    {
+      "title": "Nike Air Force 1",
+      "img": "./assets/img/snakers/nike-air-force-1.webp",
+      "price": 269.999,
+      "discount": 40,
+      "stars": 5
+    },
+    {
+      "title": "Zion 3",
+      "img": "./assets/img/snakers/zion-3.webp",
+      "price": 259.999,
+      "discount": 25,
+      "stars": 3.5
+    },
+    {
+      "title": "Nike Revolution 6",
+      "img": "./assets/img/snakers/nike-revolution-6.webp",
+      "price": 275.999,
+      "discount": 25,
+      "stars": 3.5
+    },
+    {
+      "title": "Nike Winflo 10",
+      "img": "./assets/img/snakers/nike-winflo-10.webp",
+      "price": 179.999,
+      "discount": 20,
+      "stars": 4
+    },
+    {
+      "title": "Air Jordan 1 Low",
+      "img": "./assets/img/snakers/air-jordan-1-low.webp",
+      "price": 209.999,
+      "discount": 10,
+      "stars": 4
+    }
+  ],
+  "allProducts": [
+    {
+      "title": "Nike Air Force 1",
+      "img": "./assets/img/snakers/nike-air-force-1.webp",
+      "price": 269.999,
+      "discount": 40,
+      "stars": 5
+    },
+    {
+      "title": "Zion 3",
+      "img": "./assets/img/snakers/zion-3.webp",
+      "price": 259.999,
+      "discount": 25,
+      "stars": 3.5
+    },
+    {
+      "title": "Nike Revolution 6",
+      "img": "./assets/img/snakers/nike-revolution-6.webp",
+      "price": 275.999,
+      "discount": 25,
+      "stars": 3.5
+    },
+    {
+      "title": "Nike Winflo 10",
+      "img": "./assets/img/snakers/nike-winflo-10.webp",
+      "price": 179.999,
+      "discount": 20,
+      "stars": 4
+    },
+    {
+      "title": "Air Jordan 1 Low",
+      "img": "./assets/img/snakers/air-jordan-1-low.webp",
+      "price": 209.999,
+      "discount": 10,
+      "stars": 4
+    }
+  ]
+}
