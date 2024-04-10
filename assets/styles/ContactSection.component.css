@@ -1,6 +1,5 @@
 .contact-section {
   display: flex;
-  align-items: flex-start;
   max-width: 1920px;
   padding: 40px;
   margin: 0 auto;
@@ -13,7 +12,7 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      padding: 0 40px 40px;
+      padding: 0 40px;
       border-right: 2px solid black;
 
       span {
@@ -36,6 +35,11 @@
 
   .form-contact {
     padding: 40px;
+    width: 75%;
+
+    h3 {
+      font-weight: bold;
+    }
 
     form {
       display: flex;
@@ -72,6 +76,50 @@
         border-radius: 10px;
         background-color: black;
       }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .contact-section {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+    padding: 20px;
+
+    .contact {
+      width: 100%;
+
+      div {
+        border: none;
+      }
+    }
+
+    .form-contact {
+      padding: 0;
+      margin-bottom: 40px;
+    }
+  }
+}
+
+@media (min-width: 1366px) {
+  .contact-section {
+    flex-direction: column;
+    padding: 20px;
+
+    .contact {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+
+      div {
+        border: none;
+      }
+    }
+
+    .form-contact {
+      width: 100%;
+      padding: 60px;
     }
   }
 }

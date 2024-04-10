@@ -4,8 +4,8 @@
   <div class="row">
     <span>snea.</span>
     <span>ker</span>
-    <span>UP TO 40% OFF</span>
-    <span>AT THE BEST PRICE</span>
+    <span>HASTA 40% OFF</span>
+    <span>DESCUENTOS SOLO HOY</span>
     <img src="./assets/img/snaker-image.png">
   </div>
 </section>

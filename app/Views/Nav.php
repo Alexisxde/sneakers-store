@@ -27,7 +27,7 @@
               <a class="nav-link" href="/contacts">CONTACTO</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">PRODUCTOS</a>
+              <a class="nav-link" href="/products">PRODUCTOS</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/payment-methods">MÉTODOS DE PAGO</a>

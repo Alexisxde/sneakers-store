@@ -28,13 +28,13 @@
       }
 
       &:nth-child(2) {
-        right: 20%;
+        left: 58%;
         font-size: 10em;
       }
 
       &:nth-child(3) {
-        bottom: 55%;
-        right: 22%;
+        top: 38%;
+        left: 62%;
       }
 
       &:nth-child(4) {
@@ -50,6 +50,47 @@
       aspect-ratio: 1 / 1;
       transform: scaleX(-1);
       rotate: -5deg;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .image-section {
+    .row {
+      img {
+        width: 350px;
+        height: 350px;
+      }
+    }
+
+    div {
+      span {
+        font-size: 0.55em;
+        z-index: 1;
+
+        &:nth-child(1) {
+          bottom: 35%;
+          left: 35%;
+          font-size: 4.5em;
+        }
+
+        &:nth-child(2) {
+          top: 35%;
+          left: 55%;
+          font-size: 4.5em;
+          z-index: 0;
+        }
+
+        &:nth-child(3) {
+          left: 57.5%;
+          top: 42%;
+        }
+
+        &:nth-child(4) {
+          left: 38%;
+          top: 57%;
+        }
+      }
     }
   }
 }

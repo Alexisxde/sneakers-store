@@ -11,10 +11,10 @@
         <p>Pagar es fácil, comodo y seguro</p>
         <a href="/payment-methods">Ver metodos de pago</a>
       </div>
-      <!-- <div class="carousel-item px-4 py-2">
-        <p>Hasta 6 cuotas sin interés con bancos seleccionados</p>
-        <a href="#">Ver promociones bancarias</a>
-      </div> -->
+      <div class="carousel-item px-4 py-2">
+        <p>¡Mantente en contacto con nosotros!</p>
+        <a href="/contacts">Obtener información de contacto</a>
+      </div>
     </div>
     <button class="carousel-control-prev" data-bs-target="#carouselRide" data-bs-slide="prev">
       <i class="bi bi-chevron-left text-black" aria-hidden="true"></i>

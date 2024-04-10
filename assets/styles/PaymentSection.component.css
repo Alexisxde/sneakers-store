@@ -19,11 +19,11 @@
         width: 75%;
         font-size: 3em;
         font-weight: bold;
-        padding-bottom: 16px;
+        padding-bottom: 1em;
       }
 
       &:nth-child(2) {
-        padding: 16px;
+        padding: 1em;
         font-size: 2em;
         color: white;
         background-color: black;
@@ -95,6 +95,31 @@
         font-size: 0.75em;
         color: gray;
       }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .image-payment-section {
+    flex-direction: column;
+    padding: 0;
+
+    div {
+      padding: 40px;
+
+      span {
+        &:nth-child(1) {
+          width: 100%;
+          padding: 0;
+        }
+        &:nth-child(2) {
+          font-size: 1.5em;
+        }
+      }
+    }
+
+    img {
+      display: none;
     }
   }
 }

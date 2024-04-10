@@ -1,0 +1,33 @@
+.products-section {
+  max-width: 1920px;
+  padding: 20px 40px 40px;
+  margin: 0 auto;
+  background-color: #f3f3f3;
+
+  .products-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+
+    .card {
+      img {
+        border-bottom: #80808050 solid 1px;
+      }
+
+      .prices {
+        .prev-price {
+          opacity: 75%;
+          text-decoration: line-through;
+        }
+
+        span {
+          color: black;
+        }
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

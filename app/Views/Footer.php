@@ -12,7 +12,7 @@
     <a class="btn btn-link" href="https://github.com/Alexisxde/store-sneakers"><i class="bi bi-github"></i></a>
   </section>
   <div>
-    Copyright 2024 © SNEAKERS. All rigth reserved
+    Copyright 2024 © SNEAKERS. All right reserved
   </div>
 </footer>
 <script>
