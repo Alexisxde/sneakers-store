@@ -9,7 +9,7 @@
       </div>
       <div class="carousel-item px-4 py-2">
         <p>Pagar es fácil, comodo y seguro</p>
-        <a href="/payment">Ver metodos de pago</a>
+        <a href="/payment-methods">Ver metodos de pago</a>
       </div>
       <!-- <div class="carousel-item px-4 py-2">
         <p>Hasta 6 cuotas sin interés con bancos seleccionados</p>

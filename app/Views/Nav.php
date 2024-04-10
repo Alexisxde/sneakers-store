@@ -18,25 +18,25 @@
         <div class="ms-auto">
           <ul class="navbar-nav text-center">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/">HOME</a>
+              <a class="nav-link" aria-current="page" href="/">INICIO</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/about-us">ABOUT US</a>
+              <a class="nav-link" href="/about-us">NOSOTROS</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/contacts">CONTACTS</a>
+              <a class="nav-link" href="/contacts">CONTACTO</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">PRODUCTS</a>
+              <a class="nav-link" href="#">PRODUCTOS</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/payment-methods">PAYMENT METHODS</a>
+              <a class="nav-link" href="/payment-methods">MÉTODOS DE PAGO</a>
             </li>
           </ul>
         </div>
         <div class="nav-btns ms-auto text-center">
-          <button class="px-4 py-2">SIGN IN</button>
-          <button class="px-4 py-2">SIGN UP</button>
+          <button class="px-4 py-2"><i class="bi bi-cart4"></i></button>
+          <button class="px-4 py-2">INGRESAR</button>
         </div>
       </div>
     </div>

@@ -2,11 +2,10 @@
 
 <section class="cards-section">
   <div class="cards-presentation text-center">
-    <span>SNEAKER</span>
+    <span>SNEAKERS</span>
     <span>featured</span>
   </div>
   <div class="row">
-
     <?php
     $ruta_json = APPPATH . 'Json/products.json';
     $jsonData = file_get_contents($ruta_json);

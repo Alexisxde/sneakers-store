@@ -9,6 +9,8 @@
 
 <main>
   <?php include "Nav.php" ?>
+  <?php include "AboutUsSection.php" ?>
+  <?php include "TeamSection.php" ?>
   <?php include "Footer.php" ?>
 </main>
 <script src="./assets/js/bootstrap.min.js" integrity="" crossorigin=""></script>

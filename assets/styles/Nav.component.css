@@ -7,6 +7,7 @@
   z-index: 99;
   top: 0;
   margin: 0 auto;
+
   div {
     max-width: 1920px;
   }
@@ -38,6 +39,7 @@
       &:nth-child(1) {
         color: black;
         background-color: transparent;
+        font-size: 1.25em;
 
         &:hover {
           scale: 103%;
