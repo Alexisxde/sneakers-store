@@ -5,15 +5,15 @@
     <div class="carousel-inner">
       <div class="carousel-item px-4 py-2 active">
         <p>Envío gratis a partir de $215.000</p>
-        <a href="/products">Ver productos</a>
+        <a href="<?= base_url("products") ?>">Ver productos</a>
       </div>
       <div class="carousel-item px-4 py-2">
         <p>Pagar es fácil, comodo y seguro</p>
-        <a href="/payment-methods">Ver metodos de pago</a>
+        <a href="<?= base_url("payment-methods") ?>">Ver metodos de pago</a>
       </div>
       <div class="carousel-item px-4 py-2">
         <p>¡Mantente en contacto con nosotros!</p>
-        <a href="/contacts">Obtener información de contacto</a>
+        <a href="<?= base_url("contacts") ?>">Obtener información de contacto</a>
       </div>
     </div>
     <button class="carousel-control-prev" data-bs-target="#carouselRide" data-bs-slide="prev">

@@ -18,19 +18,19 @@
         <div class="ms-auto">
           <ul class="navbar-nav text-center">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/">INICIO</a>
+              <a class="nav-link" aria-current="page" href="<?= base_url() ?>">INICIO</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/about-us">NOSOTROS</a>
+              <a class="nav-link" href="<?= base_url("about-us") ?>">NOSOTROS</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/contacts">CONTACTO</a>
+              <a class="nav-link" href="<?= base_url("contacts") ?>">CONTACTO</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/products">PRODUCTOS</a>
+              <a class="nav-link" href="<?= base_url("products") ?>">PRODUCTOS</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/payment-methods">MÉTODOS DE PAGO</a>
+              <a class="nav-link" href="<?= base_url("payment-methods") ?>">MÉTODOS DE PAGO</a>
             </li>
           </ul>
         </div>

@@ -29,7 +29,7 @@
   .galery-image {
     display: flex;
     align-items: center;
-    position: relative;
+    justify-content: center;
     width: 500px;
     height: 500px;
     flex: 1;
@@ -37,21 +37,9 @@
     margin: 0;
 
     img {
-      position: absolute;
       aspect-ratio: 1 / 1;
-
-      &:nth-child(1) {
-        margin: auto;
-        width: 400px;
-        height: 400px;
-      }
-
-      &:nth-child(2) {
-        right: 10%;
-        bottom: 0;
-        width: 250px;
-        height: 250px;
-      }
+      width: 400px;
+      height: 400px;
     }
   }
 }
@@ -66,11 +54,7 @@
         font-size: 2em;
       }
     }
-  }
-}
 
-@media (max-width: 1350px) {
-  .galery-section {
     .galery-image {
       img {
         display: none;
