@@ -65,7 +65,7 @@
           the page you are looking for not avaible!
         <?php endif; ?>
       </p>
-      <span>go to <a href="/">home</a></span>
+      <span>go to <a href="<?= base_url() ?>">home</a></span>
     </div>
   </main>
 </body>

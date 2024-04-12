@@ -12,7 +12,7 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      padding: 0 40px;
+      padding: 20px;
       border-right: 2px solid black;
 
       span {
