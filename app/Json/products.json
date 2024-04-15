@@ -1,143 +1,123 @@
 {
   "featured": [
     {
-      "title": "Nike Air Force 1",
-      "img": "./assets/img/snakers/nike-air-force-1.webp",
-      "price": 269.999,
-      "discount": 40,
-      "stars": 5
-    },
-    {
-      "title": "Nike Zion 3",
-      "img": "./assets/img/snakers/zion-3.webp",
-      "price": 259.999,
-      "discount": 25,
-      "stars": 3.5
-    },
-    {
-      "title": "Nike Revolution 6",
-      "img": "./assets/img/snakers/nike-revolution-6.webp",
-      "price": 275.999,
-      "discount": 25,
-      "stars": 3.5
-    },
-    {
-      "title": "Nike Winflo 10",
-      "img": "./assets/img/snakers/nike-winflo-10.webp",
-      "price": 179.999,
-      "discount": 20,
-      "stars": 4
-    },
-    {
-      "title": "Nike Air Jordan 1 Low",
-      "img": "./assets/img/snakers/air-jordan-1-low.webp",
-      "price": 209.999,
-      "discount": 10,
-      "stars": 4
-    }
-  ],
-  "allProducts": [
-    {
-      "title": "Nike Air Force 1",
-      "img": "./assets/img/snakers/nike-air-force-1.webp",
-      "price": 269.999,
-      "discount": 40,
-      "stars": 5
-    },
-    {
-      "title": "Nike Zion 3",
-      "img": "./assets/img/snakers/zion-3.webp",
-      "price": 259.999,
-      "discount": 25,
-      "stars": 3.5
-    },
-    {
-      "title": "Nike Revolution 6",
-      "img": "./assets/img/snakers/nike-revolution-6.webp",
-      "price": 275.999,
-      "discount": 25,
-      "stars": 3.5
-    },
-    {
-      "title": "Nike Winflo 10",
-      "img": "./assets/img/snakers/nike-winflo-10.webp",
-      "price": 179.999,
-      "discount": 20,
-      "stars": 4
-    },
-    {
-      "title": "Nike Air Jordan 1 Low",
-      "img": "./assets/img/snakers/air-jordan-1-low.webp",
-      "price": 209.999,
-      "discount": 10,
-      "stars": 4
-    },
-    {
+      "id": "1",
       "title": "Adidas Duramo Speed",
-      "img": "./assets/img/snakers/adidas-duramo-speed.jfif",
+      "img": "/assets/img/snakers/adidas-duramo-speed.jfif",
       "price": 114.999,
       "discount": 7,
-      "stars": 3.5
+      "stars": 4.5
     },
     {
+      "id": "2",
       "title": "Adidas Racer TR23",
-      "img": "./assets/img/snakers/adidas-racer-tr23.jfif",
+      "img": "/assets/img/snakers/adidas-racer-tr23.jfif",
       "price": 137.999,
       "discount": 5,
       "stars": 4.5
     },
     {
-      "title": "Puma Caven 2.0",
-      "img": "./assets/img/snakers/puma-caven-2.0.jfif",
-      "price": 89.999,
-      "discount": 5,
-      "stars": 4
-    },
-    {
-      "title": "Adidas Adistar 2",
-      "img": "./assets/img/snakers/adidas-adistar-2.jfif",
-      "price": 199.999,
-      "discount": 10,
-      "stars": 3
-    },
-    {
-      "title": "Under Armour Buzzer",
-      "img": "./assets/img/snakers/under-armour-buzzer.jfif",
-      "price": 139.999,
-      "discount": 30,
-      "stars": 2.5
-    },
-    {
+      "id": "6",
       "title": "Nike Air Max Impact 4",
-      "img": "./assets/img/snakers/nike-air-max-impact-4.jfif",
+      "img": "/assets/img/snakers/nike-air-max-impact-4.jfif",
       "price": 169.999,
       "discount": 15,
       "stars": 4.5
     },
     {
-      "title": "Puma X-Cell Action",
-      "img": "./assets/img/snakers/puma-x-cell-action.jfif",
-      "price": 109.999,
-      "discount": 25,
-      "stars": 4
-    },
-    {
+      "id": "8",
       "title": "Nike Revolution 6 Next Nature",
-      "img": "./assets/img/snakers/nike-revolution-6-next-nature.jfif",
+      "img": "/assets/img/snakers/nike-revolution-6-next-nature.jfif",
       "price": 115.999,
       "discount": 10,
       "stars": 4
     },
     {
+      "id": "5",
+      "title": "Under Armour Buzzer",
+      "img": "/assets/img/snakers/under-armour-buzzer.jfif",
+      "price": 139.999,
+      "discount": 30,
+      "stars": 3.5
+    }
+  ],
+  "allProducts": [
+    {
+      "id": "1",
+      "title": "Adidas Duramo Speed",
+      "img": "/assets/img/snakers/adidas-duramo-speed.jfif",
+      "price": 114.999,
+      "discount": 7,
+      "stars": 4.5
+    },
+    {
+      "id": "2",
+      "title": "Adidas Racer TR23",
+      "img": "/assets/img/snakers/adidas-racer-tr23.jfif",
+      "price": 137.999,
+      "discount": 5,
+      "stars": 4.5
+    },
+    {
+      "id": "3",
+      "title": "Puma Caven 2.0",
+      "img": "/assets/img/snakers/puma-caven-2.0.jfif",
+      "price": 89.999,
+      "discount": 5,
+      "stars": 4
+    },
+    {
+      "id": "4",
+      "title": "Adidas Adistar 2",
+      "img": "/assets/img/snakers/adidas-adistar-2.jfif",
+      "price": 199.999,
+      "discount": 10,
+      "stars": 3.5
+    },
+    {
+      "id": "5",
+      "title": "Under Armour Buzzer",
+      "img": "/assets/img/snakers/under-armour-buzzer.jfif",
+      "price": 139.999,
+      "discount": 30,
+      "stars": 3.5
+    },
+    {
+      "id": "6",
+      "title": "Nike Air Max Impact 4",
+      "img": "/assets/img/snakers/nike-air-max-impact-4.jfif",
+      "price": 169.999,
+      "discount": 15,
+      "stars": 4.5
+    },
+    {
+      "id": "7",
+      "title": "Puma X-Cell Action",
+      "img": "/assets/img/snakers/puma-x-cell-action.jfif",
+      "price": 109.999,
+      "discount": 25,
+      "stars": 4
+    },
+    {
+      "id": "8",
+      "title": "Nike Revolution 6 Next Nature",
+      "img": "/assets/img/snakers/nike-revolution-6-next-nature.jfif",
+      "price": 115.999,
+      "discount": 10,
+      "stars": 4
+    },
+    {
+      "id": "9",
       "title": "Adidas Terrex Free Hiker 2",
-      "img": "./assets/img/snakers/adidas-terrex-free-hiker-2.jfif",
+      "img": "/assets/img/snakers/adidas-terrex-free-hiker-2.jfif",
       "price": 242.999,
       "discount": 10,
       "stars": 3
     },
     {
+      "id": "10",
       "title": "Under Armour Hovr Sonic 5 Dotd",
-      "img": "./assets/img/snakers/under-armour-hovr-sonic-5-dotd.jfif",
+      "img": "/assets/img/snakers/under-armour-hovr-sonic-5-dotd.jfif",
       "price": 164.499,
       "discount": 30,
       "stars": 4

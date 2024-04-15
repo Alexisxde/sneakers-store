@@ -1,6 +1,4 @@
-<link rel="stylesheet" href="./assets/styles/AboutUsSection.component.css">
-
-<section class="container-fluid about-us-section">
+<section class='container-fluid about-us-section'>
   <h2>SOBRE NOSOTROS</h2>
   <article>
     <p>En <span>SNEAKERS</span> nos apasiona el calzado y la moda urbana. Desde nuestros inicios, nos hemos dedicado a ofrecer a nuestros clientes una amplia selección de zapatillas de las marcas más reconocidas y exclusivas del mercado.</p>

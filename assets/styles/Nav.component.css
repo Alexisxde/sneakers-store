@@ -1,60 +1,62 @@
-.navbar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  position: fixed;
-  z-index: 99;
+header {
+  position: sticky;
   top: 0;
-  margin: 0 auto;
+  z-index: 99;
 
-  div {
-    max-width: 1920px;
-  }
+  .navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 
-  .navbar-toggler {
-    border: none;
-
-    &:focus {
-      outline: none;
-      box-shadow: none;
+    div {
+      max-width: 1920px;
     }
-  }
 
-  .nav-link {
-    color: black;
-    font-weight: bold;
-
-    &:hover {
-      scale: 103%;
-      color: #555555;
-    }
-  }
-
-  .nav-btns {
-    button {
+    .navbar-toggler {
       border: none;
+
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+
+    .nav-link {
+      color: black;
       font-weight: bold;
 
-      &:nth-child(1) {
-        color: black;
-        background-color: transparent;
-        font-size: 1.25em;
-
-        &:hover {
-          scale: 103%;
-          color: #555555;
-        }
+      &:hover {
+        scale: 103%;
+        color: #555555;
       }
+    }
 
-      &:nth-child(2) {
-        background-color: black;
-        color: white;
-        border-radius: 12px;
+    .nav-btns {
+      button {
+        border: none;
+        font-weight: bold;
 
-        &:hover {
-          background-color: #555555;
-          scale: 103%;
+        &:nth-child(1) {
+          color: black;
+          background-color: transparent;
+          font-size: 1.25em;
+
+          &:hover {
+            scale: 103%;
+            color: #555555;
+          }
+        }
+
+        &:nth-child(2) {
+          background-color: black;
+          color: white;
+          border-radius: 12px;
+
+          &:hover {
+            background-color: #555555;
+            scale: 103%;
+          }
         }
       }
     }

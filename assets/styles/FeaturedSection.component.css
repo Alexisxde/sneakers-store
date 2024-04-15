@@ -35,11 +35,12 @@
     align-items: center;
 
     .card {
-      width: 15em;
       display: flex;
       justify-content: center;
       align-items: center;
+      width: 15em;
       border: none;
+      text-decoration: none;
 
       img {
         width: 200px;
@@ -60,10 +61,24 @@
 
       &:hover {
         cursor: pointer;
+
         img {
           scale: 105%;
         }
       }
+    }
+  }
+
+  .btn-products {
+    background-color: black;
+    color: white;
+    border-radius: 12px;
+    border: none;
+    text-decoration: none;
+
+    &:hover {
+      background-color: #555555;
+      scale: 103%;
     }
   }
 }

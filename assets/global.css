@@ -10,10 +10,6 @@
   font-weight: bold;
 }
 
-:root {
-  color-scheme: light dark;
-}
-
 * {
   padding: 0;
   margin: 0;
@@ -24,10 +20,23 @@
 body {
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
+  animation: transitionBody 1s;
 }
 
 .logo {
   text-decoration: none;
   color: black;
   user-select: none;
+}
+
+@keyframes transitionBody {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
