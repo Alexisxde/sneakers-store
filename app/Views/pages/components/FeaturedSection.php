@@ -11,14 +11,22 @@
 
     if (count($products['featured']) != 0) {
       foreach ($products['featured'] as $featured) {
+        // [
+        //   'id' => $id,
+        //   'title' => $title,
+        //   'img' => $img,
+        //   'stars' => $stars,
+        //   'discount' => $discount,
+        //   'price' => $price
+        // ] = $featured;
+        extract($featured)
     ?>
-        <a href='<?= base_url("/products/" . $featured['id']) ?>' class='card'>
-          <img src='<?= $featured['img'] ?>' alt='<?= $title ?>'>
+        <a href='<?= base_url("/products/" . $id) ?>' class='card'>
+          <img src='<?= $img ?>' alt='<?= $title ?>'>
           <div class='card-body'>
-            <h5 class='text-center'><?= $featured['title'] ?></h5>
+            <h5 class='text-center'><?= $title ?></h5>
             <div class='text-center pb-1'>
               <?php
-              $stars = $featured['stars'];
               $wholeStars = floor($stars);
               $halfStar = ($stars - $wholeStars) >= 0.5;
 
@@ -28,9 +36,9 @@
               ?>
             </div>
             <div class='prices text-center'>
-              <span class='prev-price'>$ <?= $featured['price'] ?></span>
-              <span>$ <?= number_format($featured['price'] * (1 - $featured['discount'] / 100), 3); ?></span>
-              <div class='text-success'><?= $featured['discount'] ?>% de descuento</div>
+              <span class='prev-price'>$ <?= $price ?></span>
+              <span>$ <?= number_format($price * (1 - $discount / 100), 3); ?></span>
+              <div class='text-success'><?= $discount ?>% de descuento</div>
             </div>
           </div>
         </a>
