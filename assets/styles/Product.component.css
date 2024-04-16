@@ -6,7 +6,7 @@
   background-color: #fff;
 
   .img-product {
-    margin: 0 5.5em;
+    margin: 0 88px;
 
     img {
       height: 550px;
@@ -21,6 +21,8 @@
     justify-content: center;
     flex-direction: column;
     margin-right: 100px;
+    z-index: 1;
+    flex: 1;
 
     h1 {
       margin: 0;
@@ -28,7 +30,7 @@
 
     .prices {
       font-size: 1.25em;
-      margin: 0 0 0.5em;
+      margin: 0 0 8px;
 
       .prev-price {
         opacity: 75%;
@@ -44,7 +46,7 @@
     p {
       font-size: 16px;
       text-wrap: pretty;
-      margin: 0 0 1.5em;
+      margin: 0 0 24px;
       max-width: 600px;
     }
 
@@ -55,9 +57,10 @@
       border: none;
       text-decoration: none;
       text-transform: uppercase;
-      font-size: 1.5em;
-      margin: 0 1.5em;
-      max-width: 500px;
+      font-weight: bold;
+      font-size: 1.25em;
+      margin: 0 16px;
+      transition: background-color 150ms ease-in, scale 150ms ease-in;
 
       i {
         margin-right: 10px;
@@ -67,6 +70,27 @@
         background-color: #555555;
         scale: 103%;
       }
+    }
+  }
+}
+
+@media (max-width: 1050px) {
+  .product-section {
+    padding: 0 40px 40px;
+    align-items: center;
+    flex-direction: column;
+
+    .img-product {
+      margin: 0 40px 0 0;
+      img {
+        height: 350px;
+        width: 350px;
+      }
+    }
+
+    .product-body {
+      margin: 0;
+      align-items: center;
     }
   }
 }

@@ -20,7 +20,7 @@
 body {
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
-  animation: transitionBody 1s;
+  animation: show 1s both;
 }
 
 .logo {
@@ -29,13 +29,13 @@ body {
   user-select: none;
 }
 
-@keyframes transitionBody {
-  from {
+@keyframes show {
+  0% {
     opacity: 0;
     transform: translateY(-10px);
   }
 
-  to {
+  100% {
     opacity: 1;
     transform: translateY(0);
   }

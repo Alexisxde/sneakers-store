@@ -1,49 +1,14 @@
-<section class='container-fuild image-payment-section'>
+<section class='payment-section'>
   <div>
-    <span>TE SORPRENDERÁ LO FÁCIL QUE ES COMPRAR</span>
-    <span>HACELO CÓMODO Y SEGURO</span>
+    <img src='/assets/img/payment.svg' alt='payment'>
+    <span>Elegí cómo pagar</span>
+    <p>Podés pagar con tarjeta, débito, efectivo o hasta 12 cuotas sin tarjeta con Mercado Crédito.</p>
+    <a href=<?= base_url('payments-methods') ?>>Ver metodos de pago</a>
   </div>
-  <img src='/assets/img/payments/payments.svg'>
-</section>
-<section class='container-fluid methods-payment-section'>
-  <h3>Podés pagar tus compras con cualquiera de estos medios. Es rápido y seguro, siempre.</h3>
-  <hr>
-  <div class='method-payment'>
-    <span>Tarjetas de crédito</span>
-    <span>Acreditación instantánea.</span>
-    <p>Hasta 12 cuotas con interés</p>
-    <div>
-      <img src='/assets/img/payments/visa.svg' alt='Visa'>
-      <img src='/assets/img/payments/master-card.svg' alt='MasterCard'>
-      <img src='/assets/img/payments/amex.svg' alt='American Express'>
-    </div>
-  </div>
-  <hr>
-  <div class='method-payment'>
-    <span>Dinero disponible en Mercado Pago</span>
-    <span>Acreditación instantánea.</span>
-    <p>Al finalizar tu compra, pagás con el dinero disponible en tu cuenta. Podés ingresar dinero a Mercado Pago por Débito inmediato, tranferencia bancaria o en efectivo.</p>
-    <div>
-      <img src='/assets/img/payments/logo-mercado-pago.svg' alt="Mercado Pago">
-    </div>
-  </div>
-  <hr>
-  <div class='method-payment'>
-    <span>Tarjetas de débito</span>
-    <span>Acreditación instantánea.</span>
-    <div>
-      <img src='/assets/img/payments/maestro.svg' alt='Maestro'>
-      <img src='/assets/img/payments/visa-debito.svg' alt='Visa Débito'>
-      <img src='/assets/img/payments/master-card-debito.svg' alt='MasterCard Débito'>
-    </div>
-  </div>
-  <hr>
-  <div class='method-payment'>
-    <span>Efectivo</span>
-    <span class='pb-2'>Acreditación hasta en 1 día hábil.</span>
-    <div>
-      <img src='/assets/img/payments/pago-facil.svg' alt='Maestro'>
-      <img src='/assets/img/payments/rapipago.svg' alt='Visa Débito'>
-    </div>
+  <div>
+    <img src='/assets/img/shipping.svg' alt='shipping'>
+    <span>Envío gratis desde $ 215.000</span>
+    <p>Comprando una o más zapatillas superando $ 215.000, el envio es GRATIS!</p>
+    <a href=<?= base_url('products') ?>>Ver productos</a>
   </div>
 </section>

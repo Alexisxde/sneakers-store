@@ -46,6 +46,7 @@
         width: 200px;
         height: 200px;
         aspect-ratio: 1 / 1;
+        transition: scale 150ms ease-in;
       }
 
       .prices {
@@ -63,7 +64,7 @@
         cursor: pointer;
 
         img {
-          scale: 105%;
+          scale: 110%;
         }
       }
     }
@@ -75,6 +76,7 @@
     border-radius: 12px;
     border: none;
     text-decoration: none;
+    transition: scale 150ms ease-in, background-color 150ms ease-in;
 
     &:hover {
       background-color: #555555;

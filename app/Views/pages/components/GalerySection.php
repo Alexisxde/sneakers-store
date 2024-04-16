@@ -1,4 +1,4 @@
-<section class='galery-section container-fluid'>
+<section class='galery-section'>
   <div class='galery-title'>
     <h3>Pisa con personalidad</h3>
     <p>Da pasos con estilo y comodidad, descubre nuestra colección de zapatillas para ti.</p>

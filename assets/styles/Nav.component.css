@@ -25,6 +25,7 @@ header {
     .nav-link {
       color: black;
       font-weight: bold;
+      transition: scale 150ms ease-in, background-color 150ms ease-in;
 
       &:hover {
         scale: 103%;
@@ -36,6 +37,7 @@ header {
       button {
         border: none;
         font-weight: bold;
+        transition: scale 150ms ease-in, background-color 150ms ease-in;
 
         &:nth-child(1) {
           color: black;

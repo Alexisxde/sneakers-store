@@ -57,4 +57,12 @@ class Home extends BaseController {
       return view("errors/html/error_404", ['message' => "Error producto no encontrado"]);
     }
   }
+
+  public function termsConditions() {
+    return view("pages/termsConditions");
+  }
+
+  public function privacyPolicy() {
+    return view("pages/PrivacyPolicy");
+  }
 }

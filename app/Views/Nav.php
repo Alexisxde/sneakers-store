@@ -22,9 +22,6 @@
             <li class='nav-item'>
               <a class='nav-link' href='<?= base_url('products') ?>'>PRODUCTOS</a>
             </li>
-            <li class='nav-item'>
-              <a class='nav-link' href='<?= base_url('payment-methods') ?>'>MÉTODOS DE PAGO</a>
-            </li>
           </ul>
         </div>
         <div class='nav-btns ms-auto text-center'>
