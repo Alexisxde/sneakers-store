@@ -13,7 +13,7 @@
       foreach ($products['featured'] as $featured) {
     ?>
         <a href='<?= base_url("/products/" . $featured['id']) ?>' class='card'>
-          <img src='<?= $featured['img'] ?>'>
+          <img src='<?= $featured['img'] ?>' alt='<?= $title ?>'>
           <div class='card-body'>
             <h5 class='text-center'><?= $featured['title'] ?></h5>
             <div class='text-center pb-1'>

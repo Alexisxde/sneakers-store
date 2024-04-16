@@ -18,7 +18,7 @@
         extract($product);
     ?>
         <a href='<?= base_url('/products/' . $id) ?>' class='card'>
-          <img src='<?= $img ?>'>
+          <img src='<?= $img ?>' alt='<?= $title ?>'>
           <div class='card-body'>
             <h5 class='text-center'><?= $title ?></h5>
             <div class='text-center pb-1'>
