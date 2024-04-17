@@ -14,9 +14,12 @@
 
   > p {
     padding: 0 40px 10px;
-    margin-bottom: 10px;
     text-align: start;
     text-wrap: pretty;
+    margin: 0 auto;
+  }
+
+  p {
     margin: 0;
   }
 
@@ -60,10 +63,6 @@
       justify-content: center;
       flex-direction: column;
       text-align: center;
-
-      p {
-        max-width: 1000px;
-      }
 
       span {
         &:nth-child(1) {
