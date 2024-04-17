@@ -3,7 +3,7 @@
     <img src='/assets/img/payment.svg' alt='payment'>
     <span>Elegí cómo pagar</span>
     <p>Podés pagar con tarjeta, débito, efectivo o hasta 12 cuotas sin tarjeta con Mercado Crédito.</p>
-    <a href=<?= base_url('payments-methods') ?>>Ver metodos de pago</a>
+    <a href=<?= base_url('commercialization/#payments-methods') ?>>Ver metodos de pago</a>
   </div>
   <div>
     <img src='/assets/img/shipping.svg' alt='shipping'>
