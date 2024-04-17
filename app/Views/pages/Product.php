@@ -23,7 +23,7 @@
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, iste inventore. Quo, repudiandae nam mollitia doloremque animi esse commodi itaque id dolorem et consectetur atque maiores ex. Minima, eos eum!
       </p>
       <button class='btn-product px-4 py-2'><i class='bi bi-cart4'></i>Agregar al carrito</button>
-      <a href='<?= base_url('/payment-methods') ?>' class='text-black py-4 text-center'>Ver metodos de pago</a>
+      <a href='<?= base_url('commercialization/#payments-methods') ?>' class='text-black py-4 text-center'>Ver metodos de pago</a>
     </div>
   </section>
 </main>

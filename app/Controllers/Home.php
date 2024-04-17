@@ -19,14 +19,6 @@ class Home extends BaseController {
     return view('pages/AboutUs');
   }
 
-  // public function payments(): string {
-  //   $title = ['title' => 'Metodos de pago | Sneakers Store'];
-  //   return view('Head', $title).view('Nav').view('PagePayments').view('Footer').view('Script');
-  // }
-  public function payments(): string {
-    return view('pages/Payments');
-  }
-
   // public function contacts(): string {
   //   $title = ['title' => 'Contactanos | Sneakers Store'];
   //   return view('Head', $title).view('Nav').view('PageContact').view('Footer').view('Script');
@@ -64,5 +56,9 @@ class Home extends BaseController {
 
   public function privacyPolicy() {
     return view("pages/PrivacyPolicy");
+  }
+
+  public function commercialization() {
+    return view("pages/Commercialization");
   }
 }
