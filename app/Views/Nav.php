@@ -20,6 +20,9 @@
               <a class='nav-link' href='<?= base_url('contacts') ?>'>CONTACTO</a>
             </li>
             <li class='nav-item'>
+              <a class='nav-link' href='<?= base_url('commercialization') ?>'>COMERCIALIZACIÓN</a>
+            </li>
+            <li class='nav-item'>
               <a class='nav-link' href='<?= base_url('products') ?>'>PRODUCTOS</a>
             </li>
           </ul>
