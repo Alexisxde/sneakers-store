@@ -75,6 +75,12 @@
         border: none;
         border-radius: 10px;
         background-color: black;
+        color: white;
+        transition: scale 150ms ease-in;
+
+        &:hover {
+          scale: 103%;
+        }
       }
     }
   }
