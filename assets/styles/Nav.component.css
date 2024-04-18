@@ -1,64 +1,61 @@
-header {
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   position: sticky;
   top: 0;
   z-index: 99;
 
-  .navbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+  div {
+    max-width: 1920px;
+  }
 
-    div {
-      max-width: 1920px;
+  .navbar-toggler {
+    border: none;
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
     }
+  }
 
-    .navbar-toggler {
+  .nav-link {
+    color: black;
+    font-weight: bold;
+    transition: scale 150ms ease-in, background-color 150ms ease-in;
+
+    &:hover {
+      scale: 103%;
+      color: #555555;
+    }
+  }
+
+  .nav-btns {
+    button {
       border: none;
-
-      &:focus {
-        outline: none;
-        box-shadow: none;
-      }
-    }
-
-    .nav-link {
-      color: black;
       font-weight: bold;
       transition: scale 150ms ease-in, background-color 150ms ease-in;
 
-      &:hover {
-        scale: 103%;
-        color: #555555;
-      }
-    }
+      &:nth-child(1) {
+        color: black;
+        background-color: transparent;
+        font-size: 1.25em;
 
-    .nav-btns {
-      button {
-        border: none;
-        font-weight: bold;
-        transition: scale 150ms ease-in, background-color 150ms ease-in;
-
-        &:nth-child(1) {
-          color: black;
-          background-color: transparent;
-          font-size: 1.25em;
-
-          &:hover {
-            scale: 103%;
-            color: #555555;
-          }
+        &:hover {
+          scale: 103%;
+          color: #555555;
         }
+      }
 
-        &:nth-child(2) {
-          background-color: black;
-          color: white;
-          border-radius: 12px;
+      &:nth-child(2) {
+        background-color: black;
+        color: white;
+        border-radius: 12px;
 
-          &:hover {
-            background-color: #555555;
-            scale: 103%;
-          }
+        &:hover {
+          background-color: #555555;
+          scale: 103%;
         }
       }
     }
