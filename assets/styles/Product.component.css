@@ -100,14 +100,25 @@
     .img-product {
       margin: 0 40px 0 0;
       img {
-        height: 350px;
-        width: 350px;
+        height: 400px;
+        width: 400px;
       }
     }
 
     .product-body {
       margin: 0;
       align-items: center;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .product-section {
+    .img-product {
+      img {
+        height: 250px;
+        width: 250px;
+      }
     }
   }
 }
