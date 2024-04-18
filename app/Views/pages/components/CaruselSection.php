@@ -7,7 +7,7 @@
       </div>
       <div class='carousel-item px-4 py-2'>
         <p>Pagar es fácil, comodo y seguro</p>
-        <a href='<?= base_url('payment-methods') ?>'>Ver metodos de pago</a>
+        <a href='<?= base_url('commercialization/#payments-methods') ?>'>Ver metodos de pago</a>
       </div>
       <div class='carousel-item px-4 py-2'>
         <p>¡Mantente en contacto con nosotros!</p>
