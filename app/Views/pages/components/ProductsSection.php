@@ -32,13 +32,9 @@
               ?>
             </div>
             <div class='prices text-center'>
-              <?php
-              if ($discount > 0) echo "<span class='prev-price'>$" . $price . "</span>"
-              ?>
-              <span>$ <?= number_format($price * (1 - $discount / 100), 3); ?></span>
-              <?php
-              if ($discount > 0) echo "<div class='text-success'>" . $discount . "% de descuento</div>";
-              ?>
+              <?php if ($discount > 0) echo "<span class='prev-price'>$ $price </span>" ?>
+              <span>$ <?= number_format($price * (1 - $discount / 100), 3) ?></span>
+              <?php if ($discount > 0) echo "<div class='text-success'> $discount% de descuento</div>" ?>
             </div>
           </div>
         </a>
