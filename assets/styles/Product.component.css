@@ -45,8 +45,27 @@
     p {
       font-size: 16px;
       text-wrap: pretty;
-      margin: 0 0 24px;
+      margin-bottom: 8px;
       max-width: 600px;
+    }
+
+    .btn-size {
+      background-color: black;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 16px;
+      transition: scale 150ms ease-in;
+
+      &:active {
+        background-color: #00000095;
+        color: white;
+      }
+
+      &:hover {
+        scale: 103%;
+      }
     }
 
     .btn-product {
@@ -59,14 +78,13 @@
       font-weight: bold;
       font-size: 1.25em;
       margin: 0 16px;
-      transition: background-color 150ms ease-in, scale 150ms ease-in;
+      transition: scale 150ms ease-in;
 
       i {
         margin-right: 10px;
       }
 
       &:hover {
-        background-color: #555555;
         scale: 103%;
       }
     }
