@@ -1,8 +1,8 @@
 <?= $this->extend('Layout') ?>
 
 <?= $this->section('css') ?>
-<link rel='stylesheet' href='/assets/styles/AboutUsSection.component.css'>
-<link rel='stylesheet' href='/assets/styles/TeamSection.component.css'>
+<link rel='stylesheet' href='assets/styles/AboutUsSection.component.css'>
+<link rel='stylesheet' href='assets/styles/TeamSection.component.css'>
 <?= $this->endSection() ?>
 
 <?= $this->section('title') ?>Sobre Nosotros<?= $this->endSection() ?>

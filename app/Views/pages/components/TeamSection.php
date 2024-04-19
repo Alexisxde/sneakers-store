@@ -4,7 +4,7 @@
   <div class='team-cards'>
     <article class='card'>
       <div class='card-img'>
-        <img src='/assets/img/team/1.jfif'>
+        <img src='assets/img/team/1.jfif'>
       </div>
       <div class='card-body'>
         <h4>Alejandro Pérez</h4>
@@ -20,7 +20,7 @@
     </article>
     <article class='card'>
       <div class='card-img'>
-        <img src='/assets/img/team/2.jfif'>
+        <img src='assets/img/team/2.jfif'>
       </div>
       <div class='card-body'>
         <h4>Sofía López</h4>
@@ -36,7 +36,7 @@
     </article>
     <article class='card'>
       <div class='card-img'>
-        <img src='/assets/img/team/3.jfif'>
+        <img src='assets/img/team/3.jfif'>
       </div>
       <div class='card-body'>
         <h4>Maria Martínez</h4>
@@ -52,7 +52,7 @@
     </article>
     <article class='card'>
       <div class='card-img'>
-        <img src='/assets/img/team/4.jfif'>
+        <img src='assets/img/team/4.jfif'>
       </div>
       <div class='card-body'>
         <h4>Lucas García</h4>

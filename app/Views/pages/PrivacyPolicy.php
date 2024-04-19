@@ -1,7 +1,7 @@
 <?= $this->extend('Layout') ?>
 
 <?= $this->section('css') ?>
-<link rel='stylesheet' href='/assets/styles/TermAndPolicy.component.css'>
+<link rel='stylesheet' href='assets/styles/TermAndPolicy.component.css'>
 <?= $this->endSection() ?>
 
 <?= $this->section('title') ?>Política de Privacidad<?= $this->endSection() ?>

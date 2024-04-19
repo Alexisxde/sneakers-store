@@ -1,12 +1,12 @@
 <?= $this->extend('Layout') ?>
 
 <?= $this->section('css') ?>
-<link rel='stylesheet' href='/assets/styles/CaruselSection.component.css'>
-<link rel='stylesheet' href='/assets/styles/ImageSection.component.css'>
-<link rel='stylesheet' href='/assets/styles/FeaturedSection.component.css'>
-<link rel='stylesheet' href='/assets/styles/GalerySection.component.css'>
-<link rel='stylesheet' href='/assets/styles/PaymentSection.component.css'>
-<link rel='stylesheet' href='/assets/styles/BrandsSection.component.css'>
+<link rel='stylesheet' href='assets/styles/CaruselSection.component.css'>
+<link rel='stylesheet' href='assets/styles/ImageSection.component.css'>
+<link rel='stylesheet' href='assets/styles/FeaturedSection.component.css'>
+<link rel='stylesheet' href='assets/styles/GalerySection.component.css'>
+<link rel='stylesheet' href='assets/styles/PaymentSection.component.css'>
+<link rel='stylesheet' href='assets/styles/BrandsSection.component.css'>
 <?= $this->endSection() ?>
 
 <?= $this->section('title') ?>Inicio<?= $this->endSection() ?>

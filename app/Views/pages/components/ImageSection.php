@@ -4,6 +4,6 @@
     <span>ker</span>
     <span>HASTA 40% OFF</span>
     <span>DESCUENTOS SOLO HOY</span>
-    <img src='/assets/img/snaker-image.png'>
+    <img src='assets/img/snaker-image.png'>
   </div>
 </section>
