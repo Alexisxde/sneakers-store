@@ -35,21 +35,6 @@ class Home extends BaseController {
     return view('pages/Products');
   }
 
-  public function product($id) {
-    $rutaJson = APPPATH . 'Json/products.json';
-    $jsonData = file_get_contents($rutaJson);
-    $products = json_decode($jsonData, true);
-
-    if (count($products['allProducts']) != 0) {
-      foreach ($products['allProducts'] as $product) {
-        if ($product["id"] == $id) {
-          return view("pages/Product", $product);
-        }
-      }
-      return view("errors/html/error_404", ['message' => "Error producto no encontrado"]);
-    }
-  }
-
   public function termsConditions() {
     return view("pages/termsConditions");
   }
