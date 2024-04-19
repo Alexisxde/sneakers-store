@@ -17,7 +17,7 @@
         // ] = $product;
         extract($product);
     ?>
-        <a href='<?= base_url('/products/' . $id) ?>' class='card'>
+        <div class='card'>
           <img src='<?= $img ?>' alt='<?= $title ?>'>
           <div class='card-body'>
             <h5 class='text-center'><?= $title ?></h5>
@@ -37,7 +37,7 @@
               <?php if ($discount > 0) echo "<div class='text-success'> $discount% de descuento</div>" ?>
             </div>
           </div>
-        </a>
+        </div>
     <?php
       }
     }

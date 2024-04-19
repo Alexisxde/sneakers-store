@@ -21,7 +21,7 @@
         // ] = $featured;
         extract($featured)
     ?>
-        <a href='<?= base_url("/products/" . $id) ?>' class='card'>
+        <div class='card'>
           <img src='<?= $img ?>' alt='<?= $title ?>'>
           <div class='card-body'>
             <h5 class='text-center'><?= $title ?></h5>
@@ -41,7 +41,7 @@
               <div class='text-success'><?= $discount ?>% de descuento</div>
             </div>
           </div>
-        </a>
+        </div>
     <?php
       }
     }
