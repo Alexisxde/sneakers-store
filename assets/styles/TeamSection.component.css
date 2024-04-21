@@ -44,6 +44,8 @@
       }
 
       .card-body {
+        width: 100%;
+
         h4 {
           margin: 0;
         }
