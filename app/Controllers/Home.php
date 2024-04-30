@@ -27,14 +27,6 @@ class Home extends BaseController {
     return view('pages/Contact');
   }
 
-  // public function products(): string {
-  //   $title = ['title' => 'Catalogo | Sneakers Store'];
-  //   return view('Head', $title).view('Nav').view('PageProducts').view('Footer').view('Script');
-  // }
-  public function products(): string {
-    return view('pages/Products');
-  }
-
   public function termsConditions() {
     return view("pages/termsConditions");
   }
@@ -45,5 +37,13 @@ class Home extends BaseController {
 
   public function commercialization() {
     return view("pages/Commercialization");
+  }
+
+  public function login() {
+    return view("pages/Login");
+  }
+
+  public function register() {
+    return view("pages/Register");
   }
 }

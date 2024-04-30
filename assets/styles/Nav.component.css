@@ -35,9 +35,9 @@ header {
 
     .nav-btns {
       button {
+        transition: scale 150ms ease-in, background-color 150ms ease-in;
         border: none;
         font-weight: bold;
-        transition: scale 150ms ease-in, background-color 150ms ease-in;
 
         &:nth-child(1) {
           color: black;
@@ -49,16 +49,17 @@ header {
             color: #555555;
           }
         }
+      }
 
-        &:nth-child(2) {
-          background-color: black;
-          color: white;
-          border-radius: 12px;
+      .login {
+        background-color: black;
+        color: white;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: bold;
 
-          &:hover {
-            background-color: #555555;
-            scale: 103%;
-          }
+        &:hover {
+          scale: 103%;
         }
       }
     }

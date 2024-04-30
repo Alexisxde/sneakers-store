@@ -29,7 +29,7 @@
         </div>
         <div class='nav-btns ms-auto text-center'>
           <button class='px-4 py-2'><i class='bi bi-cart4'></i></button>
-          <button class='px-4 py-2'>INGRESAR</button>
+          <button><a href=<?= base_url('login') ?> class='px-4 py-2 login'>INGRESAR</a></button>
         </div>
       </div>
     </div>
