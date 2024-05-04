@@ -5,28 +5,84 @@ namespace App\Controllers;
 use App\Models\UsuarioModel;
 
 class Usuario extends BaseController {
-  # $model->findAll() -> SELECT * FROM usuarios
-  # $model->find($id) -> SELECT * FROM usuarios WHERE id = 1 LIMIT 1
   private $model;
 
   public function __construct() {
     $this->model = new UsuarioModel();
   }
 
-  public function all_users() {
-    $users = $this->model->findAll();
-    $data = [
-      "users" => $users
-    ];
-    // Luego puedes pasar los datos a tu vista
-    return view('test', $data);
+  public function login() {
+    if (!isset($this->session->username) || $this->session->rol === 'admin') {
+      return view("pages/Login");
+    }
   }
 
-  // public function one_product($id) {
-  //   $product = $this->model->find($id);
-  //   $data = [
-  //     "product" => $product
-  //   ];
-  //   return view('test', $data);
-  // }
+  public function register() {
+    if (!isset($this->session->username) || $this->session->rol === 'admin') {
+      return view("pages/Register");
+    }
+    return redirect()->to(base_url());
+  }
+
+  //! DELETE VIEW
+  public function all_users() {
+    if (isset($this->session->username) && $this->session->rol === 'admin') {
+      $users = $this->model->findAll();
+      $data = [
+        "users" => $users
+      ];
+      return view('test', $data);
+    }
+    return redirect()->to(base_url());
+  }
+
+  public function logout() {
+    if (!isset($this->session->username)) {
+      return redirect()->to(base_url());
+    }
+    session()->destroy();
+    return redirect()->to('/login');
+  }
+
+  public function login_user() {
+    if (!isset($this->session->username) || $this->session->rol === 'admin') {
+      extract($this->request->getPost(['username', 'password']));
+      if ($this->model->validar_credenciales($username, $password)) {
+        $user = $this->model->obtener_usuario($username);
+        if ($user !== null) {
+          $this->session->set($user);
+          return redirect()->to(base_url());
+        }
+      }
+      return view("pages/Login", ['error' => 'Nombre de usuario o contraseña incorrecta. Intentelo de nuevo']);
+    }
+    return redirect()->to(base_url());
+  }
+
+
+  public function create_user() {
+    if (!isset($this->session->username) || $this->session->rol === 'admin') {
+      extract($this->request->getPost(['username', 'password', 'name', 'email', 'surname']));
+      if ($this->model->username_exist($username)) {
+        $data['error_username'] = "El nombre de usuario ya está en uso. Por favor, elige otro nombre de usuario.";
+      } else if ($this->model->email_exist($email)) {
+        $data['error_email'] = "El correo de electronico ya está en uso. Por favor, elige otro nombre de usuario.";
+      } else {
+        $token = bin2hex(random_bytes(32));
+        $data = [
+          "username" => strtolower($username),
+          "name" => $name,
+          "email" => $email,
+          "surname" => $surname,
+          "password" => password_hash($password, PASSWORD_BCRYPT),
+          "token" => $token
+        ];
+    
+        $this->model->agregar_usuario($data);
+        return view("pages/Login", ['success' => "Usuario creado exitosamente. Iniciá Sesión para continuar."]);
+      }
+      return view("pages/Register", $data);
+    }
+    return redirect()->to(base_url());
+  }
 }

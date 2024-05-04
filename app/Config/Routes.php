@@ -16,5 +16,9 @@ $routes->get('/products', 'Producto::all_products');
 $routes->get('/products/(:num)', 'Producto::one_products/$1');
 
 $routes->get('/users', 'Usuario::all_users');
-$routes->get('/login', 'Home::login');
-$routes->get('/register', 'Home::register');
+
+$routes->get('/login', 'Usuario::login');
+$routes->post('/login', 'Usuario::login_user');
+$routes->get('/register', 'Usuario::register');
+$routes->post('/register', 'Usuario::create_user');
+$routes->get('/logout', 'Usuario::logout');

@@ -14,21 +14,27 @@
   <div class="register-body">
     <h1>Crear una cuenta</h1>
     <p>Por favor, <strong>registrate</strong> para poder iniciar sesión.</p>
-    <form class="register-form" action="">
+    <form action="<?= base_url("register") ?>" class="register-form" method="post" autocomplete="off">
       <label for="username">
-        <input placeholder="Username" id="username" type="text">
+        <input placeholder="Username" name="username" id="username" type="text">
       </label>
+      <?php if (isset($error_username)) : ?>
+        <span class="alert alert-danger py-0 m-0"><?= $error_username ?></span>
+      <?php endif; ?>
       <label for="name">
-        <input placeholder="Nombre" id="name" type="text">
+        <input placeholder="Nombre" name="name" id="name" type="text">
       </label>
       <label for="surname">
-        <input placeholder="Apellido" id="surname" type="text">
+        <input placeholder="Apellido" name="surname" id="surname" type="text">
       </label>
       <label for="email">
-        <input placeholder="Email" id="email" type="email">
+        <input placeholder="Email" name="email" id="email" type="email">
       </label>
+      <?php if (isset($error_email)) : ?>
+        <span class="alert alert-danger py-0 m-0"><?= $error_email ?></span>
+      <?php endif; ?>
       <label for="password">
-        <input placeholder="********" id="password" type="password">
+        <input placeholder="********" name="password" id="password" type="password">
       </label>
       <button class="register-button">Registrarte</button>
     </form>

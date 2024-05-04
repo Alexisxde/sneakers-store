@@ -13,7 +13,7 @@
     foreach ($products->featured() as $featured) {
       extract($featured);
     ?>
-      <div class='card'>
+      <a href="<?= base_url() . "products/" . $id ?>" class='card'>
         <img src='<?= base_url() ?>/assets/img/snakers/<?= $img ?>' alt='<?= $title ?>'>
         <div class='card-body'>
           <h5 class='text-center'><?= $title ?></h5>
@@ -34,7 +34,7 @@
             <div class='text-success'><?= $discount2 ?>% de descuento</div>
           </div>
         </div>
-      </div>
+      </a>
     <?php
     }
     ?>

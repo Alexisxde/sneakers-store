@@ -1,3 +1,4 @@
+<?php $session = session() ?>
 <header>
   <nav class='navbar navbar-expand-lg bg-white p-2'>
     <div class='container-fluid'>
@@ -11,9 +12,6 @@
         <div class='ms-auto'>
           <ul class='navbar-nav text-center'>
             <li class='nav-item'>
-              <a class='nav-link' aria-current='page' href='<?= base_url() ?>'>INICIO</a>
-            </li>
-            <li class='nav-item'>
               <a class='nav-link' href='<?= base_url('about-us') ?>'>NOSOTROS</a>
             </li>
             <li class='nav-item'>
@@ -25,11 +23,20 @@
             <li class='nav-item'>
               <a class='nav-link' href='<?= base_url('products') ?>'>PRODUCTOS</a>
             </li>
+            <?php if (isset($session->username) && $session->rol === 'admin') : ?>
+              <li class='nav-item'>
+                <a class='nav-link' href='<?= base_url('users') ?>'>USUARIOS</a>
+              </li>
+            <?php endif; ?>
           </ul>
         </div>
         <div class='nav-btns ms-auto text-center'>
           <button class='px-4 py-2'><i class='bi bi-cart4'></i></button>
-          <button><a href=<?= base_url('login') ?> class='px-4 py-2 login'>INGRESAR</a></button>
+          <?php if (isset($session->username)) : ?>
+            <button><a href="<?= base_url('logout') ?>" class='px-4 py-2 login'>CERRAR SESIÓN</a></button>
+          <?php else : ?>
+            <button><a href="<?= base_url('login') ?>" class='px-4 py-2 login'>INGRESAR</a></button>
+          <?php endif; ?>
         </div>
       </div>
     </div>
