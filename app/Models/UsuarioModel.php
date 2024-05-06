@@ -22,26 +22,26 @@ class UsuarioModel extends Model {
     'rol',
   ];
 
-  public function username_exist($username): bool {
+  public function username_exist(string $username): bool {
     $query = "SELECT COUNT(*) as count FROM usuarios WHERE username = ?";
     $result = $this->db->query($query, [$username])->getRow();
     return $result->count > 0;
   }
 
-  public function email_exist($email): bool {
+  public function email_exist(string $email): bool {
     $query = "SELECT COUNT(*) as count FROM usuarios WHERE email = ?";
     $result = $this->db->query($query, [$email])->getRow();
     return $result->count > 0;
   }
 
-  public function validar_credenciales($username, $passwordUser) {
+  public function validar_credenciales(string $username, string $passwordUser): bool {
     $query = "SELECT * FROM usuarios WHERE username = ?";
     $result = $this->db->query($query, [$username])->getRow();
     if ($result == null) return false;
     return password_verify($passwordUser, $result->password);
   }
 
-  public function obtener_usuario($username) {
+  public function obtener_usuario(string $username): ?array {
     $query = "SELECT id, username, token, name, surname, rol FROM usuarios WHERE username = ?";
     $result = $this->db->query($query, [$username]);
     return $result->getNumRows() > 0 ? $result->getRowArray() : null;

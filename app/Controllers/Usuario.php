@@ -1,23 +1,26 @@
 <?php
+declare(strict_types = 1);
 
 namespace App\Controllers;
 
 use App\Models\UsuarioModel;
+use CodeIgniter\HTTP\RedirectResponse;
 
 class Usuario extends BaseController {
-  private $model;
+  private UsuarioModel $model;
 
   public function __construct() {
     $this->model = new UsuarioModel();
   }
 
-  public function login() {
+  public function login(): string|RedirectResponse {
     if (!isset($this->session->username) || $this->session->rol === 'admin') {
       return view("pages/Login");
     }
+    return redirect()->to(base_url());
   }
 
-  public function register() {
+  public function register(): string|RedirectResponse {
     if (!isset($this->session->username) || $this->session->rol === 'admin') {
       return view("pages/Register");
     }
@@ -25,7 +28,7 @@ class Usuario extends BaseController {
   }
 
   //! DELETE VIEW
-  public function all_users() {
+  public function all_users(): string|RedirectResponse {
     if (isset($this->session->username) && $this->session->rol === 'admin') {
       $users = $this->model->findAll();
       $data = [
@@ -36,7 +39,7 @@ class Usuario extends BaseController {
     return redirect()->to(base_url());
   }
 
-  public function logout() {
+  public function logout(): string|RedirectResponse {
     if (!isset($this->session->username)) {
       return redirect()->to(base_url());
     }
@@ -44,7 +47,7 @@ class Usuario extends BaseController {
     return redirect()->to('/login');
   }
 
-  public function login_user() {
+  public function login_user(): string|RedirectResponse {
     if (!isset($this->session->username) || $this->session->rol === 'admin') {
       extract($this->request->getPost(['username', 'password']));
       if ($this->model->validar_credenciales($username, $password)) {
@@ -60,7 +63,7 @@ class Usuario extends BaseController {
   }
 
 
-  public function create_user() {
+  public function create_user(): string|RedirectResponse {
     if (!isset($this->session->username) || $this->session->rol === 'admin') {
       extract($this->request->getPost(['username', 'password', 'name', 'email', 'surname']));
       if ($this->model->username_exist($username)) {
