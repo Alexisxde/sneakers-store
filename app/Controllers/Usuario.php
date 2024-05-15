@@ -1,5 +1,6 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace App\Controllers;
 
@@ -80,7 +81,7 @@ class Usuario extends BaseController {
           "password" => password_hash($password, PASSWORD_BCRYPT),
           "token" => $token
         ];
-    
+
         $this->model->agregar_usuario($data);
         return view("pages/Login", ['success' => "Usuario creado exitosamente. Iniciá Sesión para continuar."]);
       }
