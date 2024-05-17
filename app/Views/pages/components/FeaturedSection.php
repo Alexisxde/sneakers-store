@@ -39,5 +39,5 @@
     }
     ?>
   </div>
-  <a href="<?= base_url("/products") ?>" class="btn-products px-4 py-2 mb-4">Ver productos</a>
+  <a href="<?= base_url("sneakers") ?>" class="btn-products px-4 py-2 mb-4">Ver productos</a>
 </section>

@@ -3,7 +3,7 @@
     <div class='carousel-inner'>
       <div class='carousel-item px-4 py-2 active'>
         <p>Envío gratis a partir de $215.000</p>
-        <a href='<?= base_url('products') ?>'>Ver productos</a>
+        <a href='<?= base_url('sneakers') ?>'>Ver productos</a>
       </div>
       <div class='carousel-item px-4 py-2'>
         <p>Pagar es fácil, comodo y seguro</p>

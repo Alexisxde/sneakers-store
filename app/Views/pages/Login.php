@@ -14,7 +14,7 @@
   <div class="login-body">
     <h1>Iniciar Sesión</h1>
     <p>Por favor, <strong>Inicia sesión</strong> para continuar</p>
-    <form action="<?= base_url("login") ?>" method="post" class="login-form" action="">
+    <form action="<?= base_url("login") ?>" method="post" class="login-form">
       <label for="username">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />

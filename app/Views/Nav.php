@@ -21,7 +21,7 @@
               <a class='nav-link' href='<?= base_url('commercialization') ?>'>COMERCIALIZACIÓN</a>
             </li>
             <li class='nav-item'>
-              <a class='nav-link' href='<?= base_url('sneakers') ?>'>PRODUCTOS</a>
+              <a class='nav-link' href='<?= base_url('sneakers') ?>'>SNEAKERS</a>
             </li>
             <?php if (isset($session->username) && $session->rol === 'admin') : ?>
               <li class='nav-item'>
