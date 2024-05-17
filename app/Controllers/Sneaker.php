@@ -4,27 +4,27 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use App\Models\ProductoModel;
+use App\Models\SneakerModel;
 use App\Models\SizesModel;
 
-class Producto extends BaseController {
-  private ProductoModel $modelProducto;
+class Sneaker extends BaseController {
+  private SneakerModel $modelSneaker;
   private SizesModel $modelSizes;
 
   public function __construct() {
-    $this->modelProducto = new ProductoModel();
+    $this->modelSneaker = new SneakerModel();
     $this->modelSizes = new SizesModel();
   }
 
-  public function all_products(): string {
-    $products = $this->modelProducto->findAll(); //* SELECT * FROM productos;
+  public function all_sneakers(): string {
+    $products = $this->modelSneaker->findAll(); //* SELECT * FROM productos;
     $data = ["products" => $products];
     return view('pages/Products', $data);
   }
 
-  public function one_products(int $id): string {
-    $product = $this->modelProducto->find($id); //* SELECT * FROM productos WHERE id = $id;
-    $sizes = $this->modelSizes->where('product_id', $id)->findAll(); //* SELECT * FROM sizes WHERE product_id = $id;
+  public function one_sneaker(string $id): string {
+    $product = $this->modelSneaker->find($id); //* SELECT * FROM productos WHERE id = $id;
+    $sizes = $this->modelSizes->where('id_sneaker', $id)->findAll(); //* SELECT * FROM sizes WHERE id_sneaker = $id;
 
     if ($product == null) {
       return view('errors/html/error_404', ["message" => "Producto no encontrado"]);
@@ -39,9 +39,9 @@ class Producto extends BaseController {
 
   public function featured(): ?array {
     //* SELECT * FROM productos WHERE stars > 1 AND discount > 10 LIMIT 5;
-    $featured = $this->modelProducto
+    $featured = $this->modelSneaker
       ->where('stars >', 3)
-      ->where('discount >', 10)
+      ->where('discount >', 0)
       ->limit(5)
       ->findAll();
     return $featured;

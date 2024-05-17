@@ -4,10 +4,10 @@
     foreach ($products as $product) {
       extract($product);
     ?>
-      <a href="<?= base_url() . "products/" . $id ?>" class='card'>
-        <img src='<?= base_url() ?>/assets/img/snakers/<?= $img ?>' alt='<?= $title ?>'>
+      <a href="<?= base_url() . "sneakers/" . $id_sneaker ?>" class='card'>
+        <img src='<?= base_url() ?>/assets/img/snakers/<?= $img ?>' alt='<?= $brand . " " . $model ?>'>
         <div class='card-body'>
-          <h5 class='text-center'><?= $title ?></h5>
+          <h5 class='text-center'><?= $brand . " " . $model ?></h5>
           <div class='text-center pb-1'>
             <?php
             $wholeStars = floor($stars);

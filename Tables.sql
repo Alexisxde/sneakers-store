@@ -1,5 +1,5 @@
-CREATE TABLE IF NOT EXISTS usuarios (
-  id_user INT PRIMARY KEY NOT NULL,
+CREATE TABLE IF NOT EXISTS users (
+  id_user VARCHAR(255) PRIMARY KEY NOT NULL,
   username VARCHAR(50) UNIQUE NOT NULL,
   password VARCHAR(50) NOT NULL,
   email VARCHAR(50) UNIQUE NOT NULL,
@@ -11,22 +11,27 @@ CREATE TABLE IF NOT EXISTS usuarios (
   rol ENUM('admin', 'user') DEFAULT 'user'
 );
 
-CREATE TABLE IF NOT EXISTS zapatillas (
-  id_sneaker INT PRIMARY KEY NOT NULL,
+CREATE TABLE IF NOT EXISTS sneakers (
+  id_sneaker VARCHAR(255) PRIMARY KEY NOT NULL,
   img VARCHAR(255) NOT NULL,
-  price DECIMAL(8, 2) NOT NULL,
+  price DECIMAL(10, 3) NOT NULL,
   discount DECIMAL(4, 2) NOT NULL,
   brand VARCHAR(255) NOT NULL,
   model VARCHAR(255) NOT NULL,
   stars DECIMAL(3, 1) NOT NULL,
+  is_active TINYINT(1) DEFAULT 1,
   description TEXT
 );
 
-CREATE TABLE IF NOT EXISTS talles (
+-- Add sneaker...
+INSERT INTO sneakers (id_sneaker, img, price, discount, brand, model, stars, is_active, description)
+VALUES ('id', 'img.ext', 139.999, 30.00, 'Marca', 'Modelo', 3.5, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, iste inventore. Quo, repudiandae nam mollitia doloremque animi esse commodi itaque id dolorem et consectetur atque maiores ex. Minima, eos eum!');
+
+CREATE TABLE IF NOT EXISTS sizes (
   id_size INT AUTO_INCREMENT PRIMARY KEY,
   id_sneaker INT,
-  size INT NOT NULL,
-  FOREIGN KEY (id_sneaker) REFERENCES zapatillas(id_sneaker) ON DELETE CASCADE
+  size VARCHAR(255) NOT NULL,
+  FOREIGN KEY (id_sneaker) REFERENCES sneakers(id_sneaker) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS colores (

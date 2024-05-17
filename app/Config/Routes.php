@@ -12,13 +12,13 @@ $routes->get('/terms-conditions', 'Home::termsConditions');
 $routes->get('/privacy-policy', 'Home::privacyPolicy');
 $routes->get('/commercialization', 'Home::commercialization');
 
-$routes->get('/products', 'Producto::all_products');
-$routes->get('/products/(:num)', 'Producto::one_products/$1');
+$routes->get('/sneakers', 'Sneaker::all_sneakers');
+$routes->get('/sneakers/(:any)', 'Sneaker::one_sneaker/$1');
 
-$routes->get('/users', 'Usuario::all_users');
+$routes->get('/users', 'User::all_users');
 
-$routes->get('/login', 'Usuario::login');
-$routes->post('/login', 'Usuario::login_user');
-$routes->get('/register', 'Usuario::register');
-$routes->post('/register', 'Usuario::create_user');
-$routes->get('/logout', 'Usuario::logout');
+$routes->get('/login', 'User::login');
+$routes->post('/login', 'User::login_user');
+$routes->get('/register', 'User::register');
+$routes->post('/register', 'User::create_user');
+$routes->get('/logout', 'User::logout');

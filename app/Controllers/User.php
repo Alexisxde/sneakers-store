@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use App\Models\UsuarioModel;
+use App\Models\UserModel;
 use CodeIgniter\HTTP\RedirectResponse;
 
-class Usuario extends BaseController {
-  private UsuarioModel $model;
+class User extends BaseController {
+  private UserModel $model;
 
   public function __construct() {
-    $this->model = new UsuarioModel();
+    $this->model = new UserModel();
   }
 
   public function login(): string|RedirectResponse {
@@ -51,12 +51,12 @@ class Usuario extends BaseController {
   public function login_user(): string|RedirectResponse {
     if (!isset($this->session->username) || $this->session->rol === 'admin') {
       extract($this->request->getPost(['username', 'password']));
+      // ! NO ESTA ANDADO
       if ($this->model->validar_credenciales($username, $password)) {
+        // if (true) {
         $user = $this->model->obtener_usuario($username);
-        if ($user !== null) {
-          $this->session->set($user);
-          return redirect()->to(base_url());
-        }
+        $this->session->set($user);
+        return redirect()->to(base_url());
       }
       return view("pages/Login", ['error' => 'Nombre de usuario o contraseña incorrecta. Intentelo de nuevo']);
     }
@@ -72,14 +72,14 @@ class Usuario extends BaseController {
       } else if ($this->model->email_exist($email)) {
         $data['error_email'] = "El correo de electronico ya está en uso. Por favor, elige otro nombre de usuario.";
       } else {
-        $token = bin2hex(random_bytes(32));
         $data = [
+          "id_user" => uniqid(),
           "username" => strtolower($username),
           "name" => $name,
           "email" => $email,
           "surname" => $surname,
           "password" => password_hash($password, PASSWORD_BCRYPT),
-          "token" => $token
+          "token" => bin2hex(random_bytes(32))
         ];
 
         $this->model->agregar_usuario($data);
