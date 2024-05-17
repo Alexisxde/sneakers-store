@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use CodeIgniter\Database\BaseResult;
 use CodeIgniter\Model;
 
 class UserModel extends Model {
@@ -20,44 +21,37 @@ class UserModel extends Model {
     'token',
     'register_date',
     'is_active',
-    'rol',
+    'rol'
   ];
 
-  public function username_exist(string $username): bool {
-    $query = "SELECT COUNT(*) as count FROM users WHERE username = ?";
-    $result = $this->db->query($query, [$username])->getRow();
-    return $result->count > 0;
-  }
-
-  public function email_exist(string $email): bool {
-    $query = "SELECT COUNT(*) as count FROM users WHERE email = ?";
-    $result = $this->db->query($query, [$email])->getRow();
-    return $result->count > 0;
-  }
-
-  // ! NO ESTA ANDADO
-  public function validar_credenciales(string $username, string $passwordUser): bool {
-    $query = "SELECT * FROM users WHERE username = ?";
-    $result = $this->db->query($query, [$username])->getRow();
-    if ($result == null) return false;
-    return password_verify($passwordUser, $result->password);
-  }
-
-  public function obtener_usuario(string $username): ?array {
+  public function user_data(string $username): ?array {
     $query = "SELECT id_user, username, token, name, surname, rol FROM users WHERE username = ?";
     $result = $this->db->query($query, [$username]);
     return $result->getNumRows() > 0 ? $result->getRowArray() : null;
   }
 
-  public function agregar_usuario($data) {
+  public function validate_password(string $username, string $passwordUser): bool {
+    $query = "SELECT * FROM users WHERE username = ?";
+    $result = $this->db->query($query, [$username])->getRow();
+    if ($result === null) return false;
+    return password_verify($passwordUser, $result->password);
+  }
+
+  public function all_users(): ?array {
+    $query = "SELECT id_user, username, email, token, name, surname, rol FROM users";
+    $result = $this->db->query($query);
+    return $result->getNumRows() > 0 ? $result->getResultArray() : null;
+  }
+
+  public function add_user(array $data): bool|int|string {
     return $this->insert($data);
   }
 
-  public function editar_usuario($id, $data) {
+  public function edit_user(string $id, array $data): bool {
     return $this->update($id, $data);
   }
 
-  public function borrar_usuario($id) {
+  public function delete_user($id): BaseResult|bool {
     return $this->delete($id);
   }
 }

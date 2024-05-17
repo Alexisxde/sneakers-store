@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-05-2024 a las 01:57:21
+-- Tiempo de generación: 17-05-2024 a las 18:30:52
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -86,7 +86,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `username`, `password`, `email`, `name`, `surname`, `token`, `register_date`, `is_active`, `rol`) VALUES
-('66457ad6a9930', 'admin', '$2y$10$p.Yyuex2OcvJ2MjrnOrnPOuqMWI/PjU4yDvZbHwUC4StG7GzsNd2S', 'admin@admin.com', 'Admin', 'Admin', '0a7cd9c9148e15fe6c4211de6dd9225cc858afa512b691cef7e966ca64e5af03', '2024-05-16 03:17:42', 1, 'user');
+('6647860796bac', 'admin', '$2y$10$gWblljWR9q.yJcEyGFfXj.z5pGps2r1034xnfKjyu4CHmFUjCAtiO', 'admin@admin.com', 'Admin', 'Admin', 'ff04efce1a062e5416b782b353a00b7fbd77cd8cc58ce82fb05e65c430b0acdd', '2024-05-17 16:29:59', 1, 'user');
 
 --
 -- Índices para tablas volcadas

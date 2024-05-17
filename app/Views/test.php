@@ -29,12 +29,12 @@
         </tr>
       </thead>
       <?php
-      foreach ($users as $usuario) {
-        extract($usuario);
+      foreach ($users as $user) {
+        extract($user);
       ?>
         <tbody>
           <tr>
-            <th scope="row"><?= $id ?></th>
+            <th scope="row"><?= $id_user ?></th>
             <td><?= $username ?></td>
             <td><?= $surname ?></td>
             <td><?= $name ?></td>

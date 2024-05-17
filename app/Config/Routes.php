@@ -13,7 +13,7 @@ $routes->get('/privacy-policy', 'Home::privacyPolicy');
 $routes->get('/commercialization', 'Home::commercialization');
 
 $routes->get('/sneakers', 'Sneaker::all_sneakers');
-$routes->get('/sneakers/(:any)', 'Sneaker::one_sneaker/$1');
+$routes->get('/sneakers/(:alpha)', 'Sneaker::one_sneaker/$1');
 
 $routes->get('/users', 'User::all_users');
 

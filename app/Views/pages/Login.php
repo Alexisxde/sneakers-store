@@ -21,8 +21,11 @@
           <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
           <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
         </svg>
-        <input placeholder="Username" name="username" id="username" type="text">
+        <input placeholder="Username" name="username" id="username" type="text" value="<?= set_value('username') ?>">
       </label>
+      <?php if (validation_show_error('username')) : ?>
+        <span class="alert alert-danger py-0 m-0"><?= validation_show_error('username') ?></span>
+      <?php endif; ?>
       <label for="password">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -30,17 +33,10 @@
           <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
           <path d="M8 11v-4a4 4 0 1 1 8 0v4" />
         </svg>
-        <input placeholder="********" name="password" id="password" type="password">
+        <input placeholder="********" name="password" id="password" type="password" value="<?= set_value('password') ?>">
       </label>
-      <?php if (isset($error)) : ?>
-        <span class="alert alert-danger py-0 m-0">
-          <?= $error ?>
-        </span>
-      <?php endif; ?>
-      <?php if (isset($success)) : ?>
-        <span class="alert alert-success py-0 m-0">
-          <?= $success ?>
-        </span>
+      <?php if (session()->getFlashdata('error')) : ?>
+        <span class="alert alert-danger py-0 m-0"><?= session()->getFlashdata('error') ?></span>
       <?php endif; ?>
       <button class="login-button">Iniciar Sesión</button>
     </form>

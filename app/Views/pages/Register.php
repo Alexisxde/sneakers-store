@@ -16,26 +16,35 @@
     <p>Por favor, <strong>registrate</strong> para poder iniciar sesión.</p>
     <form action="<?= base_url("register") ?>" class="register-form" method="post" autocomplete="off">
       <label for="username">
-        <input placeholder="Username" name="username" id="username" type="text">
+        <input placeholder="Username" name="username" id="username" type="text" value="<?= set_value('username') ?>">
       </label>
-      <?php if (isset($error_username)) : ?>
-        <span class="alert alert-danger py-0 m-0"><?= $error_username ?></span>
+      <?php if (validation_show_error('username')) : ?>
+        <span class="alert alert-danger py-0 m-0"><?= validation_show_error('username') ?></span>
       <?php endif; ?>
       <label for="name">
-        <input placeholder="Nombre" name="name" id="name" type="text">
+        <input placeholder="Nombre" name="name" id="name" type="text" value=<?= set_value('name') ?>>
       </label>
+      <?php if (validation_show_error('name')) : ?>
+        <span class="alert alert-danger py-0 m-0"><?= validation_show_error('name') ?></span>
+      <?php endif; ?>
       <label for="surname">
-        <input placeholder="Apellido" name="surname" id="surname" type="text">
+        <input placeholder="Apellido" name="surname" id="surname" type="text" value="<?= set_value('surname') ?>">
       </label>
+      <?php if (validation_show_error('surname')) : ?>
+        <span class="alert alert-danger py-0 m-0"><?= validation_show_error('surname') ?></span>
+      <?php endif; ?>
       <label for="email">
-        <input placeholder="Email" name="email" id="email" type="email">
+        <input placeholder="Email" name="email" id="email" type="email" value="<?= set_value('email') ?>">
       </label>
-      <?php if (isset($error_email)) : ?>
-        <span class="alert alert-danger py-0 m-0"><?= $error_email ?></span>
+      <?php if (validation_show_error('email')) : ?>
+        <span class="alert alert-danger py-0 m-0"><?= validation_show_error('email') ?></span>
       <?php endif; ?>
       <label for="password">
-        <input placeholder="********" name="password" id="password" type="password">
+        <input placeholder="********" name="password" id="password" type="password" value="<?= set_value('password') ?>">
       </label>
+      <?php if (validation_show_error('password')) : ?>
+        <span class="alert alert-danger py-0 m-0"><?= validation_show_error('password') ?></span>
+      <?php endif; ?>
       <button class="register-button">Registrarte</button>
     </form>
     <footer>
