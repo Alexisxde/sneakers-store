@@ -9,7 +9,7 @@ use CodeIgniter\HTTP\RedirectResponse;
 
 class User extends BaseController {
   private UserModel $model;
-  protected $helpers = ['form'];
+  protected $helpers = ['form', 'rules'];
 
   public function __construct() {
     $this->model = new UserModel();
@@ -33,9 +33,7 @@ class User extends BaseController {
   public function all_users(): string|RedirectResponse {
     if (isset($this->session->username) && $this->session->rol === 'admin') {
       $users = $this->model->all_users();
-      $data = [
-        "users" => $users
-      ];
+      $data = ["users" => $users];
       return view('test', $data);
     }
     return redirect()->to(base_url());
@@ -50,30 +48,10 @@ class User extends BaseController {
   }
 
   public function login_user(): string|RedirectResponse {
-    $rules = [
-      'username' => [
-        'label' => 'username',
-        'rules' => 'required|alpha_dash|is_lowercase|validate_username[users.username]',
-        'errors' => [
-          'required' => 'El nombre de usuario no puede estar vacio.',
-          'alpha_dash' => 'El nombre de usuario no puede contener espacios o simbolos.',
-          'is_lowercase' => 'El nombre de usuario debe estar en minúsculas.',
-          'validate_username' => 'El nombre de usuario es incorrecto.'
-        ]
-      ],
-      'password' => [
-        'label' => 'password',
-        'rules' => 'required|alpha_dash',
-        'errors' => [
-          'required' => 'La contraseña no puede estar vacia.',
-          'alpha_dash' => 'La contraseña no puede contener espacios.',
-        ]
-      ],
-    ];
-
+    $validationRules = getValidationRules('login');
     if (!isset($this->session->username) || $this->session->rol === 'admin') {
       extract($this->request->getPost(['username', 'password']));
-      if (!$this->validate($rules)) {
+      if (!$this->validate($validationRules)) {
         return redirect()->back()->withInput();
       }
       if (!$this->model->validate_password($username, $password)) {
@@ -87,61 +65,10 @@ class User extends BaseController {
     return redirect()->to(base_url());
   }
 
-
   public function create_user(): string|RedirectResponse {
-    $rules = [
-      'username' => [
-        'label' => 'username',
-        'rules' => 'required|is_unique[users.username]|min_length[5]|max_length[30]|alpha_dash|is_lowercase',
-        'errors' => [
-          'required' => 'El nombre de usuario no puede estar vacio.',
-          'is_unique' => 'El nombre de usuario ya está en uso. Por favor, elige otro nombre de usuario.',
-          'min_length' => 'El nombre de usuario tiene que tener minimo 5 caracteres.',
-          'max_length' => 'El nombre de usuario tiene que tener maximo 30 caracteres.',
-          'alpha_dash' => 'El nombre de usuario no puede contener espacios o simbolos.',
-          'is_lowercase' => 'El nombre de usuario debe estar en minúsculas.'
-        ]
-      ],
-      'password' => [
-        'label' => 'password',
-        'rules' => 'required|min_length[5]|alpha_dash',
-        'errors' => [
-          'required' => 'La contraseña no puede estar vacia.',
-          'min_length' => 'La contraseña tiene que tener minimo 8 caracteres.',
-          'alpha_dash' => 'La contraseña no puede contener espacios.',
-        ]
-      ],
-      'name' => [
-        'label' => 'name',
-        'rules' => 'required|min_length[3]|max_length[30]',
-        'errors' => [
-          'required' => 'El nombre no puede estar vacio.',
-          'max_length' => 'El nombre tiene que tener maximo 30 caracteres.',
-          'min_length' => 'El nombre tiene que tener minimo 3 caracteres.'
-        ],
-      ],
-      'email' => [
-        'label' => 'email',
-        'rules' => 'required|valid_email|is_unique[users.email]',
-        'errors' => [
-          'required' => 'El correo electronico no puede estar vacio.',
-          'valid_email' => 'Introduzca un correo electronico valido.',
-          'is_unique' => 'El correo electronico ya está en uso. Por favor, elige otro.'
-        ],
-      ],
-      'surname' => [
-        'label' => 'surname',
-        'rules' => 'required|min_length[3]|max_length[30]',
-        'errors' => [
-          'required' => 'El apellido no puede estar vacio.',
-          'max_length' => 'El apellido tiene que tener maximo 30 caracteres.',
-          'min_length' => 'El apellido tiene que tener minimo 3 caracteres.'
-        ],
-      ],
-    ];
-
+    $validationRules = getValidationRules('register');
     if (!isset($this->session->username) || $this->session->rol === 'admin') {
-      if (!$this->validate($rules)) {
+      if (!$this->validate($validationRules)) {
         return redirect()->back()->withInput();
       }
       extract($this->request->getPost(['username', 'password', 'name', 'email', 'surname']));
