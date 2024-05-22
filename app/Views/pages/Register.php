@@ -1,7 +1,7 @@
 <?= $this->extend('Layout') ?>
 
 <?= $this->section('css') ?>
-<link rel="stylesheet" href="<?= base_url() ?>/assets/styles/Register.component.css">
+<link rel="stylesheet" href="<?= base_url() ?>assets/styles/Register.component.css">
 <?= $this->endSection() ?>
 
 <?= $this->section('title') ?>Registrarse<?= $this->endSection() ?>
@@ -9,7 +9,7 @@
 <?= $this->section('content') ?>
 <section class="register">
   <div class="register-img">
-    <img src="<?= base_url() ?>/assets/img/secureregister.svg" alt="">
+    <img src="<?= base_url() ?>assets/img/secureregister.svg" alt="">
   </div>
   <div class="register-body">
     <h1>Crear una cuenta</h1>

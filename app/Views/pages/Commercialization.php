@@ -1,7 +1,7 @@
 <?= $this->extend('Layout') ?>
 
 <?= $this->section('css') ?>
-<link rel='stylesheet' href='<?= base_url() ?>/assets/styles/Commercialization.component.css'>
+<link rel='stylesheet' href='<?= base_url() ?>assets/styles/Commercialization.component.css'>
 <?= $this->endSection() ?>
 
 <?= $this->section('title') ?>Comercialización<?= $this->endSection() ?>
@@ -34,9 +34,9 @@
       <span>Acreditación instantánea.</span>
       <p>Hasta 12 cuotas con interés</p>
       <div>
-        <img src='<?= base_url() ?>/assets/img/payments/visa.svg' alt='Visa'>
-        <img src='<?= base_url() ?>/assets/img/payments/master-card.svg' alt='MasterCard'>
-        <img src='<?= base_url() ?>/assets/img/payments/amex.svg' alt='American Express'>
+        <img src='<?= base_url() ?>assets/img/payments/visa.svg' alt='Visa'>
+        <img src='<?= base_url() ?>assets/img/payments/master-card.svg' alt='MasterCard'>
+        <img src='<?= base_url() ?>assets/img/payments/amex.svg' alt='American Express'>
       </div>
     </div>
     <hr>
@@ -45,7 +45,7 @@
       <span>Acreditación instantánea.</span>
       <p>Al finalizar tu compra, pagás con el dinero disponible en tu cuenta. Podés ingresar dinero a Mercado Pago por Débito inmediato, tranferencia bancaria o en efectivo.</p>
       <div>
-        <img src='<?= base_url() ?>/assets/img/payments/logo-mercado-pago.svg' alt='Mercado Pago'>
+        <img src='<?= base_url() ?>assets/img/payments/logo-mercado-pago.svg' alt='Mercado Pago'>
       </div>
     </div>
     <hr>
@@ -53,9 +53,9 @@
       <span>Tarjetas de débito</span>
       <span>Acreditación instantánea.</span>
       <div>
-        <img src='<?= base_url() ?>/assets/img/payments/maestro.svg' alt='Maestro'>
-        <img src='<?= base_url() ?>/assets/img/payments/visa-debito.svg' alt='Visa Débito'>
-        <img src='<?= base_url() ?>/assets/img/payments/master-card-debito.svg' alt='MasterCard Débito'>
+        <img src='<?= base_url() ?>assets/img/payments/maestro.svg' alt='Maestro'>
+        <img src='<?= base_url() ?>assets/img/payments/visa-debito.svg' alt='Visa Débito'>
+        <img src='<?= base_url() ?>assets/img/payments/master-card-debito.svg' alt='MasterCard Débito'>
       </div>
     </div>
     <hr>
@@ -63,8 +63,8 @@
       <span>Efectivo</span>
       <span class='pb-2'>Acreditación hasta en 1 día hábil.</span>
       <div>
-        <img src='<?= base_url() ?>/assets/img/payments/pago-facil.svg' alt='Maestro'>
-        <img src='<?= base_url() ?>/assets/img/payments/rapipago.svg' alt='Visa Débito'>
+        <img src='<?= base_url() ?>assets/img/payments/pago-facil.svg' alt='Maestro'>
+        <img src='<?= base_url() ?>assets/img/payments/rapipago.svg' alt='Visa Débito'>
       </div>
     </div>
   </div>

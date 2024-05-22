@@ -51,7 +51,7 @@ class UserModel extends Model {
     return $this->update($id, $data);
   }
 
-  public function delete_user($id): BaseResult|bool {
+  public function delete_user(string $id): BaseResult|bool {
     return $this->delete($id);
   }
 }

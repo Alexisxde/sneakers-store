@@ -1,12 +1,12 @@
 <?= $this->extend('Layout') ?>
 
 <?= $this->section('css') ?>
-<link rel='stylesheet' href='<?= base_url() ?>/assets/styles/CaruselSection.component.css'>
-<link rel='stylesheet' href='<?= base_url() ?>/assets/styles/ImageSection.component.css'>
-<link rel='stylesheet' href='<?= base_url() ?>/assets/styles/FeaturedSection.component.css'>
-<link rel='stylesheet' href='<?= base_url() ?>/assets/styles/GalerySection.component.css'>
-<link rel='stylesheet' href='<?= base_url() ?>/assets/styles/PaymentSection.component.css'>
-<link rel='stylesheet' href='<?= base_url() ?>/assets/styles/BrandsSection.component.css'>
+<link rel='stylesheet' href='<?= base_url() ?>assets/styles/CaruselSection.component.css'>
+<link rel='stylesheet' href='<?= base_url() ?>assets/styles/ImageSection.component.css'>
+<link rel='stylesheet' href='<?= base_url() ?>assets/styles/FeaturedSection.component.css'>
+<link rel='stylesheet' href='<?= base_url() ?>assets/styles/GalerySection.component.css'>
+<link rel='stylesheet' href='<?= base_url() ?>assets/styles/PaymentSection.component.css'>
+<link rel='stylesheet' href='<?= base_url() ?>assets/styles/BrandsSection.component.css'>
 <?= $this->endSection() ?>
 
 <?= $this->section('title') ?>Inicio<?= $this->endSection() ?>

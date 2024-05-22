@@ -4,6 +4,6 @@
     <p>Da pasos con estilo y comodidad, descubre nuestra colección de zapatillas para ti.</p>
   </div>
   <div class='galery-image'>
-    <img src='<?= base_url() ?>/assets/img/images-snakers/image-section.webp' alt=''>
+    <img src='<?= base_url() ?>assets/img/images-snakers/image-section.webp' alt=''>
   </div>
 </section>

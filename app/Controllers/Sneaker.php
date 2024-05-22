@@ -17,7 +17,7 @@ class Sneaker extends BaseController {
   }
 
   public function all_sneakers(): string {
-    $products = $this->modelSneaker->findAll(); //* SELECT * FROM productos;
+    $products = $this->modelSneaker->all_products();
     $data = ["products" => $products];
     return view('pages/Products', $data);
   }
@@ -35,6 +35,10 @@ class Sneaker extends BaseController {
       "sizes" => $sizes
     ];
     return view('pages/Product', $data);
+  }
+
+  public function form_add_product(): string {
+    return view("pages/FormProduct");
   }
 
   public function featured(): ?array {

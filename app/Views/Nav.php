@@ -11,21 +11,25 @@
       <div class='collapse navbar-collapse' id='navbarSupportedContent'>
         <div class='ms-auto'>
           <ul class='navbar-nav text-center'>
-            <li class='nav-item'>
-              <a class='nav-link' href='<?= base_url('about-us') ?>'>NOSOTROS</a>
-            </li>
-            <li class='nav-item'>
-              <a class='nav-link' href='<?= base_url('contacts') ?>'>CONTACTO</a>
-            </li>
-            <li class='nav-item'>
-              <a class='nav-link' href='<?= base_url('commercialization') ?>'>COMERCIALIZACIÓN</a>
-            </li>
-            <li class='nav-item'>
-              <a class='nav-link' href='<?= base_url('sneakers') ?>'>SNEAKERS</a>
-            </li>
             <?php if (isset($session->username) && $session->rol === 'admin') : ?>
               <li class='nav-item'>
-                <a class='nav-link' href='<?= base_url('users') ?>'>USUARIOS</a>
+                <a class='nav-link' href='#'>VER PRODUCTOS</a>
+              </li>
+              <li class='nav-item'>
+                <a class='nav-link' href='<?= base_url('users') ?>'>VER USUARIOS</a>
+              </li>
+            <?php else : ?>
+              <li class='nav-item'>
+                <a class='nav-link' href='<?= base_url('about-us') ?>'>NOSOTROS</a>
+              </li>
+              <li class='nav-item'>
+                <a class='nav-link' href='<?= base_url('contacts') ?>'>CONTACTO</a>
+              </li>
+              <li class='nav-item'>
+                <a class='nav-link' href='<?= base_url('commercialization') ?>'>COMERCIALIZACIÓN</a>
+              </li>
+              <li class='nav-item'>
+                <a class='nav-link' href='<?= base_url('sneakers') ?>'>SNEAKERS</a>
               </li>
             <?php endif; ?>
           </ul>

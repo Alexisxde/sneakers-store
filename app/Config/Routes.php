@@ -22,3 +22,6 @@ $routes->post('/login', 'User::login_user');
 $routes->get('/register', 'User::register');
 $routes->post('/register', 'User::create_user');
 $routes->get('/logout', 'User::logout');
+
+# ADMIN
+$routes->get('/add_product', 'Sneaker::form_add_product');

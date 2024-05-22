@@ -5,7 +5,7 @@ extract($product);
 <?= $this->extend('Layout') ?>
 
 <?= $this->section('css') ?>
-<link rel='stylesheet' href='<?= base_url() ?>/assets/styles/Product.component.css'>
+<link rel='stylesheet' href='<?= base_url() ?>assets/styles/Product.component.css'>
 <?= $this->endSection() ?>
 
 <?= $this->section('title') ?><?= $brand . " " . $model ?><?= $this->endSection() ?>
@@ -14,7 +14,7 @@ extract($product);
 <main>
   <section class='product-section'>
     <div class='img-product'>
-      <img src='<?= base_url() ?>/assets/img/snakers/<?= $img ?>' alt='<?= $brand . " " . $model ?>'>
+      <img src='<?= base_url() ?>assets/img/snakers/<?= $img ?>' alt='<?= $brand . " " . $model ?>'>
     </div>
     <div class='product-body'>
       <?php $discount2 = number_format($discount, 0); ?>

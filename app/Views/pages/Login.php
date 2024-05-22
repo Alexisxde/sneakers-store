@@ -1,7 +1,7 @@
 <?= $this->extend('Layout') ?>
 
 <?= $this->section('css') ?>
-<link rel="stylesheet" href="<?= base_url() ?>/assets/styles/Login.component.css">
+<link rel="stylesheet" href="<?= base_url() ?>assets/styles/Login.component.css">
 <?= $this->endSection() ?>
 
 <?= $this->section('title') ?>Login<?= $this->endSection() ?>
@@ -9,7 +9,7 @@
 <?= $this->section('content') ?>
 <section class="login">
   <div class="login-img">
-    <img src="<?= base_url() ?>/assets/img/securelogin.svg" alt="">
+    <img src="<?= base_url() ?>assets/img/securelogin.svg" alt="">
   </div>
   <div class="login-body">
     <h1>Iniciar Sesión</h1>

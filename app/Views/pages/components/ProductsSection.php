@@ -5,7 +5,7 @@
       extract($product);
     ?>
       <a href="<?= base_url() . "sneakers/" . $id_sneaker ?>" class='card'>
-        <img src='<?= base_url() ?>/assets/img/snakers/<?= $img ?>' alt='<?= $brand . " " . $model ?>'>
+        <img src='<?= base_url() ?>assets/img/snakers/<?= $img ?>' alt='<?= $brand . " " . $model ?>'>
         <div class='card-body'>
           <h5 class='text-center'><?= $brand . " " . $model ?></h5>
           <div class='text-center pb-1'>
