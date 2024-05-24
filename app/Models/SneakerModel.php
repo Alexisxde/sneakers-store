@@ -23,21 +23,27 @@ class SneakerModel extends Model {
     'description',
   ];
 
-  public function all_products(): ?array {
+  public function one_sneaker(string $id): ?array {
+    $query = "SELECT * FROM sneakers WHERE id_sneaker = ?";
+    $result = $this->db->query($query, $id);
+    return $result->getNumRows() > 0 ? $result->getResultArray() : null;
+  }
+
+  public function all_sneakers(): ?array {
     $query = "SELECT * FROM sneakers";
     $result = $this->db->query($query);
     return $result->getNumRows() > 0 ? $result->getResultArray() : null;
   }
 
-  public function add_product(array $data): bool|int|string {
+  public function add_sneaker(array $data): bool|int|string {
     return $this->insert($data);
   }
 
-  public function edit_product(string $id, array $data): bool {
+  public function edit_sneaker(string $id, array $data): bool {
     return $this->update($id, $data);
   }
 
-  public function delete_product(string $id): BaseResult|bool {
+  public function delete_sneaker(string $id): BaseResult|bool {
     return $this->delete($id);
   }
 }

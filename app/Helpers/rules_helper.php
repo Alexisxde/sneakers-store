@@ -72,6 +72,59 @@ function getValidationRules(string $form): array {
         ],
       ],
     ],
+    'add_sneaker' => [
+      'sneaker_brand' => [
+        'label' => 'sneaker_brand',
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'La marca no puede estar vacia.',
+        ]
+      ],
+      'sneaker_model' => [
+        'label' => 'sneaker_model',
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'El modelo no puede estar vacio.',
+        ]
+      ],
+      'sneaker_price' => [
+        'label' => 'sneaker_price',
+        'rules' => 'required|numeric',
+        'errors' => [
+          'required' => 'El precio no puede estar vacio.',
+          'numeric' => 'Tiene que ser numerico.'
+        ]
+      ],
+      'sneaker_discount' => [
+        'label' => 'sneaker_discount',
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'El descuento no puede estar vacio.',
+        ]
+      ],
+      'sneaker_stars' => [
+        'label' => 'sneaker_stars',
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'La valoración no puede ser vacia.',
+        ]
+      ],
+      'sneaker_description' => [
+        'label' => 'sneaker_description',
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'La descripción no puede ser vacia.',
+        ]
+      ],
+      'sneaker_img' => [
+        'label' => 'sneaker_img',
+        'rules' => 'ext_in[sneaker_img,png,jpg]|required',
+        'errors' => [
+          'ext_in' => 'La extenciones solo pueden ser .png y .jpg',
+          'required' => 'Se necesita la imagen.',
+        ]
+      ],
+    ],
     default => []
   };
   return $rules;

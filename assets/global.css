@@ -94,7 +94,7 @@ body {
 
       .form__text {
         grid-area: input;
-        z-index: 100;
+        z-index: 99;
         width: max-content;
         height: 100%;
         margin-left: 1rem;
@@ -120,5 +120,17 @@ body {
         display: none;
       }
     }
+  }
+}
+
+.button-black {
+  background-color: black;
+  color: white;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+
+  &:hover {
+    scale: 103%;
   }
 }

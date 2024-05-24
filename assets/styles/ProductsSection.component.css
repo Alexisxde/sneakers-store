@@ -17,6 +17,32 @@
       border: none;
       text-decoration: none;
 
+      .card-body {
+        display: flex;
+        flex-direction: column;
+
+        h5 {
+          flex-grow: 1;
+          text-wrap: pretty;
+        }
+      }
+
+      .products__links {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        a {
+          text-decoration: none;
+          color: black;
+
+          i {
+            color: black;
+          }
+        }
+      }
+
       img {
         width: 200px;
         height: 200px;
@@ -37,6 +63,13 @@
 
       &:hover {
         cursor: pointer;
+
+        img {
+          scale: 110%;
+        }
+      }
+      div:hover {
+        cursor: default;
 
         img {
           scale: 110%;

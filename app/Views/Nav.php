@@ -13,7 +13,7 @@
           <ul class='navbar-nav text-center'>
             <?php if (isset($session->username) && $session->rol === 'admin') : ?>
               <li class='nav-item'>
-                <a class='nav-link' href='#'>VER PRODUCTOS</a>
+                <a class='nav-link' href='<?= base_url('sneakers') ?>'>VER SNEAKERS</a>
               </li>
               <li class='nav-item'>
                 <a class='nav-link' href='<?= base_url('users') ?>'>VER USUARIOS</a>
