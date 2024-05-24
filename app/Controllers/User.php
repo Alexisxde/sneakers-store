@@ -31,12 +31,9 @@ class User extends BaseController {
 
   //! DELETE VIEW
   public function all_users(): string|RedirectResponse {
-    if (isset($this->session->username) && $this->session->rol === 'admin') {
-      $users = $this->model->all_users();
-      $data = ["users" => $users];
-      return view('test', $data);
-    }
-    return redirect()->to(base_url());
+    $users = $this->model->all_users();
+    $data = ["users" => $users];
+    return view('test', $data);
   }
 
   public function logout(): string|RedirectResponse {
@@ -49,41 +46,35 @@ class User extends BaseController {
 
   public function login_user(): string|RedirectResponse {
     $validationRules = getValidationRules('login');
-    if (!isset($this->session->username) || $this->session->rol === 'admin') {
-      extract($this->request->getPost(['username', 'password']));
-      if (!$this->validate($validationRules)) {
-        return redirect()->back()->withInput();
-      }
-      if (!$this->model->validate_password($username, $password)) {
-        session()->setFlashdata('error', 'La contraseña es incorrecta.');
-        return redirect()->back()->withInput();
-      }
-      $user = $this->model->user_data($username);
-      $this->session->set($user);
-      return redirect()->to(base_url());
+    extract($this->request->getPost(['username', 'password']));
+    if (!$this->validate($validationRules)) {
+      return redirect()->back()->withInput();
     }
+    if (!$this->model->validate_password($username, $password)) {
+      session()->setFlashdata('error', 'La contraseña es incorrecta.');
+      return redirect()->back()->withInput();
+    }
+    $user = $this->model->user_data($username);
+    $this->session->set($user);
     return redirect()->to(base_url());
   }
 
   public function create_user(): string|RedirectResponse {
     $validationRules = getValidationRules('register');
-    if (!isset($this->session->username) || $this->session->rol === 'admin') {
-      if (!$this->validate($validationRules)) {
-        return redirect()->back()->withInput();
-      }
-      extract($this->request->getPost(['username', 'password', 'name', 'email', 'surname']));
-      $data = [
-        "id_user" => uniqid(),
-        "username" => strtolower($username),
-        "name" => $name,
-        "email" => $email,
-        "surname" => $surname,
-        "password" => password_hash($password, PASSWORD_BCRYPT),
-        "token" => bin2hex(random_bytes(32))
-      ];
-      $this->model->add_user($data);
-      return redirect()->to(base_url('login'));
+    if (!$this->validate($validationRules)) {
+      return redirect()->back()->withInput();
     }
-    return redirect()->to(base_url());
+    extract($this->request->getPost(['username', 'password', 'name', 'email', 'surname']));
+    $data = [
+      "id_user" => uniqid(),
+      "username" => strtolower($username),
+      "name" => $name,
+      "email" => $email,
+      "surname" => $surname,
+      "password" => password_hash($password, PASSWORD_BCRYPT),
+      "token" => bin2hex(random_bytes(32))
+    ];
+    $this->model->add_user($data);
+    return redirect()->to(base_url('login'));
   }
 }
