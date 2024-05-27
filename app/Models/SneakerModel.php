@@ -29,8 +29,11 @@ class SneakerModel extends Model {
     return $result->getNumRows() > 0 ? $result->getResultArray() : null;
   }
 
-  public function all_sneakers(): ?array {
-    $query = "SELECT * FROM sneakers";
+  public function all_sneakers(int $page = 1): ?array {
+    $items_page = 6;
+    $page = max(1, $page);
+    $offset = ($page - 1) * $items_page;
+    $query = "SELECT * FROM sneakers LIMIT $items_page OFFSET $offset";
     $result = $this->db->query($query);
     return $result->getNumRows() > 0 ? $result->getResultArray() : null;
   }

@@ -102,7 +102,6 @@ body {
       .preview-image {
         max-width: 300px;
         max-height: 300px;
-        display: none;
       }
 
       .form__error {

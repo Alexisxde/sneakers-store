@@ -21,14 +21,17 @@ class Sneaker extends BaseController {
   }
 
   public function all_sneakers(): string {
-    $products = $this->modelSneaker->all_sneakers();
+    extract($this->request->getGet(["page", "brand"]));
+    $page = intval($page);
+    $brand = strval($brand) ?? null;
+    $products = $this->modelSneaker->all_sneakers($page, $brand);
     $data = ["products" => $products];
     return view('pages/Products', $data);
   }
 
   public function one_sneaker(string $id): string {
-    $sneaker = $this->modelSneaker->find($id); //* SELECT * FROM productos WHERE id = $id;
-    $sizes = $this->modelSizes->where('id_sneaker', $id)->findAll(); //* SELECT * FROM sizes WHERE id_sneaker = $id;
+    $sneaker = $this->modelSneaker->one_sneaker($id);
+    $sizes = $this->modelSizes->where('id_sneaker', $id)->findAll();
 
     if ($sneaker == null) {
       throw new PageNotFoundException("Sneaker no encontrado.");
@@ -44,6 +47,58 @@ class Sneaker extends BaseController {
 
   public function form_add_sneaker(): string {
     return view("pages/FormAddSneaker");
+  }
+
+  public function form_edit_sneaker(string $id_sneaker): string {
+    $sneaker = $this->modelSneaker->one_sneaker($id_sneaker);
+    return view("pages/FormEditSneaker", ["sneaker" => $sneaker[0]]);
+  }
+
+  public function edit_sneaker(): RedirectResponse {
+    // $validationRules = getValidationRules('add_sneaker');
+    // if (!$this->validate($validationRules)) {
+    //   return redirect()->back()->withInput();
+    // }
+    extract($this->request->getPost(
+      [
+        'sneaker_id',
+        'sneaker_brand',
+        'sneaker_model',
+        'sneaker_price',
+        'sneaker_discount',
+        'sneaker_stars',
+        'sneaker_description',
+        'sneaker_active',
+      ]
+    ));
+    // $sneaker_img = $this->request->getFile('sneaker_img');
+    // if (!$sneaker_img->isValid()) {
+    // echo $sneaker_img->getErrorString();
+    // exit;
+    // }
+    // if (!$sneaker_img->hasMoved()) {
+    //   $path = ROOTPATH . '/assets/img/sneakers';
+    //   $originalName = $sneaker_img->getClientName();
+    //   sscanf($originalName, '%[^.].%s', $name, $extension);
+    //   $nameFile = $id_sneaker . "." . $extension;
+    //   $sneaker_img->move($path, $nameFile);
+    // }
+    $data = [
+      'id_sneaker' => $sneaker_id,
+      'brand' => $sneaker_brand,
+      'price' => $sneaker_price,
+      'discount' => $sneaker_discount,
+      'model' => $sneaker_model,
+      'stars' => $sneaker_stars,
+      'description' => $sneaker_description,
+      'is_active' => $sneaker_active == "on" ? "1" : "0",
+      // 'img' => $nameFile
+    ];
+    $this->modelSneaker->edit_sneaker($sneaker_id, $data);
+    return redirect()->to(base_url('sneakers'))->with('msg', [
+      'type' => 'success',
+      'body' => 'Sneaker editado correctamente...'
+    ]);
   }
 
   public function add_sneaker(): RedirectResponse {
@@ -83,13 +138,13 @@ class Sneaker extends BaseController {
       'model' => $sneaker_model,
       'stars' => $sneaker_stars,
       'description' => $sneaker_description,
-      'active' => $sneaker_active,
+      'is_active' => $sneaker_active,
       'img' => $nameFile
     ];
     $this->modelSneaker->add_sneaker($data);
     return redirect()->to(base_url('sneakers'))->with('msg', [
       'type' => 'success',
-      'body' => 'Sneaker subido Correctamente...'
+      'body' => 'Sneaker subido correctamente...'
     ]);
   }
 
