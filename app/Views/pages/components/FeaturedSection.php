@@ -14,7 +14,7 @@
       extract($featured);
     ?>
       <a href="<?= base_url() . "sneakers/" . $id_sneaker ?>" class='card'>
-        <img src='<?= base_url() ?>assets/img/snakers/<?= $img ?>' alt='<?= $brand . " " . $model ?>'>
+        <img src='<?= base_url() ?>assets/img/sneakers/<?= $img ?>' alt='<?= $brand . " " . $model ?>'>
         <div class='card-body'>
           <h5 class='text-center'><?= $brand . " " . $model ?></h5>
           <div class='text-center pb-1'>
@@ -29,8 +29,8 @@
             ?>
           </div>
           <div class='prices text-center'>
-            <span class='prev-price'>$ <?= $price ?></span>
-            <span>$ <?= number_format($price * (1 - $discount / 100), 3); ?></span>
+            <span class='prev-price'>$ <?= number_format($price, 0) ?></span>
+            <span>$ <?= number_format($price * (1 - $discount / 100), 0) ?></span>
             <div class='text-success'><?= $discount2 ?>% de descuento</div>
           </div>
         </div>

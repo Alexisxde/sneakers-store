@@ -43,33 +43,18 @@ body {
 
 /* ALL FORMS STYLES */
 .form {
-  margin: 40px auto;
-  padding: 3rem 1.5rem;
-  max-width: 1000px;
+  padding: 3rem 1.5rem 0;
+  max-width: 1920px;
 
   .form__title {
     font-size: 2rem;
     font-weight: bold;
   }
 
-  .form__submit {
-    display: inline-block;
-    border-radius: 10px;
-    background-color: black;
-    padding: 1rem 2rem;
-    color: white;
-    border: none;
-
-    &:hover {
-      background-color: #2c2b2b;
-      cursor: pointer;
-    }
-  }
-
   .form__inputs {
-    margin: 2rem 0 1.5rem;
+    margin: 16px auto 16px;
     display: grid;
-    gap: 1.25rem;
+    gap: 20px;
     color: #6b6b6b;
 
     .form__label {
@@ -119,19 +104,63 @@ body {
         max-height: 300px;
         display: none;
       }
+
+      .form__error {
+        font-size: 0.85rem;
+        padding: 5px;
+        color: #c92432;
+      }
     }
   }
 }
 
-.button-black {
+.button__black {
+  border-radius: 14px;
+  width: 100%;
+  padding: 12px 24px;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+  transition: scale 150ms ease-in;
   background-color: black;
   color: white;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 8px 24px;
+  margin-bottom: 10px;
+  text-align: center;
 
   &:hover {
     scale: 103%;
   }
 }
+
+a {
+  color: black;
+}
+
+.error {
+  background-color: #dc3545;
+  color: #ffffff;
+  padding: 10px;
+  margin: 10px;
+}
+
+.success {
+  background-color: #28a745;
+  color: #ffffff;
+  padding: 10px;
+  margin: 10px;
+}
+
+.warning {
+  background-color: #ffc107;
+  color: #856404;
+  padding: 10px;
+  margin: 10px;
+}
+
+/* Probar despues */
+/* color: #ffffff;
+padding: 10px;
+margin: 10px;
+border-radius: 10px;
+top: 10%;
+right: 0; */

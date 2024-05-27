@@ -37,9 +37,9 @@
         <div class='nav-btns ms-auto text-center'>
           <button class='px-4 py-2'><i class='bi bi-cart4'></i></button>
           <?php if (isset($session->username)) : ?>
-            <button><a href="<?= base_url('logout') ?>" class='button-black'>CERRAR SESIÓN</a></button>
+            <button><a href="<?= base_url('logout') ?>" class='button__black'>CERRAR SESIÓN</a></button>
           <?php else : ?>
-            <button><a href="<?= base_url('login') ?>" class='button-black'>INGRESAR</a></button>
+            <button><a href="<?= base_url('login') ?>" class='button__black'>INGRESAR</a></button>
           <?php endif; ?>
         </div>
       </div>

@@ -43,7 +43,7 @@ class Sneaker extends BaseController {
   }
 
   public function form_add_sneaker(): string {
-    return view("pages/AddSneaker");
+    return view("pages/FormAddSneaker");
   }
 
   public function add_sneaker(): RedirectResponse {
@@ -59,22 +59,38 @@ class Sneaker extends BaseController {
         'sneaker_discount',
         'sneaker_stars',
         'sneaker_description',
-        'sneaker_active',
-        'sneaker_img'
+        'sneaker_active'
       ]
     ));
+    $id_sneaker = uniqid();
+    $sneaker_img = $this->request->getFile('sneaker_img');
+    if (!$sneaker_img->isValid()) {
+      echo $sneaker_img->getErrorString();
+      exit;
+    }
+    if (!$sneaker_img->hasMoved()) {
+      $path = ROOTPATH . '/assets/img/sneakers';
+      $originalName = $sneaker_img->getClientName();
+      sscanf($originalName, '%[^.].%s', $name, $extension);
+      $nameFile = $id_sneaker . "." . $extension;
+      $sneaker_img->move($path, $nameFile);
+    }
     $data = [
-      'id_sneaker' => uniqid(),
+      'id_sneaker' => $id_sneaker,
       'brand' => $sneaker_brand,
       'price' => $sneaker_price,
       'discount' => $sneaker_discount,
+      'model' => $sneaker_model,
       'stars' => $sneaker_stars,
       'description' => $sneaker_description,
       'active' => $sneaker_active,
-      'img' => $sneaker_img
+      'img' => $nameFile
     ];
-    print_r($data);
-    exit;
+    $this->modelSneaker->add_sneaker($data);
+    return redirect()->to(base_url('sneakers'))->with('msg', [
+      'type' => 'success',
+      'body' => 'Sneaker subido Correctamente...'
+    ]);
   }
 
   public function status(string $id): string|RedirectResponse {
@@ -96,6 +112,7 @@ class Sneaker extends BaseController {
     $featured = $this->modelSneaker
       ->where('stars >', 3)
       ->where('discount >', 0)
+      ->where('is_active =', 1)
       ->limit(5)
       ->findAll();
     return $featured;

@@ -1,32 +1,10 @@
-<style>
-  .card-body {
-    display: flex;
-    flex-direction: column;
-
-    h5 {
-      flex-grow: 1;
-      text-wrap: pretty;
-    }
-  }
-
-  .products__links {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-
-    a {
-      text-decoration: none;
-      color: black;
-
-      i {
-        color: black;
-      }
-    }
-  }
-</style>
-
 <section class='products-section'>
+  <?php if (session('msg')) : ?>
+    <div class="<?= session('msg.type') ?>"><?= session('msg.body') ?></div>
+  <?php endif ?>
+  <div class="products__new">
+    <a href=<?= base_url("add_sneaker") ?> class="button__black">NUEVA ZAPATILLA</a>
+  </div>
   <div class='products-cards'>
     <?php
     foreach ($products as $product) {
@@ -34,7 +12,7 @@
     ?>
       <?php if (isset(session()->username) && session()->rol === 'admin') :  ?>
         <div href="<?= base_url() . "sneakers/" . $id_sneaker ?>" class='card'>
-          <img src='<?= base_url() ?>assets/img/snakers/<?= $img ?>' alt='<?= $brand . " " . $model ?>'>
+          <img src='<?= base_url() ?>assets/img/sneakers/<?= $img ?>' alt='<?= $brand . " " . $model ?>'>
           <div class='card-body'>
             <h5 class='text-center'><?= $brand . " " . $model ?></h5>
             <div class='text-center pb-1'>
@@ -49,9 +27,13 @@
               ?>
             </div>
             <div class='prices text-center'>
-              <?php if ($discount > 0) echo "<span class='prev-price'>$ $price </span>" ?>
-              <span>$ <?= number_format($price * (1 - $discount / 100), 3) ?></span>
-              <?php if ($discount > 0) echo "<div class='text-success'> $discount2% de descuento</div>" ?>
+              <?php if ($discount > 0) : ?>
+                <span class='prev-price'>$<?= number_format($price, 0) ?> </span>
+              <?php endif ?>
+              <span>$ <?= number_format($price * (1 - $discount / 100), 0) ?></span>
+              <?php if ($discount > 0) : ?>
+                <div class='text-success'><?= $discount2 ?>% de descuento</div>
+              <?php endif ?>
             </div>
           </div>
           <div class="products__links">
@@ -76,7 +58,7 @@
       <?php else : ?>
         <?php if ($is_active == 1) : ?>
           <a href="<?= base_url() . "sneakers/" . $id_sneaker ?>" class='card'>
-            <img src='<?= base_url() ?>assets/img/snakers/<?= $img ?>' alt='<?= $brand . " " . $model ?>'>
+            <img src='<?= base_url() ?>assets/img/sneakers/<?= $img ?>' alt='<?= $brand . " " . $model ?>'>
             <div class='card-body'>
               <h5 class='text-center'><?= $brand . " " . $model ?></h5>
               <div class='text-center pb-1'>
@@ -91,9 +73,13 @@
                 ?>
               </div>
               <div class='prices text-center'>
-                <?php if ($discount > 0) echo "<span class='prev-price'>$ $price </span>" ?>
-                <span>$ <?= number_format($price * (1 - $discount / 100), 3) ?></span>
-                <?php if ($discount > 0) echo "<div class='text-success'> $discount2% de descuento</div>" ?>
+                <?php if ($discount > 0) : ?>
+                  <span class='prev-price'>$<?= number_format($price, 0) ?> </span>
+                <?php endif ?>
+                <span>$ <?= number_format($price * (1 - $discount / 100), 0) ?></span>
+                <?php if ($discount > 0) : ?>
+                  <div class='text-success'><?= $discount2 ?>% de descuento</div>
+                <?php endif ?>
               </div>
             </div>
           </a>

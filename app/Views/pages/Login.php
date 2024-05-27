@@ -1,44 +1,34 @@
-<?= $this->extend('Layout') ?>
+<?= $this->extend('LayoutTwo') ?>
 
 <?= $this->section('css') ?>
 <link rel="stylesheet" href="<?= base_url() ?>assets/styles/Login.component.css">
 <?= $this->endSection() ?>
 
-<?= $this->section('title') ?>Login<?= $this->endSection() ?>
+<?= $this->section('title') ?>Iniciar Sesión<?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-<section class="login">
-  <div class="login-img">
-    <img src="<?= base_url() ?>assets/img/securelogin.svg" alt="">
-  </div>
-  <div class="login-body">
-    <h1>Iniciar Sesión</h1>
-    <p>Por favor, <strong>Inicia sesión</strong> para continuar</p>
-    <form action="<?= base_url("login") ?>" method="post" class="login-form">
-      <label for="username">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
-          <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-        </svg>
-        <input placeholder="Username" name="username" id="username" type="text" value="<?= set_value('username') ?>">
-      </label>
-      <?php if (validation_show_error('username')) : ?>
-        <span class="alert alert-danger py-0 m-0"><?= validation_show_error('username') ?></span>
-      <?php endif; ?>
-      <label for="password">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z" />
-          <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
-          <path d="M8 11v-4a4 4 0 1 1 8 0v4" />
-        </svg>
-        <input placeholder="********" name="password" id="password" type="password" value="<?= set_value('password') ?>">
-      </label>
-      <?php if (session()->getFlashdata('error')) : ?>
-        <span class="alert alert-danger py-0 m-0"><?= session()->getFlashdata('error') ?></span>
-      <?php endif; ?>
-      <button class="login-button">Iniciar Sesión</button>
+<section class="form__login">
+  <div class="form__login-body">
+    <form class="form" action="<?= base_url("login") ?>" method="post">
+      <h1 class="form__title">Iniciar Sesión</h1>
+      <p class="form__subtitle">Por favor, <strong>Inicia sesión</strong> para continuar</p>
+      <section class="form__inputs">
+        <label class="form__label">
+          <input class="form__input" placeholder=" " name="username" id="username" type="text" value="<?= set_value('username') ?>">
+          <span class="form__text">Nombre de usuario</span>
+          <?php if (validation_show_error('username')) : ?>
+            <span class="form__error"><?= validation_show_error('username') ?></span>
+          <?php endif; ?>
+        </label>
+        <label class="form__label">
+          <input class="form__input" placeholder=" " name="password" id="password" type="password" value="<?= set_value('password') ?>">
+          <span class="form__text">Contraseña</span>
+          <?php if (session()->getFlashdata('error')) : ?>
+            <span class="form__error"><?= session()->getFlashdata('error') ?></span>
+          <?php endif; ?>
+        </label>
+      </section>
+      <button class="button__black">Iniciar Sesión</button>
     </form>
     <footer>
       <span>¿Quieres ver la pagina sin <strong>Iniciar sesión</strong>? <a href=<?= base_url() ?>>Click aquí</a></span>

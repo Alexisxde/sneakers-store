@@ -33,7 +33,7 @@ class User extends BaseController {
   public function all_users(): string|RedirectResponse {
     $users = $this->model->all_users();
     $data = ["users" => $users];
-    return view('test', $data);
+    return view('pages/TableUsers', $data);
   }
 
   public function logout(): string|RedirectResponse {
