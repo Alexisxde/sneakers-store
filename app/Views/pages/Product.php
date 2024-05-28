@@ -18,11 +18,13 @@ extract($product);
     </div>
     <div class='product-body'>
       <?php $discount2 = number_format($discount, 0); ?>
-      <?php if ($discount > 0) echo "<div class='text-success'>$discount2% de descuento</div>" ?>
-      <h1><?= $brand . " " . $model ?></h1>
-      <div class='prices'>
-        <?php if ($discount > 0) echo "<span class='prev-price'>$ $price</span>" ?>
-        <span class='price'>$ <?= number_format($price * (1 - $discount / 100), 3); ?></span>
+      <?php if ($discount > 0) echo "<div class='text-success fw-bold'>$discount2% de descuento</div>" ?>
+      <h1 class="fw-bold"><?= $brand . " " . $model ?></h1>
+      <div class='prices fw-bold'>
+        <?php if ($discount > 0) : ?>
+          <span class='prev-price'>$ <?= number_format($price, 0); ?></span>
+        <?php endif ?>
+        <span class='price'>$ <?= number_format($price * (1 - $discount / 100), 0); ?></span>
       </div>
       <p><?= $description ?></p>
       <div class='sizes'>

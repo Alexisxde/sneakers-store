@@ -25,6 +25,9 @@ class Sneaker extends BaseController {
     $page = intval($page);
     $brand = strval($brand) ?? null;
     $products = $this->modelSneaker->all_sneakers($page, $brand);
+    if ($products === null) {
+      throw new PageNotFoundException("No se encontraron sneakers para la página especificada.");
+    }
     $data = ["products" => $products];
     return view('pages/Products', $data);
   }
@@ -32,16 +35,13 @@ class Sneaker extends BaseController {
   public function one_sneaker(string $id): string {
     $sneaker = $this->modelSneaker->one_sneaker($id);
     $sizes = $this->modelSizes->where('id_sneaker', $id)->findAll();
-
     if ($sneaker == null) {
       throw new PageNotFoundException("Sneaker no encontrado.");
     }
-
     $data = [
-      "product" => $sneaker,
+      "product" => $sneaker[0],
       "sizes" => $sizes
     ];
-
     return view('pages/Product', $data);
   }
 
@@ -97,7 +97,7 @@ class Sneaker extends BaseController {
     $this->modelSneaker->edit_sneaker($sneaker_id, $data);
     return redirect()->to(base_url('sneakers'))->with('msg', [
       'type' => 'success',
-      'body' => 'Sneaker editado correctamente...'
+      'body' => "$sneaker_brand $sneaker_model guardado correctamente..."
     ]);
   }
 
