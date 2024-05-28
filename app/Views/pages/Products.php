@@ -1,7 +1,7 @@
 <?= $this->extend('Layout') ?>
 
 <?= $this->section('css') ?>
-<link rel='stylesheet' href='<?= base_url() ?>assets/styles/ProductsSection.component.css'>
+<link rel='stylesheet' href='<?= base_url() ?>assets/styles/Products.component.css'>
 <?= $this->endSection() ?>
 
 <?= $this->section('title') ?>Catalogo<?= $this->endSection() ?>
@@ -19,8 +19,10 @@
       extract($product);
     ?>
       <?php if (isset(session()->username) && session()->rol === 'admin') :  ?>
-        <div href="<?= base_url() . "sneakers/" . $id_sneaker ?>" class='card'>
-          <img src='<?= base_url() ?>assets/img/sneakers/<?= $img ?>' alt='<?= $brand . " " . $model ?>'>
+        <div class='card'>
+          <a href="<?= base_url() . "sneakers/" . $id_sneaker ?>">
+            <img src='<?= base_url() ?>assets/img/sneakers/<?= $img ?>' alt='<?= $brand . " " . $model ?>'>
+          </a>
           <div class='card-body'>
             <h5 class='text-center'><?= $brand . " " . $model ?></h5>
             <div class='text-center pb-1'>
@@ -45,7 +47,6 @@
             </div>
           </div>
           <div class="products__links">
-            <div><a href="<?= base_url() . "sneakers/" . $id_sneaker ?>">Ver</a></div>
             <div>
               <i class="bi bi-pencil-square"></i>
               <a href="<?= base_url() . "edit_sneaker/" . $id_sneaker ?>">Editar</a>
@@ -53,12 +54,12 @@
             <?php if ($is_active == 1) : ?>
               <div class="link-danger">
                 <i class="bi bi-eye-slash"></i>
-                <a class="link-danger" href="<?= base_url() . "status/" . $id_sneaker ?>">Desactivar</a>
+                <a class="link-danger" href="<?= base_url() . "edit_status/" . $id_sneaker ?>">Desactivar</a>
               </div>
             <?php else : ?>
               <div class="link-success">
                 <i class="bi bi-eye"></i>
-                <a class="link-success" href="<?= base_url() . "status/" . $id_sneaker ?>">Activar</a>
+                <a class="link-success" href="<?= base_url() . "edit_status/" . $id_sneaker ?>">Activar</a>
               </div>
             <?php endif ?>
           </div>
@@ -95,5 +96,6 @@
       <?php endif ?>
     <?php } ?>
   </div>
+  <?= $pager->links('default', 'my_pagination') ?>
 </section>
 <?= $this->endSection() ?>

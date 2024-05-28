@@ -116,14 +116,14 @@ function getValidationRules(string $form): array {
           'required' => 'La descripción no puede ser vacia.',
         ]
       ],
-      // 'sneaker_img' => [
-      //   'label' => 'sneaker_img',
-      //   'rules' => 'ext_in[sneaker_img,png,jpg]|required',
-      //   'errors' => [
-      //     'ext_in' => 'La extenciones solo pueden ser .png y .jpg',
-      //     'required' => 'Se necesita la imagen.',
-      //   ]
-      // ],
+      'sneaker_img' => [
+        'label' => 'sneaker_img',
+        'rules' => 'ext_in[sneaker_img,png,jpg,webp,jfif]',
+        'errors' => [
+          'required' => 'Se necesita la imagen.',
+          'ext_in' => 'La extenciones solo pueden ser .png, .jpg, .webp y .jfif',
+        ]
+      ],
     ],
     default => []
   };

@@ -1,4 +1,3 @@
-<?php $session = session() ?>
 <header>
   <nav class='navbar navbar-expand-lg bg-white p-2'>
     <div class='container-fluid'>
@@ -11,7 +10,7 @@
       <div class='collapse navbar-collapse' id='navbarSupportedContent'>
         <div class='ms-auto'>
           <ul class='navbar-nav text-center'>
-            <?php if (isset($session->username) && $session->rol === 'admin') : ?>
+            <?php if (isset(session()->username) && session()->rol === 'admin') : ?>
               <li class='nav-item'>
                 <a class='nav-link' href='<?= base_url('sneakers') ?>'>VER SNEAKERS</a>
               </li>
@@ -36,7 +35,7 @@
         </div>
         <div class='nav-btns ms-auto text-center'>
           <button class='px-4 py-2'><i class='bi bi-cart4'></i></button>
-          <?php if (isset($session->username)) : ?>
+          <?php if (isset(session()->username)) : ?>
             <button><a href="<?= base_url('logout') ?>" class='button__black'>CERRAR SESIÓN</a></button>
           <?php else : ?>
             <button><a href="<?= base_url('login') ?>" class='button__black'>INGRESAR</a></button>

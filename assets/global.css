@@ -49,6 +49,7 @@ body {
   .form__title {
     font-size: 2rem;
     font-weight: bold;
+    margin-bottom: 20px;
   }
 
   .form__inputs {
@@ -140,6 +141,7 @@ a {
   color: #ffffff;
   padding: 10px;
   margin: 10px;
+  border-radius: 10px;
 }
 
 .success {
@@ -147,6 +149,7 @@ a {
   color: #ffffff;
   padding: 10px;
   margin: 10px;
+  border-radius: 10px;
 }
 
 .warning {
@@ -154,6 +157,7 @@ a {
   color: #856404;
   padding: 10px;
   margin: 10px;
+  border-radius: 10px;
 }
 
 /* Probar despues */

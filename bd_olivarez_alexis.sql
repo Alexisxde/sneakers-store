@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-05-2024 a las 18:32:18
+-- Tiempo de generación: 28-05-2024 a las 09:06:23
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -47,7 +47,7 @@ CREATE TABLE `sneakers` (
   `brand` varchar(255) NOT NULL,
   `model` varchar(255) NOT NULL,
   `stars` decimal(3,1) NOT NULL,
-  `is_active` tinyint(1) DEFAULT 1,
+  `is_active` tinyint(1) DEFAULT 0,
   `description` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -56,11 +56,15 @@ CREATE TABLE `sneakers` (
 --
 
 INSERT INTO `sneakers` (`id_sneaker`, `img`, `price`, `discount`, `brand`, `model`, `stars`, `is_active`, `description`) VALUES
-('6645419a64d3e', 'adidas-duramo-speed.jfif', 114.999, 7.00, 'Adidas', 'Duramo Speed', 4.5, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, iste inventore. Quo, repudiandae nam mollitia doloremque animi esse commodi itaque id dolorem et consectetur atque maiores ex. Minima, eos eum!'),
-('66456c44529f4', 'adidas-racer-tr23.jfif', 137.999, 5.00, 'Adidas', 'Racer TR23', 4.5, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, iste inventore. Quo, repudiandae nam mollitia doloremque animi esse commodi itaque id dolorem et consectetur atque maiores ex. Minima, eos eum!'),
-('66456c5fd8e39', 'nike-air-max-impact-4.jfif', 169.999, 15.00, 'Nike', 'Air Max Impact 4', 4.5, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, iste inventore. Quo, repudiandae nam mollitia doloremque animi esse commodi itaque id dolorem et consectetur atque maiores ex. Minima, eos eum!'),
-('66456cd0ce7ce', 'nike-revolution-6-next-nature.jfif', 115.999, 10.00, 'Nike', 'Revolution 6 Next Nature', 4.0, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, iste inventore. Quo, repudiandae nam mollitia doloremque animi esse commodi itaque id dolorem et consectetur atque maiores ex. Minima, eos eum!'),
-('66456cdd91b71', 'under-armour-buzzer.jfif', 139.999, 30.00, 'Under Armour', 'Buzzer', 3.5, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, iste inventore. Quo, repudiandae nam mollitia doloremque animi esse commodi itaque id dolorem et consectetur atque maiores ex. Minima, eos eum!');
+('665404f37e25e', '665404f37e25e.jfif', 150000.000, 15.00, 'Adidas', 'Adistar 2', 3.0, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, non. Fuga veritatis voluptate eos impedit aut ab aperiam! Asperiores quia esse natus praesentium ullam quo facere molestiae illo. Dolores, facere.'),
+('6654065a1111f', '6654065a1111f.jfif', 160000.000, 15.00, 'Adidas', 'Duramo Speed', 3.5, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, non. Fuga veritatis voluptate eos impedit aut ab aperiam! Asperiores quia esse natus praesentium ullam quo facere molestiae illo. Dolores, facere.'),
+('665406916ea2c', '665406916ea2c.jfif', 170000.000, 20.00, 'Adidas', 'Racer TR23', 3.5, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, non. Fuga veritatis voluptate eos impedit aut ab aperiam! Asperiores quia esse natus praesentium ullam quo facere molestiae illo. Dolores, facere.'),
+('665407a3b88e4', '665407a3b88e4.jfif', 122000.000, 35.00, 'Adidas', 'Run Falcon 3.0', 3.5, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, non. Fuga veritatis voluptate eos impedit aut ab aperiam! Asperiores quia esse natus praesentium ullam quo facere molestiae illo. Dolores, facere.'),
+('6654082fe4f42', '6654082fe4f42.jfif', 220000.000, 5.00, 'Adidas', 'Terrex Free Hiker 2', 5.0, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, non. Fuga veritatis voluptate eos impedit aut ab aperiam! Asperiores quia esse natus praesentium ullam quo facere molestiae illo. Dolores, facere.'),
+('66540a38b0026', '66540a38b0026.jfif', 175000.000, 12.00, 'Nike', 'Revolution 6 Next Nature', 3.5, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, non. Fuga veritatis voluptate eos impedit aut ab aperiam! Asperiores quia esse natus praesentium ullam quo facere molestiae illo. Dolores, facere.'),
+('66557049e15c6', '66557049e15c6.jfif', 95000.000, 12.00, 'Puma', 'Caven 2.0 Black', 4.5, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi dolor blanditiis ducimus commodi reprehenderit, quod ipsum explicabo rerum expedita incidunt placeat at recusandae, porro sint, eum omnis iste quaerat rem.'),
+('665570cf6933e', '665570cf6933e.jpg', 100000.000, 15.00, 'Puma', 'Caven 2.0 White', 4.5, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi dolor blanditiis ducimus commodi reprehenderit, quod ipsum explicabo rerum expedita incidunt placeat at recusandae, porro sint, eum omnis iste quaerat rem.'),
+('665579117b4a1', '665579117b4a1.jfif', 90000.000, 22.00, 'Under Armour', 'Hovr Sonic 5 Dotd', 3.0, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque possimus odio et ipsam accusantium quis, veniam cumque, esse debitis recusandae aliquid cum ipsum ad, quisquam optio animi nobis corporis necessitatibus.');
 
 -- --------------------------------------------------------
 

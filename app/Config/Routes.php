@@ -29,4 +29,4 @@ $routes->get('/add_sneaker', 'Sneaker::form_add_sneaker', ['filter' => 'auth']);
 $routes->post('/add_sneaker', 'Sneaker::add_sneaker', ['filter' => 'auth']);
 $routes->get('/edit_sneaker/(:any)', 'Sneaker::form_edit_sneaker/$1', ['filter' => 'auth']);
 $routes->post('/edit_sneaker', 'Sneaker::edit_sneaker', ['filter' => 'auth']);
-$routes->get('/status/(:any)', 'Sneaker::status/$1', ['filter' => 'auth']);
+$routes->get('/edit_status/(:any)', 'Sneaker::status/$1', ['filter' => 'auth']);

@@ -7,6 +7,9 @@
 <?= $this->section('title') ?>Añadir una zapatilla<?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
+<?php if (session('msg')) : ?>
+  <div class="<?= session('msg.type') ?>"><?= session('msg.body') ?></div>
+<?php endif ?>
 <section class="form__sneaker">
   <form class="form" action="<?= base_url("add_sneaker") ?>" method="post" autocomplete="off" enctype="multipart/form-data">
     <div class="form__back">
@@ -48,10 +51,6 @@
         <?php if (validation_show_error('sneaker_stars')) : ?>
           <span class="form__error"><?= validation_show_error('sneaker_stars') ?></span>
         <?php endif; ?>
-      </label>
-      <label class="ms-3">
-        <input type="checkbox" name="sneaker_active" value="<?= set_value('sneaker_active') ?>">
-        <span>Mostrar en la tienda?</span>
       </label>
       <label class="form__label">
         <textarea class="form__input form__input-textarea" name="sneaker_description" placeholder=" "><?= set_value('sneaker_description') ?></textarea>

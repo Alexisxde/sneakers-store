@@ -7,6 +7,9 @@
 <?= $this->section('title') ?>Iniciar Sesión<?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
+<?php if (session('msg')) : ?>
+  <div class="<?= session('msg.type') ?>"><?= session('msg.body') ?></div>
+<?php endif ?>
 <section class="form__login">
   <div class="form__login-body">
     <form class="form" action="<?= base_url("login") ?>" method="post">

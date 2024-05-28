@@ -24,16 +24,19 @@ class SneakerModel extends Model {
   ];
 
   public function one_sneaker(string $id): ?array {
-    $query = "SELECT * FROM sneakers WHERE id_sneaker = ?";
-    $result = $this->db->query($query, $id);
+    $query = "SELECT * FROM sneakers WHERE id_sneaker = $id";
+    $result = $this->db->query($query);
     return $result->getNumRows() > 0 ? $result->getResultArray() : null;
   }
 
-  public function all_sneakers(int $page = 1): ?array {
-    $items_page = 6;
-    $page = max(1, $page);
-    $offset = ($page - 1) * $items_page;
-    $query = "SELECT * FROM sneakers LIMIT $items_page OFFSET $offset";
+  public function all_sneakers(): ?array {
+    $query = "SELECT * FROM sneakers";
+    $result = $this->db->query($query);
+    return $result->getNumRows() > 0 ? $result->getResultArray() : null;
+  }
+
+  public function featured(int $stars = 1, int $discount = 10, string $order = "ASC", int $limit = 5): ?array {
+    $query = "SELECT * FROM sneakers WHERE stars > $stars AND discount > $discount AND is_active = 1 ORDER BY price $order LIMIT $limit";
     $result = $this->db->query($query);
     return $result->getNumRows() > 0 ? $result->getResultArray() : null;
   }
@@ -44,9 +47,5 @@ class SneakerModel extends Model {
 
   public function edit_sneaker(string $id, array $data): bool {
     return $this->update($id, $data);
-  }
-
-  public function delete_sneaker(string $id): BaseResult|bool {
-    return $this->delete($id);
   }
 }
