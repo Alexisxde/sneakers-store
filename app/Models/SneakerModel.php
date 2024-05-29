@@ -24,8 +24,8 @@ class SneakerModel extends Model {
   ];
 
   public function one_sneaker(string $id): ?array {
-    $query = "SELECT * FROM sneakers WHERE id_sneaker = $id";
-    $result = $this->db->query($query);
+    $query = "SELECT * FROM sneakers WHERE id_sneaker = ?";
+    $result = $this->db->query($query, $id);
     return $result->getNumRows() > 0 ? $result->getResultArray() : null;
   }
 
