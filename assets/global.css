@@ -49,7 +49,11 @@ body {
   .form__title {
     font-size: 2rem;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+  }
+
+  .form__subtitle {
+    margin-bottom: 8px;
   }
 
   .form__inputs {
