@@ -20,25 +20,12 @@
 body {
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
-  /* animation: show 1s both; */
 }
 
 .logo {
   text-decoration: none;
   color: black;
   user-select: none;
-}
-
-@keyframes show {
-  0% {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* ALL FORMS STYLES */
@@ -140,29 +127,57 @@ a {
   color: black;
 }
 
-.error {
-  background-color: #dc3545;
-  color: #ffffff;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 10px;
+.notification {
+  position: absolute;
+  width: max-content;
+  z-index: 999;
+  left: 2%;
+  top: 75px;
+  margin: 0 auto;
+  border-radius: 6px;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+  transform: translateX(-1000px);
+  visibility: hidden;
+  animation: fade-in 5s linear;
+
+  &.error {
+    background-color: #dc3545;
+    color: #ffffff;
+  }
+
+  &.success {
+    background-color: #28a745;
+    color: #ffffff;
+  }
+
+  &.warning {
+    background-color: #ffc107;
+    color: #856404;
+  }
+
+  .notification__body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 16px 8px;
+    font-size: 16px;
+  }
 }
 
-.success {
-  background-color: #28a745;
-  color: #ffffff;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 10px;
+@keyframes fade-in {
+  5% {
+    visibility: visible;
+    transform: translateX(10px);
+  }
+
+  95% {
+    transform: translateX(0);
+  }
 }
 
-.warning {
-  background-color: #ffc107;
-  color: #856404;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 10px;
-}
+/* <div class="notification error">
+  <div class="notification__body">Algun Error</div>
+</div> */
 
 /* Probar despues */
 /* color: #ffffff;

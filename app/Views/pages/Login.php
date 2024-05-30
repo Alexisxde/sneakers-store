@@ -8,7 +8,9 @@
 
 <?= $this->section('content') ?>
 <?php if (session('msg')) : ?>
-  <div class="<?= session('msg.type') ?>"><?= session('msg.body') ?></div>
+  <div class="notification <?= session('msg.type') ?>">
+    <div class="notification__body"><?= session('msg.body') ?></div>
+  </div>
 <?php endif ?>
 <section class="form__login">
   <div class="form__login-body">
@@ -24,10 +26,13 @@
           <?php endif; ?>
         </label>
         <label class="form__label">
-          <input class="form__input" placeholder=" " name="password" id="password" type="password" value="<?= set_value('password') ?>">
+          <input class="form__input" placeholder=" " name="password" id="password" type="password">
           <span class="form__text">Contraseña</span>
-          <?php if (session()->getFlashdata('error')) : ?>
-            <span class="form__error"><?= session()->getFlashdata('error') ?></span>
+          <?php if (validation_show_error('password')) : ?>
+            <span class="form__error"><?= validation_show_error('password') ?></span>
+          <?php endif; ?>
+          <?php if (session('error')) : ?>
+            <span class="form__error"><?= session('error') ?></span>
           <?php endif; ?>
         </label>
       </section>

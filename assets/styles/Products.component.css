@@ -5,10 +5,15 @@
   background-color: #fff;
 
   .products__new {
-    z-index: 101;
+    display: flex;
+    align-items: center;
+    justify-content: end;
     padding: 10px;
-    & > a {
-      width: 10%;
+
+    .products__new-button {
+      font-weight: bold;
+      text-decoration: none;
+      color: green;
     }
   }
 

@@ -11,22 +11,19 @@ $routes->get('/contacts', 'Home::contacts');
 $routes->get('/terms-conditions', 'Home::termsConditions');
 $routes->get('/privacy-policy', 'Home::privacyPolicy');
 $routes->get('/commercialization', 'Home::commercialization');
-
 $routes->get('/sneakers', 'Sneaker::all_sneakers');
 $routes->get('/sneakers/(:any)', 'Sneaker::one_sneaker/$1');
-
-
 $routes->get('/login', 'User::login');
 $routes->post('/login', 'User::login_user');
 $routes->get('/register', 'User::register');
 $routes->post('/register', 'User::create_user');
-
-# ADMIN
-$routes->get('/users', 'User::all_users', ['filter' => 'auth']);
 $routes->get('/logout', 'User::logout');
 
-$routes->get('/add_sneaker', 'Sneaker::form_add_sneaker', ['filter' => 'auth']);
-$routes->post('/add_sneaker', 'Sneaker::add_sneaker', ['filter' => 'auth']);
-$routes->get('/edit_sneaker/(:any)', 'Sneaker::form_edit_sneaker/$1', ['filter' => 'auth']);
-$routes->post('/edit_sneaker', 'Sneaker::edit_sneaker', ['filter' => 'auth']);
-$routes->get('/edit_status/(:any)', 'Sneaker::status/$1', ['filter' => 'auth']);
+$routes->group('/', ['filter' => 'auth'], static function ($routes) {
+  $routes->get('/users', 'User::all_users');
+  $routes->get('/add_sneaker', 'Sneaker::form_add_sneaker');
+  $routes->post('/add_sneaker', 'Sneaker::add_sneaker');
+  $routes->get('/edit_sneaker/(:any)', 'Sneaker::form_edit_sneaker/$1');
+  $routes->post('/edit_sneaker', 'Sneaker::edit_sneaker');
+  $routes->get('/edit_status/(:any)', 'Sneaker::status/$1');
+});

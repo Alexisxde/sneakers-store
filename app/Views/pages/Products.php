@@ -9,10 +9,12 @@
 <?= $this->section('content') ?>
 <section class='products-section'>
   <?php if (session('msg')) : ?>
-    <div class="<?= session('msg.type') ?>"><?= session('msg.body') ?></div>
+    <div class="notification <?= session('msg.type') ?>">
+      <div class="notification__body"><?= session('msg.body') ?></div>
+    </div>
   <?php endif ?>
   <div class="products__new">
-    <a href=<?= base_url("add_sneaker") ?> class="button__black">NUEVA ZAPATILLA</a>
+    <a href=<?= base_url("add_sneaker") ?> class="products__new-button">NUEVA ZAPATILLA</a>
   </div>
   <div class='products-cards'>
     <?php foreach ($products as $product) {

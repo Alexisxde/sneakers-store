@@ -8,7 +8,9 @@
 
 <?= $this->section('content') ?>
 <?php if (session('msg')) : ?>
-  <div class="<?= session('msg.type') ?>"><?= session('msg.body') ?></div>
+  <div class="notification <?= session('msg.type') ?>">
+    <div class="notification__body"><?= session('msg.body') ?></div>
+  </div>
 <?php endif ?>
 <section class="form__sneaker">
   <form class="form" action="<?= base_url("add_sneaker") ?>" method="post" autocomplete="off" enctype="multipart/form-data">

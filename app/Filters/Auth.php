@@ -9,11 +9,10 @@ use \CodeIgniter\Exceptions\PageNotFoundException;
 
 class Auth implements FilterInterface {
   public function before(RequestInterface $req, $args = null) {
-    if (!isset(session()->username) || session()->rol !== 'admin') {
+    if (!session('logged_in') || session('rol') !== 'admin') {
       throw new PageNotFoundException("Error, permiso denegado");
     }
   }
 
-  public function after(RequestInterface $req, ResponseInterface $res, $args = null) {
-  }
+  public function after(RequestInterface $req, ResponseInterface $res, $args = null) {}
 }

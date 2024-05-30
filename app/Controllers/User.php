@@ -51,12 +51,15 @@ class User extends BaseController {
       return redirect()->back()->withInput();
     }
     if (!$this->model->validate_password($username, $password)) {
-      session()->setFlashdata('error', 'La contraseña es incorrecta.');
-      return redirect()->back()->withInput();
+      return redirect()->back()->withInput()->with('error', 'La contraseña es incorrecta.');
     }
     $user = $this->model->user_data($username);
     $this->session->set($user);
-    return redirect()->to(base_url());
+    $this->session->set(['logged_in' => true]);
+    return redirect()->to(base_url())->with('msg', [
+      'type' => 'success',
+      'body' => "Bienvenido " . $user["username"] . " !"
+    ]);
   }
 
   public function create_user(): string|RedirectResponse {
