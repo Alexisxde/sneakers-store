@@ -15,7 +15,7 @@
       <th scope="col">NOMBRE DE USUARIO</th>
       <th scope="col">APELLIDO</th>
       <th scope="col">NOMBRE</th>
-      <th scope="col">CORREO ELECTRONICO</th>
+      <th scope="col">CORREO ELECTRÓNICO</th>
       <th scope="col">ROL</th>
       <th scope="col">EDITAR</th>
       <th scope="col">DESACTIVAR</th>
@@ -41,6 +41,5 @@
   }
   ?>
 </table>
-<a href='<?= base_url() ?>'>
-  < VOLVER</a>
-    <?= $this->endSection() ?>
+<a href='<?= base_url() ?>'>VOLVER</a>
+<?= $this->endSection() ?>

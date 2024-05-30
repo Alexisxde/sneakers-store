@@ -21,6 +21,7 @@ $routes->get('/logout', 'User::logout');
 
 $routes->group('/', ['filter' => 'auth'], static function ($routes) {
   $routes->get('/users', 'User::all_users');
+  $routes->get('/messages', 'Message::all_messages');
   $routes->get('/add_sneaker', 'Sneaker::form_add_sneaker');
   $routes->post('/add_sneaker', 'Sneaker::add_sneaker');
   $routes->get('/edit_sneaker/(:any)', 'Sneaker::form_edit_sneaker/$1');

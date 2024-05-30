@@ -9,7 +9,7 @@
 <?= $this->section('content') ?>
 <section class="form__register">
   <div class="form__register-body">
-    <form class="form" action="<?= base_url("register") ?>" class="register-form" method="post" autocomplete="off">
+    <form class="form" action="<?= base_url("register") ?>" class="register-form" method="post" aria-autocomplete="none">
       <h1 class="form__title">Crear una cuenta</h1>
       <p class="form__subtitle">Por favor, <strong>registrate</strong> para poder iniciar sesión.</p>
       <section class="form__inputs">
@@ -36,7 +36,7 @@
         </label>
         <label class="form__label">
           <input class="form__input" placeholder=" " name="email" type="email" value="<?= set_value('email') ?>">
-          <span class="form__text">Correo electronico</span>
+          <span class="form__text">Correo electrónico</span>
           <?php if (validation_show_error('email')) : ?>
             <span class="form__error"><?= validation_show_error('email') ?></span>
           <?php endif; ?>

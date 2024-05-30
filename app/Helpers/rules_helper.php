@@ -57,9 +57,9 @@ function getValidationRules(string $form): array {
         'label' => 'email',
         'rules' => 'required|valid_email|is_unique[users.email]',
         'errors' => [
-          'required' => 'El correo electronico no puede estar vacio.',
-          'valid_email' => 'Introduzca un correo electronico valido.',
-          'is_unique' => 'El correo electronico ya está en uso. Por favor, elige otro.'
+          'required' => 'El correo electrónico no puede estar vacio.',
+          'valid_email' => 'Introduzca un correo electrónico valido.',
+          'is_unique' => 'El correo electrónico ya está en uso. Por favor, elige otro.'
         ],
       ],
       'surname' => [

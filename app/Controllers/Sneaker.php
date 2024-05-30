@@ -58,18 +58,16 @@ class Sneaker extends BaseController {
     // if (!$this->validate($validationRules)) {
     //   return redirect()->back()->withInput();
     // }
-    extract($this->request->getPost(
-      [
-        'sneaker_id',
-        'sneaker_brand',
-        'sneaker_model',
-        'sneaker_price',
-        'sneaker_discount',
-        'sneaker_stars',
-        'sneaker_description',
-        'sneaker_active',
-      ]
-    ));
+    extract($this->request->getPost([
+      'sneaker_id',
+      'sneaker_brand',
+      'sneaker_model',
+      'sneaker_price',
+      'sneaker_discount',
+      'sneaker_stars',
+      'sneaker_description',
+      'sneaker_active',
+    ]));
     // $sneaker_img = $this->request->getFile('sneaker_img');
     // if (!$sneaker_img->isValid()) {
     // echo $sneaker_img->getErrorString();
@@ -90,7 +88,7 @@ class Sneaker extends BaseController {
       'model' => $sneaker_model,
       'stars' => $sneaker_stars,
       'description' => $sneaker_description,
-      'is_active' => $sneaker_active == "on" ? "1" : "0",
+      'is_active' => $sneaker_active == 'on' ? '1' : '0',
       // 'img' => $nameFile
     ];
     $this->modelSneaker->edit_sneaker($sneaker_id, $data);
@@ -101,10 +99,11 @@ class Sneaker extends BaseController {
   }
 
   public function add_sneaker(): RedirectResponse {
-    $validationRules = getValidationRules("add_sneaker");
+    $validationRules = getValidationRules('add_sneaker');
     if (!$this->validate($validationRules)) {
       return redirect()->back()->withInput();
     }
+    $id_sneaker = uniqid();
     extract($this->request->getPost([
       'sneaker_brand',
       'sneaker_model',
@@ -113,39 +112,38 @@ class Sneaker extends BaseController {
       'sneaker_stars',
       'sneaker_description',
     ]));
-    $id_sneaker = uniqid();
     $sneaker_img = $this->request->getFile('sneaker_img');
     if (!$sneaker_img->isValid()) {
-      return redirect()->to(base_url("add_sneaker"))->with("msg", [
-        "type" => "error",
-        "body" => $sneaker_img->getErrorString()
+      return redirect()->to(base_url('add_sneaker'))->with('msg', [
+        'type' => 'error',
+        'body' => $sneaker_img->getErrorString()
       ]);
     }
-    if (!$sneaker_img->hasMoved()) {
-      $path = ROOTPATH . "/assets/img/sneakers";
-      $originalName = $sneaker_img->getClientName();
-      sscanf($originalName, "%[^.].%s", $name, $extension);
-      $nameFile = $id_sneaker . "." . $extension;
-      $sneaker_img->move($path, $nameFile);
-      $data = [
-        'id_sneaker' => $id_sneaker,
-        'brand' => $sneaker_brand,
-        'price' => $sneaker_price,
-        'discount' => $sneaker_discount,
-        'model' => $sneaker_model,
-        'stars' => $sneaker_stars,
-        'description' => $sneaker_description,
-        'img' => $nameFile
-      ];
-      $this->modelSneaker->add_sneaker($data);
-      return redirect()->to(base_url("add_sneaker"))->with("msg", [
-        "type" => "success",
-        "body" => "$sneaker_brand $sneaker_model subido correctamente..."
+    if ($sneaker_img->hasMoved()) {
+      return redirect()->to(base_url('add_sneaker'))->with('msg', [
+        'type' => 'error',
+        'body' => "La imagen se movió y ocurrió un error."
       ]);
     }
-    return redirect()->to(base_url("add_sneaker"))->with("msg", [
-      "type" => "error",
-      "body" => "La imagen se movió y ocurrió un error."
+    $path = ROOTPATH . '/assets/img/sneakers';
+    $originalName = $sneaker_img->getClientName();
+    sscanf($originalName, '%[^.].%s', $name, $extension);
+    $nameFile = $id_sneaker . '.' . $extension;
+    $sneaker_img->move($path, $nameFile);
+    $data = [
+      'id_sneaker' => $id_sneaker,
+      'brand' => $sneaker_brand,
+      'price' => $sneaker_price,
+      'discount' => $sneaker_discount,
+      'model' => $sneaker_model,
+      'stars' => $sneaker_stars,
+      'description' => $sneaker_description,
+      'img' => $nameFile
+    ];
+    $this->modelSneaker->add_sneaker($data);
+    return redirect()->to(base_url('add_sneaker'))->with('msg', [
+      'type' => 'success',
+      'body' => "$sneaker_brand $sneaker_model subido correctamente..."
     ]);
   }
 

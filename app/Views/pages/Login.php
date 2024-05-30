@@ -7,14 +7,14 @@
 <?= $this->section('title') ?>Iniciar Sesión<?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-<?php if (session('msg')) : ?>
-  <div class="notification <?= session('msg.type') ?>">
-    <div class="notification__body"><?= session('msg.body') ?></div>
-  </div>
-<?php endif ?>
 <section class="form__login">
+  <?php if (session('msg')) : ?>
+    <div class="notification <?= session('msg.type') ?>">
+      <div class="notification__body"><?= session('msg.body') ?></div>
+    </div>
+  <?php endif ?>
   <div class="form__login-body">
-    <form class="form" action="<?= base_url("login") ?>" method="post">
+    <form class="form" action="<?= base_url("login") ?>" method="post" aria-autocomplete="none">
       <h1 class="form__title">Iniciar Sesión</h1>
       <p class="form__subtitle">Por favor, <strong>Inicia sesión</strong> para continuar</p>
       <section class="form__inputs">

@@ -16,32 +16,40 @@ class User extends BaseController {
   }
 
   public function login(): string|RedirectResponse {
-    if (!isset($this->session->username) || $this->session->rol === 'admin') {
-      return view("pages/Login");
+    if (session('logged_in')) {
+      return redirect()->to(base_url())->with('msg', [
+        'type' => 'error',
+        'body' => "Por favor cierre sesión, para logearse con otra cuenta."
+      ]);
     }
-    return redirect()->to(base_url());
+    return view('pages/Login');
   }
 
   public function register(): string|RedirectResponse {
-    if (!isset($this->session->username) || $this->session->rol === 'admin') {
-      return view("pages/Register");
+    if (session('logged_in') && session('rol') === 'user') {
+      return redirect()->to(base_url())->with('msg', [
+        'type' => 'error',
+        'body' => "Por favor cierre sesión, para crear otra cuenta."
+      ]);
     }
-    return redirect()->to(base_url());
+    return view('pages/Register');
   }
 
-  //! DELETE VIEW
   public function all_users(): string|RedirectResponse {
     $users = $this->model->all_users();
-    $data = ["users" => $users];
+    $data = ['users' => $users];
     return view('pages/TableUsers', $data);
   }
 
   public function logout(): string|RedirectResponse {
-    if (!isset($this->session->username)) {
-      return redirect()->to(base_url());
+    if (!session('logged_in')) {
+      return redirect()->to(base_url())->with('msg', [
+        'type' => 'error',
+        'body' => "Permiso denegado"
+      ]);
     }
     session()->destroy();
-    return redirect()->to('/login');
+    return redirect()->to(base_url('login'));
   }
 
   public function login_user(): string|RedirectResponse {
@@ -55,10 +63,10 @@ class User extends BaseController {
     }
     $user = $this->model->user_data($username);
     $this->session->set($user);
-    $this->session->set(['logged_in' => true]);
+    $this->session->set(["logged_in" => true]);
     return redirect()->to(base_url())->with('msg', [
       'type' => 'success',
-      'body' => "Bienvenido " . $user["username"] . " !"
+      'body' => "Bienvenido " . ucfirst(strtolower($user['username'])) . "!"
     ]);
   }
 
@@ -69,13 +77,13 @@ class User extends BaseController {
     }
     extract($this->request->getPost(['username', 'password', 'name', 'email', 'surname']));
     $data = [
-      "id_user" => uniqid(),
-      "username" => strtolower($username),
-      "name" => $name,
-      "email" => $email,
-      "surname" => $surname,
-      "password" => password_hash($password, PASSWORD_BCRYPT),
-      "token" => bin2hex(random_bytes(32))
+      'id_user' => uniqid(),
+      'username' => strtolower($username),
+      'name' => $name,
+      'email' => $email,
+      'surname' => $surname,
+      'password' => password_hash($password, PASSWORD_BCRYPT),
+      'token' => bin2hex(random_bytes(32))
     ];
     $this->model->add_user($data);
     return redirect()->to(base_url('login'));

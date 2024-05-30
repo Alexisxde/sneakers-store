@@ -134,6 +134,7 @@ a {
   left: 2%;
   top: 75px;
   margin: 0 auto;
+  padding-inline: 10px;
   border-radius: 6px;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
   transform: translateX(-1000px);

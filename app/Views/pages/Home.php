@@ -12,6 +12,11 @@
 <?= $this->section('title') ?>Inicio<?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
+<?php if (session('msg')) : ?>
+  <div class="notification <?= session('msg.type') ?>">
+    <div class="notification__body"><?= session('msg.body') ?></div>
+  </div>
+<?php endif ?>
 <?php include('components/CaruselSection.php') ?>
 <?php include('components/ImageSection.php') ?>
 <?php include('components/FeaturedSection.php') ?>

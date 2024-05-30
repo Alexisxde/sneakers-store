@@ -9,7 +9,7 @@
 
 <?= $this->section('content') ?>
 <section class="form__sneaker">
-  <form class="form" action="<?= base_url("edit_sneaker") ?>" method="post" autocomplete="off" enctype="multipart/form-data">
+  <form class="form" action="<?= base_url("edit_sneaker") ?>" method="post" autocomplete="off" enctype="multipart/form-data" aria-autocomplete="none">
     <div class="form__back">
       <a href=<?= base_url("/sneakers") ?> class="button__black">VOLVER</a>
     </div>
