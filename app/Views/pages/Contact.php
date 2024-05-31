@@ -39,7 +39,7 @@
   <div class='form-contact'>
     <form class="form" aria-autocomplete="none">
       <h1 class="form__title">Envianos tu mensaje</h1>
-      <p class="form__subtitle">Si necesitas más información o deseas realizar un pedido, no dudes en contactarnos. Estamos aquí para ayudarte en todo lo que necesites.</p>
+      <p class="form__subtitle" style="z-index: 100;">Si necesitas más información o deseas realizar un pedido, no dudes en contactarnos. Estamos aquí para ayudarte en todo lo que necesites.</p>
       <section class="form__inputs">
         <label class="form__label">
           <input class="form__input" placeholder=" " type="text">
@@ -50,7 +50,7 @@
           <span class="form__text">Correo electrónico</span>
         </label>
         <label class="form__label">
-          <textarea class="form__input form__input-textarea" placeholder=" " rows="4" cols="50"></textarea>
+          <textarea class="form__input form__input-textarea" placeholder=" "></textarea>
           <span class="form__text form__textarea">Descripción</span>
         </label>
         <button class="button__black" type="submit">Enviar</button>

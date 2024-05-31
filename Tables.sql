@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS sneakers (
   brand VARCHAR(255) NOT NULL,
   model VARCHAR(255) NOT NULL,
   stars DECIMAL(3, 1) NOT NULL,
-  is_active TINYINT(1) DEFAULT 1,
+  is_active TINYINT(1) DEFAULT 0,
   description TEXT
 );
 
@@ -29,23 +29,16 @@ VALUES ('id', 'img.ext', 139.999, 30.00, 'Marca', 'Modelo', 3.5, 1, 'Lorem ipsum
 
 CREATE TABLE IF NOT EXISTS sizes (
   id_size INT AUTO_INCREMENT PRIMARY KEY,
-  id_sneaker INT,
-  size VARCHAR(255) NOT NULL,
+  id_sneaker VARCHAR(255),
+  size INT NOT NULL,
   FOREIGN KEY (id_sneaker) REFERENCES sneakers(id_sneaker) ON DELETE CASCADE
-);
-
-CREATE TABLE IF NOT EXISTS colores (
-  id_color INT AUTO_INCREMENT PRIMARY KEY,
-  id_sneaker INT,
-  color VARCHAR(50),
-  FOREIGN KEY (id_sneaker) REFERENCES zapatillas(id_sneaker) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS stock (
   id_stock INT AUTO_INCREMENT PRIMARY KEY,
-  id_color INT,
+  id_sneaker VARCHAR(255),
   id_size INT,
   quantity INT NOT NULL,
-  FOREIGN KEY (id_color) REFERENCES colores(id_color) ON DELETE CASCADE,
-  FOREIGN KEY (id_talla) REFERENCES talles(id_size) ON DELETE CASCADE
+  FOREIGN KEY (id_sneaker) REFERENCES sneakers(id_sneaker) ON DELETE CASCADE,
+  FOREIGN KEY (id_size) REFERENCES sizes(id_size) ON DELETE CASCADE
 );

@@ -42,4 +42,5 @@
   ?>
 </table>
 <a href='<?= base_url() ?>'>VOLVER</a>
+<?= $pager->links('default', 'my_pagination') ?>
 <?= $this->endSection() ?>

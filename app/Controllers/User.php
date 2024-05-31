@@ -35,7 +35,7 @@ class User extends BaseController {
     return view('pages/Register');
   }
 
-  public function all_users(): string|RedirectResponse {
+  public function all_users(): string {
     $users = $this->model->all_users();
     $data = ['users' => $users];
     return view('pages/TableUsers', $data);
@@ -86,6 +86,9 @@ class User extends BaseController {
       'token' => bin2hex(random_bytes(32))
     ];
     $this->model->add_user($data);
-    return redirect()->to(base_url('login'));
+    return redirect()->to(base_url('login'))->with('msg', [
+      'type' => 'success',
+      'body' => "Usuario creado correctamente. Por favor inicie sesión."
+    ]);
   }
 }

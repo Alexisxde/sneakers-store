@@ -15,9 +15,12 @@ class Message extends BaseController {
     $this->model = new MessagesModel();
   }
 
-  public function all_messages(): string|RedirectResponse {
-    $messages = $this->model->all_messages();
-    $data = ['messages' => $messages];
+  public function all_messages(): string {
+    $items_page = 10;
+    $data = [
+      'messages' => $this->model->paginate($items_page),
+      'pager' => $this->model->pager,
+    ];
     return view('pages/TableMessages', $data);
   }
 }

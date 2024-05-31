@@ -22,8 +22,6 @@ class Sneaker extends BaseController {
 
   public function all_sneakers(): string {
     $items_page = 10;
-    extract($this->request->getGet(["page", "brand"]));
-    $brand = strval($brand) ?? null;
     $data = [
       'products' => $this->modelSneaker->paginate($items_page),
       'pager' => $this->modelSneaker->pager,
