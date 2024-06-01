@@ -8,7 +8,7 @@
   <link href='<?= base_url() ?>assets/icons/bootstrap-icons.min.css' rel='stylesheet' integrity='' crossorigin=''>
   <link rel='stylesheet' href='<?= base_url() ?>assets/global.css'>
   <link rel='icon' href='<?= base_url() ?>assets/icon-web/favicon.svg' type='image/svg'>
-  <link rel='stylesheet' href='<?= base_url() ?>assets/styles/Nav.component.css'>
+  <link rel='stylesheet' href='<?= base_url() ?>assets/styles/Navegation.component.css'>
   <?= $this->renderSection('css') ?>
   <link rel='stylesheet' href='<?= base_url() ?>assets/styles/Footer.component.css'>
   <title><?= $this->renderSection('title') ?> | Skeakers Store</title>

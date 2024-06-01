@@ -5,19 +5,19 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\Models\SneakerModel;
-use App\Models\SizesModel;
+use App\Models\StockModel;
 
 use CodeIgniter\HTTP\RedirectResponse;
 use \CodeIgniter\Exceptions\PageNotFoundException;
 
 class Sneaker extends BaseController {
   private SneakerModel $modelSneaker;
-  private SizesModel $modelSizes;
+  private StockModel $modelStock;
   protected $helpers = ["form", "rules"];
 
   public function __construct() {
     $this->modelSneaker = new SneakerModel();
-    $this->modelSizes = new SizesModel();
+    $this->modelStock = new StockModel();
   }
 
   public function all_sneakers(): string {
@@ -31,13 +31,14 @@ class Sneaker extends BaseController {
 
   public function one_sneaker(string $id): string {
     [$sneaker] = $this->modelSneaker->one_sneaker($id);
-    $sizes = $this->modelSizes->where('id_sneaker', $id)->findAll();
+    $stock = $this->modelStock->all_stock($id);
+
     if ($sneaker == null) {
       throw new PageNotFoundException("Sneaker no encontrado.");
     }
     $data = [
-      "product" => $sneaker,
-      "sizes" => $sizes
+      "sneaker" => $sneaker,
+      "stocks" => $stock,
     ];
     return view('pages/Product', $data);
   }
@@ -52,10 +53,10 @@ class Sneaker extends BaseController {
   }
 
   public function edit_sneaker(): RedirectResponse {
-    // $validationRules = getValidationRules('add_sneaker');
-    // if (!$this->validate($validationRules)) {
-    //   return redirect()->back()->withInput();
-    // }
+    $validationRules = getValidationRules('edit_sneaker');
+    if (!$this->validate($validationRules)) {
+      return redirect()->back()->withInput();
+    }
     extract($this->request->getPost([
       'sneaker_id',
       'sneaker_brand',
@@ -66,20 +67,41 @@ class Sneaker extends BaseController {
       'sneaker_description',
       'sneaker_active',
     ]));
-    // $sneaker_img = $this->request->getFile('sneaker_img');
-    // if (!$sneaker_img->isValid()) {
-    // echo $sneaker_img->getErrorString();
-    // exit;
-    // }
-    // if (!$sneaker_img->hasMoved()) {
-    //   $path = ROOTPATH . '/assets/img/sneakers';
-    //   $originalName = $sneaker_img->getClientName();
-    //   sscanf($originalName, '%[^.].%s', $name, $extension);
-    //   $nameFile = $id_sneaker . "." . $extension;
-    //   $sneaker_img->move($path, $nameFile);
-    // }
+    $sneaker_img = $this->request->getFile('sneaker_img');
+    if ($sneaker_img->getClientName() === "") {
+      $data = [
+        'brand' => $sneaker_brand,
+        'price' => $sneaker_price,
+        'discount' => $sneaker_discount,
+        'model' => $sneaker_model,
+        'stars' => $sneaker_stars,
+        'description' => $sneaker_description,
+        'is_active' => $sneaker_active == 'on' ? '1' : '0',
+      ];
+      $this->modelSneaker->edit_sneaker($sneaker_id, $data);
+      return redirect()->to(base_url('sneakers'))->with('msg', [
+        'type' => 'success',
+        'body' => "$sneaker_brand $sneaker_model guardado correctamente..."
+      ]);
+    }
+    if (!$sneaker_img->isValid()) {
+      return redirect()->to(base_url("edit_sneaker/$sneaker_id"))->with('msg', [
+        'type' => 'error',
+        'body' => $sneaker_img->getErrorString()
+      ]);
+    }
+    if ($sneaker_img->hasMoved()) {
+      return redirect()->to(base_url("edit_sneaker/$sneaker_id"))->with('msg', [
+        'type' => 'error',
+        'body' => "La imagen se movió, intentelo de nuevo."
+      ]);
+    }
+    $path = ROOTPATH . '/assets/img/sneakers';
+    $originalName = $sneaker_img->getClientName();
+    sscanf($originalName, '%[^.].%s', $name, $extension);
+    $nameFile = $sneaker_id . "." . $extension;
+    $sneaker_img->move($path, $nameFile, true);
     $data = [
-      'id_sneaker' => $sneaker_id,
       'brand' => $sneaker_brand,
       'price' => $sneaker_price,
       'discount' => $sneaker_discount,
@@ -87,7 +109,7 @@ class Sneaker extends BaseController {
       'stars' => $sneaker_stars,
       'description' => $sneaker_description,
       'is_active' => $sneaker_active == 'on' ? '1' : '0',
-      // 'img' => $nameFile
+      'img' => $nameFile
     ];
     $this->modelSneaker->edit_sneaker($sneaker_id, $data);
     return redirect()->to(base_url('sneakers'))->with('msg', [

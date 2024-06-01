@@ -20,7 +20,7 @@
     <?php foreach ($products as $product) {
       extract($product);
     ?>
-      <?php if (isset(session()->username) && session()->rol === 'admin') :  ?>
+      <?php if (session('logged_in') && session()->rol === 'admin') :  ?>
         <div class='card'>
           <a href="<?= base_url() . "sneakers/" . $id_sneaker ?>">
             <img src='<?= base_url() ?>assets/img/sneakers/<?= $img ?>' alt='<?= $brand . " " . $model ?>'>
@@ -40,9 +40,9 @@
             </div>
             <div class='prices text-center fw-bold'>
               <?php if ($discount > 0) : ?>
-                <span class='prev-price'>$<?= number_format($price, 0) ?></span>
+                <span class='prev-price'>$<?= number_format($price, 0, ',', '.') ?></span>
               <?php endif ?>
-              <span>$ <?= number_format($price * (1 - $discount / 100), 0) ?></span>
+              <span>$ <?= number_format($price * (1 - $discount / 100), 0, ',', '.') ?></span>
               <?php if ($discount > 0) : ?>
                 <div class='text-success'><?= $discount2 ?>% de descuento</div>
               <?php endif ?>
@@ -51,25 +51,27 @@
           <div class="products__links">
             <div>
               <i class="bi bi-pencil-square"></i>
-              <a href="<?= base_url() . "edit_sneaker/" . $id_sneaker ?>">Editar</a>
+              <a href="<?= base_url() . "edit_sneaker/$id_sneaker" ?>">Editar</a>
             </div>
             <?php if ($is_active == 1) : ?>
               <div class="link-danger">
                 <i class="bi bi-eye-slash"></i>
-                <a class="link-danger" href="<?= base_url() . "edit_status/" . $id_sneaker ?>">Desactivar</a>
+                <a class="link-danger" href="<?= base_url() . "edit_status/$id_sneaker" ?>">Desactivar</a>
               </div>
             <?php else : ?>
               <div class="link-success">
                 <i class="bi bi-eye"></i>
-                <a class="link-success" href="<?= base_url() . "edit_status/" . $id_sneaker ?>">Activar</a>
+                <a class="link-success" href="<?= base_url() . "edit_status/$id_sneaker" ?>">Activar</a>
               </div>
             <?php endif ?>
           </div>
         </div>
       <?php else : ?>
         <?php if ($is_active == 1) : ?>
-          <a href="<?= base_url() . "sneakers/" . $id_sneaker ?>" class='card'>
-            <img src='<?= base_url() ?>assets/img/sneakers/<?= $img ?>' alt='<?= $brand . " " . $model ?>'>
+          <div class='card'>
+            <a href="<?= base_url() . "sneakers/" . $id_sneaker ?>">
+              <img src='<?= base_url() ?>assets/img/sneakers/<?= $img ?>' alt='<?= $brand . " " . $model ?>'>
+            </a>
             <div class='card-body'>
               <h5 class='text-center'><?= $brand . " " . $model ?></h5>
               <div class='text-center pb-1'>
@@ -85,15 +87,15 @@
               </div>
               <div class='prices text-center fw-bold'>
                 <?php if ($discount > 0) : ?>
-                  <span class='prev-price'>$<?= number_format($price, 0) ?> </span>
+                  <span class='prev-price'>$<?= number_format($price, 0, ',', '.') ?> </span>
                 <?php endif ?>
-                <span>$ <?= number_format($price * (1 - $discount / 100), 0) ?></span>
+                <span>$ <?= number_format($price * (1 - $discount / 100), 0, ',', '.') ?></span>
                 <?php if ($discount > 0) : ?>
                   <div class='text-success'><?= $discount2 ?>% de descuento</div>
                 <?php endif ?>
               </div>
             </div>
-          </a>
+          </div>
         <?php endif ?>
       <?php endif ?>
     <?php } ?>

@@ -4,8 +4,6 @@
     <span>featured</span>
   </div>
   <div class='cards__featured'>
-
-
     <?php
 
     use App\Controllers\Sneaker;
@@ -15,8 +13,10 @@
     foreach ($products->featured() as $featured) {
       extract($featured);
     ?>
-      <a href="<?= base_url() . "sneakers/" . $id_sneaker ?>" class='card'>
-        <img src='<?= base_url() ?>assets/img/sneakers/<?= $img ?>' alt='<?= $brand . " " . $model ?>'>
+      <div class='card'>
+        <a href="<?= base_url() . "sneakers/" . $id_sneaker ?>">
+          <img src='<?= base_url() ?>assets/img/sneakers/<?= $img ?>' alt='<?= $brand . " " . $model ?>'>
+        </a>
         <div class='card-body'>
           <h5 class='text-center'><?= $brand . " " . $model ?></h5>
           <div class='text-center pb-1'>
@@ -32,16 +32,15 @@
           </div>
           <div class='prices text-center fw-bold'>
             <?php if ($discount > 0) : ?>
-              <span class='prev-price'>$<?= number_format($price, 0) ?> </span>
+              <span class='prev-price'>$<?= number_format($price, 0, ',', '.') ?> </span>
             <?php endif ?>
-            <span>$ <?= number_format($price * (1 - $discount / 100), 0) ?></span>
+            <span>$ <?= number_format($price * (1 - $discount / 100), 0, ',', '.') ?></span>
             <?php if ($discount > 0) : ?>
               <div class='text-success'><?= $discount2 ?>% de descuento</div>
             <?php endif ?>
           </div>
         </div>
-      </a>
+      </div>
     <?php } ?>
   </div>
-  <a href="<?= base_url("sneakers") ?>" class="btn-products px-4 py-2 mb-4">Ver productos</a>
 </section>

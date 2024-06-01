@@ -8,7 +8,7 @@
 
 <?= $this->section('content') ?>
 <section class="form__login">
-  <?php if (session('msg')) : ?>
+  <?php if (session()->has('msg')) : ?>
     <div class="notification <?= session('msg.type') ?>">
       <div class="notification__body"><?= session('msg.body') ?></div>
     </div>

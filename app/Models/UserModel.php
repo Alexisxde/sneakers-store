@@ -25,7 +25,7 @@ class UserModel extends Model {
   ];
 
   public function user_data(string $username): ?array {
-    $query = "SELECT id_user, username, token, name, surname, rol FROM users WHERE username = ?";
+    $query = "SELECT id_user, email, username, name, surname, rol, is_active FROM users WHERE username = ?";
     $result = $this->db->query($query, [$username]);
     return $result->getNumRows() > 0 ? $result->getRowArray() : null;
   }
@@ -38,7 +38,7 @@ class UserModel extends Model {
   }
 
   public function all_users(): ?array {
-    $query = "SELECT id_user, username, email, token, name, surname, rol FROM users";
+    $query = "SELECT id_user, username, email, name, surname, rol, is_active FROM users";
     $result = $this->db->query($query);
     return $result->getNumRows() > 0 ? $result->getResultArray() : null;
   }
@@ -49,9 +49,5 @@ class UserModel extends Model {
 
   public function edit_user(string $id, array $data): bool {
     return $this->update($id, $data);
-  }
-
-  public function delete_user(string $id): BaseResult|bool {
-    return $this->delete($id);
   }
 }

@@ -28,7 +28,6 @@ class Validation extends BaseConfig
         FileRules::class,
         CreditCardRules::class,
         IsLowerCase::class,
-        AuthUser::class
     ];
 
     /**

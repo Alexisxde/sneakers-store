@@ -1,0 +1,110 @@
+.checkout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 40px;
+  height: 100dvh;
+
+  .checkout__header {
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+    }
+  }
+
+  .checkout__body {
+    width: 100%;
+    flex-grow: 1;
+
+    .sneaker {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 5px;
+      width: 100%;
+      padding: 5px;
+      border-bottom: 1px solid #00000050;
+
+      &:last-child {
+        border: none;
+      }
+
+      .sneaker__img {
+        position: relative;
+
+        img {
+          width: 65px;
+          height: 65px;
+          aspect-ratio: 1 / 1;
+        }
+
+        .discount {
+          position: absolute;
+          top: 0;
+          right: 0;
+          font-size: 12px;
+          color: green;
+          font-weight: 600;
+        }
+      }
+
+      .sneaker__body {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: space-between;
+        flex-grow: 1;
+
+        .sneaker__data {
+          font-weight: 600;
+
+          .price {
+            color: black;
+            opacity: 75%;
+            text-decoration: line-through;
+          }
+
+          .price-discount {
+            color: green;
+          }
+        }
+
+        .sneaker__size {
+          font-weight: 600;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  .checkout__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 16px;
+
+    .sneaker__total {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .sale__button {
+      border: none;
+      width: 100%;
+      background-color: black;
+      color: white;
+      padding: 8px 24px;
+      margin: 5px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  }
+}

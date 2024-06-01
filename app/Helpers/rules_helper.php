@@ -5,12 +5,11 @@ function getValidationRules(string $form): array {
     'login' => [
       'username' => [
         'label' => 'username',
-        'rules' => 'required|alpha_dash|is_lowercase|validate_username[users.username]',
+        'rules' => 'required|alpha_dash|is_lowercase',
         'errors' => [
           'required' => 'El nombre de usuario no puede estar vacio.',
           'alpha_dash' => 'El nombre de usuario no puede contener espacios o simbolos.',
           'is_lowercase' => 'El nombre de usuario debe estar en minúsculas.',
-          'validate_username' => 'El nombre de usuario es incorrecto.'
         ]
       ],
       'password' => [
@@ -42,6 +41,14 @@ function getValidationRules(string $form): array {
           'required' => 'La contraseña no puede estar vacia.',
           'min_length' => 'La contraseña tiene que tener minimo 8 caracteres.',
           'alpha_dash' => 'La contraseña no puede contener espacios.',
+        ]
+      ],
+      'confirmpassword' => [
+        'label' => 'confirmpassword',
+        'rules' => 'required|matches[password]',
+        'errors' => [
+          'required' => 'Por favor confirme su contraseña',
+          'matches' => 'La contraseña no soy iguales.',
         ]
       ],
       'name' => [
@@ -124,6 +131,88 @@ function getValidationRules(string $form): array {
           'ext_in' => 'La extenciones solo pueden ser .png, .jpg, .webp y .jfif',
         ]
       ],
+    ],
+    'edit_sneaker' => [
+      'sneaker_brand' => [
+        'label' => 'sneaker_brand',
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'La marca no puede estar vacia.',
+        ]
+      ],
+      'sneaker_model' => [
+        'label' => 'sneaker_model',
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'El modelo no puede estar vacio.',
+        ]
+      ],
+      'sneaker_price' => [
+        'label' => 'sneaker_price',
+        'rules' => 'required|numeric',
+        'errors' => [
+          'required' => 'El precio no puede estar vacio.',
+          'numeric' => 'Tiene que ser numerico.'
+        ]
+      ],
+      'sneaker_discount' => [
+        'label' => 'sneaker_discount',
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'El descuento no puede estar vacio.',
+        ]
+      ],
+      'sneaker_stars' => [
+        'label' => 'sneaker_stars',
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'La valoración no puede ser vacia.',
+        ]
+      ],
+      'sneaker_description' => [
+        'label' => 'sneaker_description',
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'La descripción no puede ser vacia.',
+        ]
+      ],
+    ],
+    'settings' => [
+      'id_user' => 'is_not_unique[users.id_user]',
+      'username' => 'is_not_unique[users.username]',
+      'newpassword' => [
+        'label' => 'newpassword',
+        'rules' => 'required|min_length[5]|alpha_dash',
+        'errors' => [
+          'required' => 'La contraseña no puede estar vacia.',
+          'min_length' => 'La contraseña tiene que tener minimo 8 caracteres.',
+          'alpha_dash' => 'La contraseña no puede contener espacios.',
+        ]
+      ],
+      'newconfirmpassword' => [
+        'label' => 'newconfirmpassword',
+        'rules' => 'required|matches[newpassword]',
+        'errors' => [
+          'required' => 'Por favor confirme su contraseña',
+          'matches' => 'La contraseñas no soy iguales.',
+        ]
+      ],
+      'password' => [
+        'label' => 'password',
+        'rules' => 'required',
+        'errors' => ['required' => 'Escriba su nueva contraseña.',]
+      ],
+      'confirmpassword' => [
+        'label' => 'confirmpassword',
+        'rules' => 'required|matches[password]',
+        'errors' => [
+          'required' => 'Por favor confirme su nueva contraseña',
+          'matches' => 'La contraseña no soy iguales.',
+        ]
+      ],
+    ],
+    'add_cart' => [
+      'id_sneaker' => 'required|is_not_unique[sneakers.id_sneaker]'
     ],
     default => []
   };

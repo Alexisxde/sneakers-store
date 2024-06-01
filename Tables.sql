@@ -42,3 +42,5 @@ CREATE TABLE IF NOT EXISTS stock (
   FOREIGN KEY (id_sneaker) REFERENCES sneakers(id_sneaker) ON DELETE CASCADE,
   FOREIGN KEY (id_size) REFERENCES sizes(id_size) ON DELETE CASCADE
 );
+
+INSERT INTO `stock`(`id_sneaker`, `size`, `quantity`) VALUES ('66557049e15c6', 43, 10);

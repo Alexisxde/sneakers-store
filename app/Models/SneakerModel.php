@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use CodeIgniter\Database\BaseResult;
 use CodeIgniter\Model;
 
 class SneakerModel extends Model {

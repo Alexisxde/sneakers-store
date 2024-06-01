@@ -9,6 +9,6 @@
     <img src='<?= base_url() ?>assets/img/shipping.svg' alt='shipping'>
     <span>Envío gratis desde $ 215.000</span>
     <p>Comprando una o más zapatillas superando $ 215.000, el envio es GRATIS!</p>
-    <a href=<?= base_url('products') ?>>Ver productos</a>
+    <a href=<?= base_url('sneakers') ?>>Ver productos</a>
   </div>
 </section>
