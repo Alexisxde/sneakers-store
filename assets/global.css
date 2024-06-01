@@ -180,10 +180,121 @@ a {
   <div class="notification__body">Algun Error</div>
 </div> */
 
-/* Probar despues */
-/* color: #ffffff;
-padding: 10px;
-margin: 10px;
-border-radius: 10px;
-top: 10%;
-right: 0; */
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border: none;
+  text-decoration: none;
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+
+    h5 {
+      flex-grow: 1;
+      text-wrap: pretty;
+    }
+  }
+
+  .products__links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    a {
+      text-decoration: none;
+      color: black;
+
+      i {
+        color: black;
+      }
+    }
+  }
+
+  img {
+    width: 200px;
+    height: 200px;
+    aspect-ratio: 1 / 1;
+    transition: scale 150ms ease-in;
+  }
+
+  .prices {
+    .prev-price {
+      opacity: 75%;
+      text-decoration: line-through;
+    }
+
+    span {
+      color: black;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    img {
+      scale: 110%;
+    }
+  }
+
+  div:hover {
+    cursor: default;
+
+    img {
+      scale: 110%;
+    }
+  }
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.page {
+  display: inline-block;
+  padding: 0px 9px;
+  margin-right: 4px;
+  border-radius: 3px;
+  border: solid 1px #c0c0c0;
+  background: #e9e9e9;
+  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.8),
+    0px 1px 3px rgba(0, 0, 0, 0.1);
+  font-size: 0.875em;
+  font-weight: bold;
+  text-decoration: none;
+  color: #717171;
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 1);
+
+  &:first-child {
+    margin-left: 4px;
+  }
+}
+
+.page.active {
+  border: none;
+  background: #616161;
+  box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.5),
+    0px 1px 0px rgba(255, 255, 255, 0.8);
+  color: #f0f0f0;
+  text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+}
+
+.page {
+  border: solid 1px #32373b;
+  background: #2f3237;
+  box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.1),
+    0px 1px 3px rgba(0, 0, 0, 0.1);
+  color: #feffff;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
+}
+
+.page.active {
+  border: none;
+  background: #000;
+}

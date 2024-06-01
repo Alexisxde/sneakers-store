@@ -10,8 +10,8 @@
 
   .cards-presentation {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     position: relative;
     margin: 20px;
 
@@ -29,45 +29,15 @@
     }
   }
 
-  .row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .cards__featured {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
+  }
 
-    .card {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 15em;
-      border: none;
-      text-decoration: none;
-
-      img {
-        width: 200px;
-        height: 200px;
-        aspect-ratio: 1 / 1;
-        transition: scale 150ms ease-in;
-      }
-
-      .prices {
-        .prev-price {
-          opacity: 75%;
-          text-decoration: line-through;
-        }
-
-        span {
-          color: black;
-        }
-      }
-
-      &:hover {
-        cursor: pointer;
-
-        img {
-          scale: 110%;
-        }
-      }
-    }
+  .card {
+    width: 15em;
   }
 
   .btn-products {
@@ -96,6 +66,10 @@
           letter-spacing: 10px;
         }
       }
+    }
+
+    .cards__featured {
+      place-items: center;
     }
   }
 }

@@ -160,7 +160,7 @@ class Sneaker extends BaseController {
   }
 
   public function featured(): ?array {
-    $featured = $this->modelSneaker->featured(3, 10);
+    $featured = $this->modelSneaker->featured(2, 10);
     return $featured;
   }
 }

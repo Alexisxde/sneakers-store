@@ -36,8 +36,11 @@ class User extends BaseController {
   }
 
   public function all_users(): string {
-    $users = $this->model->all_users();
-    $data = ['users' => $users];
+    $items_page = 10;
+    $data = [
+      'users' => $this->model->paginate($items_page),
+      'pager' => $this->model->pager,
+    ];
     return view('pages/TableUsers', $data);
   }
 
