@@ -4,8 +4,6 @@
     <span>featured</span>
   </div>
   <div class='cards__featured'>
-
-
     <?php
 
     use App\Controllers\Sneaker;
@@ -15,8 +13,10 @@
     foreach ($products->featured() as $featured) {
       extract($featured);
     ?>
-      <a href="<?= base_url() . "sneakers/" . $id_sneaker ?>" class='card'>
-        <img src='<?= base_url() ?>assets/img/sneakers/<?= $img ?>' alt='<?= $brand . " " . $model ?>'>
+      <div class='card'>
+        <a href="<?= base_url() . "sneakers/" . $id_sneaker ?>">
+          <img src='<?= base_url() ?>assets/img/sneakers/<?= $img ?>' alt='<?= $brand . " " . $model ?>'>
+        </a>
         <div class='card-body'>
           <h5 class='text-center'><?= $brand . " " . $model ?></h5>
           <div class='text-center pb-1'>
@@ -39,9 +39,9 @@
               <div class='text-success'><?= $discount2 ?>% de descuento</div>
             <?php endif ?>
           </div>
+          <button class="button__black mt-1">Añadir al carrito</button>
         </div>
-      </a>
+      </div>
     <?php } ?>
   </div>
-  <a href="<?= base_url("sneakers") ?>" class="btn-products px-4 py-2 mb-4">Ver productos</a>
 </section>

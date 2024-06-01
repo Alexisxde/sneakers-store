@@ -20,7 +20,7 @@
     <?php foreach ($products as $product) {
       extract($product);
     ?>
-      <?php if (isset(session()->username) && session()->rol === 'admin') :  ?>
+      <?php if (session('logged_in') && session()->rol === 'admin') :  ?>
         <div class='card'>
           <a href="<?= base_url() . "sneakers/" . $id_sneaker ?>">
             <img src='<?= base_url() ?>assets/img/sneakers/<?= $img ?>' alt='<?= $brand . " " . $model ?>'>
@@ -47,6 +47,7 @@
                 <div class='text-success'><?= $discount2 ?>% de descuento</div>
               <?php endif ?>
             </div>
+            <button class="button__black mt-1">Añadir al carrito</button>
           </div>
           <div class="products__links">
             <div>
@@ -68,8 +69,10 @@
         </div>
       <?php else : ?>
         <?php if ($is_active == 1) : ?>
-          <a href="<?= base_url() . "sneakers/" . $id_sneaker ?>" class='card'>
-            <img src='<?= base_url() ?>assets/img/sneakers/<?= $img ?>' alt='<?= $brand . " " . $model ?>'>
+          <div class='card'>
+            <a href="<?= base_url() . "sneakers/" . $id_sneaker ?>">
+              <img src='<?= base_url() ?>assets/img/sneakers/<?= $img ?>' alt='<?= $brand . " " . $model ?>'>
+            </a>
             <div class='card-body'>
               <h5 class='text-center'><?= $brand . " " . $model ?></h5>
               <div class='text-center pb-1'>
@@ -91,9 +94,10 @@
                 <?php if ($discount > 0) : ?>
                   <div class='text-success'><?= $discount2 ?>% de descuento</div>
                 <?php endif ?>
+                <button class="button__black mt-1">Añadir al carrito</button>
               </div>
             </div>
-          </a>
+          </div>
         <?php endif ?>
       <?php endif ?>
     <?php } ?>

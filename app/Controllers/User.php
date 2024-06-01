@@ -44,27 +44,30 @@ class User extends BaseController {
     return view('pages/TableUsers', $data);
   }
 
-  public function logout(): string|RedirectResponse {
-    if (!session('logged_in')) {
-      return redirect()->to(base_url())->with('msg', [
-        'type' => 'error',
-        'body' => "Permiso denegado"
-      ]);
-    }
+  public function logout(): RedirectResponse {
     session()->destroy();
-    return redirect()->to(base_url('login'));
+    return redirect()->to(base_url('login'))->with('msg', [
+      'type' => 'success',
+      'body' => "Vuelva pronto!"
+    ]);
   }
 
-  public function login_user(): string|RedirectResponse {
+  public function login_user(): RedirectResponse {
     $validationRules = getValidationRules('login');
     extract($this->request->getPost(['username', 'password']));
     if (!$this->validate($validationRules)) {
       return redirect()->back()->withInput();
     }
     if (!$this->model->validate_password($username, $password)) {
-      return redirect()->back()->withInput()->with('error', 'La contraseña es incorrecta.');
+      return redirect()->back()->withInput()->with('error', 'El usuario y/o la contraseña es incorrecta.');
     }
     $user = $this->model->user_data($username);
+    if ($user['is_active'] == 0) {
+      return redirect()->to(base_url('login'))->with('msg', [
+        'type' => 'error',
+        'body' => ucfirst(strtolower($user['username'])) . " dado de baja. Contactesé con un administrador."
+      ]);
+    }
     $this->session->set($user);
     $this->session->set(["logged_in" => true]);
     return redirect()->to(base_url())->with('msg', [
@@ -73,7 +76,7 @@ class User extends BaseController {
     ]);
   }
 
-  public function create_user(): string|RedirectResponse {
+  public function create_user(): RedirectResponse {
     $validationRules = getValidationRules('register');
     if (!$this->validate($validationRules)) {
       return redirect()->back()->withInput();
@@ -93,5 +96,34 @@ class User extends BaseController {
       'type' => 'success',
       'body' => "Usuario creado correctamente. Por favor inicie sesión."
     ]);
+  }
+
+  public function settings(): string {
+    return view("pages/UserSettings");
+  }
+
+  public function user_settings(): RedirectResponse {
+    $validationRules = getValidationRules('settings');
+    if (!$this->validate($validationRules)) {
+      return redirect()->back()->withInput();
+    }
+    extract($this->request->getPost(['id_user', 'username', 'newpassword', 'password']));
+    if (!$this->model->validate_password($username, $password)) {
+      return redirect()->back()->withInput()->with('error', 'La contraseña es incorrecta.');
+    }
+    $data = ['password' => password_hash($newpassword, PASSWORD_BCRYPT)];
+    $this->model->edit_user($id_user, $data);
+    $this->logout();
+    return redirect()->to(base_url())->with('msg', [
+      'type' => 'success',
+      'body' => "Usuario actualizado correctamente. Por favor vuelva a iniciar sesión."
+    ]);
+  }
+
+  public function user_delete(): RedirectResponse {
+    $validationRules = getValidationRules('settings');
+    if (!$this->validate($validationRules)) {
+      return redirect()->back()->withInput();
+    }
   }
 }

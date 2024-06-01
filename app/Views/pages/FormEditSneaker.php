@@ -8,6 +8,11 @@
 <?= $this->section('title') ?>Editar <?= $brand . " " . $model ?><?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
+<?php if (session('msg')) : ?>
+  <div class="notification <?= session('msg.type') ?>">
+    <div class="notification__body"><?= session('msg.body') ?></div>
+  </div>
+<?php endif ?>
 <section class="form__sneaker">
   <form class="form" action="<?= base_url("edit_sneaker") ?>" method="post" autocomplete="off" enctype="multipart/form-data" aria-autocomplete="none">
     <div class="form__back">

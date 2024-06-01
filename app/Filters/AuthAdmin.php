@@ -7,9 +7,9 @@ use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
 use \CodeIgniter\Exceptions\PageNotFoundException;
 
-class Auth implements FilterInterface {
+class AuthAdmin implements FilterInterface {
   public function before(RequestInterface $req, $args = null) {
-    if (!session('logged_in')) {
+    if (!session('logged_in') || session('rol') !== 'admin') {
       throw new PageNotFoundException("Error, permiso denegado");
     }
   }

@@ -52,10 +52,10 @@ class Sneaker extends BaseController {
   }
 
   public function edit_sneaker(): RedirectResponse {
-    // $validationRules = getValidationRules('add_sneaker');
-    // if (!$this->validate($validationRules)) {
-    //   return redirect()->back()->withInput();
-    // }
+    $validationRules = getValidationRules('edit_sneaker');
+    if (!$this->validate($validationRules)) {
+      return redirect()->back()->withInput();
+    }
     extract($this->request->getPost([
       'sneaker_id',
       'sneaker_brand',
@@ -66,20 +66,41 @@ class Sneaker extends BaseController {
       'sneaker_description',
       'sneaker_active',
     ]));
-    // $sneaker_img = $this->request->getFile('sneaker_img');
-    // if (!$sneaker_img->isValid()) {
-    // echo $sneaker_img->getErrorString();
-    // exit;
-    // }
-    // if (!$sneaker_img->hasMoved()) {
-    //   $path = ROOTPATH . '/assets/img/sneakers';
-    //   $originalName = $sneaker_img->getClientName();
-    //   sscanf($originalName, '%[^.].%s', $name, $extension);
-    //   $nameFile = $id_sneaker . "." . $extension;
-    //   $sneaker_img->move($path, $nameFile);
-    // }
+    $sneaker_img = $this->request->getFile('sneaker_img');
+    if ($sneaker_img->getClientName() === "") {
+      $data = [
+        'brand' => $sneaker_brand,
+        'price' => $sneaker_price,
+        'discount' => $sneaker_discount,
+        'model' => $sneaker_model,
+        'stars' => $sneaker_stars,
+        'description' => $sneaker_description,
+        'is_active' => $sneaker_active == 'on' ? '1' : '0',
+      ];
+      $this->modelSneaker->edit_sneaker($sneaker_id, $data);
+      return redirect()->to(base_url('sneakers'))->with('msg', [
+        'type' => 'success',
+        'body' => "$sneaker_brand $sneaker_model guardado correctamente..."
+      ]);
+    }
+    if (!$sneaker_img->isValid()) {
+      return redirect()->to(base_url("edit_sneaker/$sneaker_id"))->with('msg', [
+        'type' => 'error',
+        'body' => $sneaker_img->getErrorString()
+      ]);
+    }
+    if ($sneaker_img->hasMoved()) {
+      return redirect()->to(base_url("edit_sneaker/$sneaker_id"))->with('msg', [
+        'type' => 'error',
+        'body' => "La imagen se movió, intentelo de nuevo."
+      ]);
+    }
+    $path = ROOTPATH . '/assets/img/sneakers';
+    $originalName = $sneaker_img->getClientName();
+    sscanf($originalName, '%[^.].%s', $name, $extension);
+    $nameFile = $sneaker_id . "." . $extension;
+    $sneaker_img->move($path, $nameFile, true);
     $data = [
-      'id_sneaker' => $sneaker_id,
       'brand' => $sneaker_brand,
       'price' => $sneaker_price,
       'discount' => $sneaker_discount,
@@ -87,7 +108,7 @@ class Sneaker extends BaseController {
       'stars' => $sneaker_stars,
       'description' => $sneaker_description,
       'is_active' => $sneaker_active == 'on' ? '1' : '0',
-      // 'img' => $nameFile
+      'img' => $nameFile
     ];
     $this->modelSneaker->edit_sneaker($sneaker_id, $data);
     return redirect()->to(base_url('sneakers'))->with('msg', [

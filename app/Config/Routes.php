@@ -17,9 +17,15 @@ $routes->get('/login', 'User::login');
 $routes->post('/login', 'User::login_user');
 $routes->get('/register', 'User::register');
 $routes->post('/register', 'User::create_user');
-$routes->get('/logout', 'User::logout');
 
 $routes->group('/', ['filter' => 'auth'], static function ($routes) {
+  $routes->get('/logout', 'User::logout');
+  $routes->get('/settings', 'User::settings');
+  $routes->post('/settings', 'User::user_settings');
+  $routes->post('/settings/delete', 'User::user_delete');
+});
+
+$routes->group('/', ['filter' => 'authAdmin'], static function ($routes) {
   $routes->get('/users', 'User::all_users');
   $routes->get('/messages', 'Message::all_messages');
   $routes->get('/add_sneaker', 'Sneaker::form_add_sneaker');

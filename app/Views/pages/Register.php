@@ -42,10 +42,17 @@
           <?php endif; ?>
         </label>
         <label class="form__label">
-          <input class="form__input" placeholder=" " name="password" type="password">
+          <input class="form__input" placeholder=" " name="password" type="password" value="<?= set_value('password') ?>">
           <span class="form__text">Contraseña</span>
           <?php if (validation_show_error('password')) : ?>
             <span class="form__error"><?= validation_show_error('password') ?></span>
+          <?php endif; ?>
+        </label>
+        <label class="form__label">
+          <input class="form__input" placeholder=" " name="confirmpassword" type="password">
+          <span class="form__text">Confirmar contraseña</span>
+          <?php if (validation_show_error('confirmpassword')) : ?>
+            <span class="form__error"><?= validation_show_error('confirmpassword') ?></span>
           <?php endif; ?>
         </label>
       </section>

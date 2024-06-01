@@ -25,7 +25,7 @@ class UserModel extends Model {
   ];
 
   public function user_data(string $username): ?array {
-    $query = "SELECT id_user, username, token, name, surname, rol FROM users WHERE username = ?";
+    $query = "SELECT id_user, email, username, token, name, surname, rol, is_active FROM users WHERE username = ?";
     $result = $this->db->query($query, [$username]);
     return $result->getNumRows() > 0 ? $result->getRowArray() : null;
   }
