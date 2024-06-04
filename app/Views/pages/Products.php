@@ -47,6 +47,7 @@
                 <div class='text-success'><?= $discount2 ?>% de descuento</div>
               <?php endif ?>
             </div>
+            <button class="button__black mt-1">Añadir al carrito</button>
           </div>
           <div class="products__links">
             <div>
@@ -93,6 +94,7 @@
                 <?php if ($discount > 0) : ?>
                   <div class='text-success'><?= $discount2 ?>% de descuento</div>
                 <?php endif ?>
+                <button class="button__black mt-1">Añadir al carrito</button>
               </div>
             </div>
           </div>
