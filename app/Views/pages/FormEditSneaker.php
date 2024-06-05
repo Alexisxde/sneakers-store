@@ -1,5 +1,5 @@
 <?= $this->extend('LayoutTwo') ?>
-<?= extract($sneaker) ?>
+<?php extract($sneaker) ?>
 
 <?= $this->section('css') ?>
 <link rel="stylesheet" href="<?= base_url() ?>assets/styles/FormAddSneaker.component.css">
@@ -56,6 +56,42 @@
           <span class="form__error"><?= validation_show_error('sneaker_stars') ?></span>
         <?php endif; ?>
       </label>
+
+
+      <?php if ($stocks !== null) : ?>
+        <?php foreach ($stocks as $stock) : ?>
+          <div style="display: flex; gap: 5px;">
+            <?php extract($stock) ?>
+            <label class="form__label">
+              <input class="form__input" name="size-<?= $size ?>" type="text" placeholder=" " value="<?= $size ?>">
+              <span class="form__text">Talle</span>
+            </label>
+            <label class="form__label">
+              <input class="form__input" name="stock" type="text" placeholder=" " value="<?= $quantity ?>">
+              <span class="form__text">Stock</span>
+            </label>
+          </div>
+        <?php endforeach ?>
+      <?php endif; ?>
+
+
+
+      <div style="display: flex; gap: 5px;">
+        <label class="form__label">
+          <input class="form__input" name="new_size" type="text" placeholder=" " value="<?= set_value('sneaker_stars') ?>">
+          <span class="form__text">Nuevo talle</span>
+          <?php if (validation_show_error('new_size')) : ?>
+            <span class="form__error"><?= validation_show_error('new_size') ?></span>
+          <?php endif; ?>
+        </label>
+        <label class="form__label">
+          <input class="form__input" name="new_stock" type="text" placeholder=" " value="<?= set_value('sneaker_stars') ?>">
+          <span class="form__text">Stock</span>
+          <?php if (validation_show_error('new_stock')) : ?>
+            <span class="form__error"><?= validation_show_error('new_stock') ?></span>
+          <?php endif; ?>
+        </label>
+      </div>
       <label class="ms-3">
         <input type="checkbox" name="sneaker_active" <?php echo $is_active == 1 ? "checked" : "" ?>>
         <span>Mostrar en la tienda?</span>

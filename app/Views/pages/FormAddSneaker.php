@@ -54,6 +54,22 @@
           <span class="form__error"><?= validation_show_error('sneaker_stars') ?></span>
         <?php endif; ?>
       </label>
+      <div style="display: flex; gap: 5px;">
+        <label class="form__label">
+          <input class="form__input" name="sneaker_size" type="text" placeholder=" " value="<?= set_value('sneaker_size') ?>">
+          <span class="form__text">Talle</span>
+          <?php if (validation_show_error('sneaker_size')) : ?>
+            <span class="form__error"><?= validation_show_error('sneaker_size') ?></span>
+          <?php endif; ?>
+        </label>
+        <label class="form__label">
+          <input class="form__input" name="sneaker_stock" type="text" placeholder=" " value="<?= set_value('sneaker_stock') ?>">
+          <span class="form__text">Stock</span>
+          <?php if (validation_show_error('sneaker_stock')) : ?>
+            <span class="form__error"><?= validation_show_error('sneaker_stock') ?></span>
+          <?php endif; ?>
+        </label>
+      </div>
       <label class="form__label">
         <textarea class="form__input form__input-textarea" name="sneaker_description" placeholder=" "><?= set_value('sneaker_description') ?></textarea>
         <span class="form__text form__textarea">Ingresa descripción</span>

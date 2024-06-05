@@ -49,7 +49,8 @@ class Sneaker extends BaseController {
 
   public function form_edit_sneaker(string $id_sneaker): string {
     [$sneaker] = $this->modelSneaker->one_sneaker($id_sneaker);
-    return view("pages/FormEditSneaker", ["sneaker" => $sneaker]);
+    $stocks = $this->modelStock->all_stock($id_sneaker);
+    return view("pages/FormEditSneaker", ["sneaker" => $sneaker, "stocks" => $stocks]);
   }
 
   public function edit_sneaker(): RedirectResponse {
@@ -66,6 +67,8 @@ class Sneaker extends BaseController {
       'sneaker_stars',
       'sneaker_description',
       'sneaker_active',
+      'new_size',
+      'new_stock'
     ]));
     $sneaker_img = $this->request->getFile('sneaker_img');
     if ($sneaker_img->getClientName() === "") {
@@ -79,6 +82,7 @@ class Sneaker extends BaseController {
         'is_active' => $sneaker_active == 'on' ? '1' : '0',
       ];
       $this->modelSneaker->edit_sneaker($sneaker_id, $data);
+      $this->modelStock->add_stock($sneaker_id, $new_size, $new_stock);
       return redirect()->to(base_url('sneakers'))->with('msg', [
         'type' => 'success',
         'body' => "$sneaker_brand $sneaker_model guardado correctamente..."
@@ -131,6 +135,8 @@ class Sneaker extends BaseController {
       'sneaker_discount',
       'sneaker_stars',
       'sneaker_description',
+      'sneaker_size',
+      'sneaker_stock'
     ]));
     $sneaker_img = $this->request->getFile('sneaker_img');
     if (!$sneaker_img->isValid()) {
@@ -161,6 +167,7 @@ class Sneaker extends BaseController {
       'img' => $nameFile
     ];
     $this->modelSneaker->add_sneaker($data);
+    $this->modelStock->add_stock($id_sneaker, $sneaker_size, $sneaker_stock);
     return redirect()->to(base_url('add_sneaker'))->with('msg', [
       'type' => 'success',
       'body' => "$sneaker_brand $sneaker_model subido correctamente..."

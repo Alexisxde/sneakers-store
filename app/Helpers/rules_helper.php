@@ -131,6 +131,22 @@ function getValidationRules(string $form): array {
           'ext_in' => 'La extenciones solo pueden ser .png, .jpg, .webp y .jfif',
         ]
       ],
+      'sneaker_size' => [
+        'label' => 'sneaker_size',
+        'rules' => 'required|numeric',
+        'errors' => [
+          'required' => 'Se necesita por lo menos un talle.',
+          'numeric' => 'Tiene que ser numerico el tipo de talle.',
+        ]
+      ],
+      'sneaker_stock' => [
+        'label' => 'sneaker_stock',
+        'rules' => 'required|numeric',
+        'errors' => [
+          'required' => 'Ponga 0 si no hay stock.',
+          'numeric' => 'Tiene que ser numerico el tipo el stock.',
+        ]
+      ],
     ],
     'edit_sneaker' => [
       'sneaker_brand' => [

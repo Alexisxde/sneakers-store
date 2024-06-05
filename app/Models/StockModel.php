@@ -14,7 +14,7 @@ class StockModel extends Model {
   protected $allowedFields = ['id_stock', 'id_sneaker', 'id_size', 'quantity'];
 
   public function all_stock(string $id): ?array {
-    $query = "SELECT * FROM stock WHERE id_sneaker = ?";
+    $query = "SELECT * FROM stock WHERE id_sneaker = ? ORDER BY size ASC";
     $result = $this->db->query($query, $id);
     return $result->getNumRows() > 0 ? $result->getResultArray() : null;
   }
@@ -25,9 +25,14 @@ class StockModel extends Model {
     return $result->getNumRows() > 0 ? $result->getResultArray() : null;
   }
 
+  public function add_stock(string $id_sneaker, int $size, int $quantity): void {
+    $query = "UPDATE stock SET quantity = ? WHERE id_sneaker = ? AND size = ?";
+    $this->db->query($query, [$quantity, $id_sneaker, $size]);
+  }
+
   public function update_stock(string $id_sneaker, int $size, int $quantity): void {
     $query = "UPDATE stock SET quantity = ? WHERE id_sneaker = ? AND size = ?";
-    $result = $this->db->query($query, [$quantity, $id_sneaker, $size]);
+    $this->db->query($query, [$quantity, $id_sneaker, $size]);
   }
 
   public function edit_stock(string $id_sneaker, $size, $quantity) {
