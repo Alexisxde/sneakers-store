@@ -1,0 +1,36 @@
+.back {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.dataTables_wrapper {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.badge {
+  display: inline-flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: white;
+  backdrop-filter: blur(24px);
+  background-color: cornflowerblue;
+}
+
+.badge-active {
+  background-color: green;
+}
+
+.badge-not-active {
+  background-color: red;
+}
+
+.badge-admin {
+  background-color: yellowgreen;
+}

@@ -3,6 +3,22 @@ header {
   top: 0;
   z-index: 1000;
 
+  .button-cart {
+    transition: scale 150ms ease-in, background-color 150ms ease-in;
+    border: none;
+    font-weight: bold;
+    border: none;
+
+    color: black;
+    background-color: transparent;
+    font-size: 1.25em;
+
+    &:hover {
+      scale: 103%;
+      color: #555555;
+    }
+  }
+
   nav {
     display: flex;
     justify-content: center;
@@ -34,21 +50,12 @@ header {
     }
 
     .nav-btns {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       button {
-        transition: scale 150ms ease-in, background-color 150ms ease-in;
         border: none;
-        font-weight: bold;
-
-        &:nth-child(1) {
-          color: black;
-          background-color: transparent;
-          font-size: 1.25em;
-
-          &:hover {
-            scale: 103%;
-            color: #555555;
-          }
-        }
       }
 
       .login {
@@ -62,6 +69,16 @@ header {
           scale: 103%;
         }
       }
+    }
+  }
+}
+
+@media (width < 1000px) {
+  .nav-btns {
+    flex-direction: column;
+
+    > button {
+      display: none;
     }
   }
 }

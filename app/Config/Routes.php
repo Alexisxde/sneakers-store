@@ -25,14 +25,17 @@ $routes->group('/', ['filter' => 'auth'], static function ($routes) {
   $routes->get('/logout', 'User::logout');
   $routes->get('/settings', 'User::settings');
   $routes->post('/settings', 'User::user_settings');
-  $routes->post('/settings/delete', 'User::user_delete');
+  $routes->get('/user_delete', 'User::user_delete');
   $routes->get('/checkout', 'Cart::checkout');
   $routes->get('/shop_user', 'Sale::shop_user');
   $routes->get('/sales', 'Sale::sales');
+  $routes->get('/invoice/(:any)', 'Sale::invoice/$1');
 });
 
 $routes->group('/', ['filter' => 'authAdmin'], static function ($routes) {
   $routes->get('/users', 'User::all_users');
+  $routes->get('/status_user/(:any)', 'User::status_user/$1');
+  $routes->get('/rol_user/(:any)', 'User::rol_user/$1');
   $routes->get('/messages', 'Message::all_messages');
   $routes->get('/add_sneaker', 'Sneaker::form_add_sneaker');
   $routes->post('/add_sneaker', 'Sneaker::add_sneaker');

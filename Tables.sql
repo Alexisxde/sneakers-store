@@ -5,7 +5,6 @@ CREATE TABLE IF NOT EXISTS users (
   email VARCHAR(50) UNIQUE NOT NULL,
   name VARCHAR(50) NOT NULL,
   surname VARCHAR(50) NOT NULL,
-  token VARCHAR(255),
   register_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   is_active TINYINT(1) DEFAULT 1,
   rol ENUM('admin', 'user') DEFAULT 'user'

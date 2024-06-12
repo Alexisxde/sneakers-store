@@ -14,6 +14,11 @@ use Config\Services;
 $cart = Services::cart();
 ?>
 <section class="checkout">
+  <?php if (session('msg')) : ?>
+    <div class="notification <?= session('msg.type') ?>">
+      <div class="notification__body"><?= session('msg.body') ?></div>
+    </div>
+  <?php endif ?>
   <header class="checkout__header">
     <h1>Finalizar compra</h1>
   </header>
@@ -41,7 +46,8 @@ $cart = Services::cart();
     <div class="sneaker__total">
       <span>Total:</span><span>$<?= number_format($cart->total(), 3, '.', '') ?></span>
     </div>
-    <a href="<?= base_url('shop_user') ?>" class="sale__button" type="submit">Comprar</a>
+    <a href="<?= base_url('shop_user') ?>" class="sale__button">Comprar</a>
+    <a href="<?= base_url() ?>" class="sale__button">Volver</a>
   </footer>
 </section>
 <?= $this->endSection() ?>

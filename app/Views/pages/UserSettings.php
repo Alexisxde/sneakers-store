@@ -64,7 +64,7 @@
       </label>
     </section>
     <div class="form__btns">
-      <button class="btn btn-danger fw-semibold">Eliminar cuenta</button>
+      <a href="<?= base_url('user_delete') ?>" class="btn btn-danger fw-semibold">Eliminar cuenta</a>
       <button type="submit" class="btn btn-dark fw-semibold">Guardar cambios</button>
     </div>
   </form>

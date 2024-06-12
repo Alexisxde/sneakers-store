@@ -67,7 +67,7 @@
               <span class="form__text">Talle</span>
             </label>
             <label class="form__label">
-              <input class="form__input" name="stock" type="text" placeholder=" " value="<?= $quantity ?>">
+              <input class="form__input" name="stock-<?= $size ?>" type="text" placeholder=" " value="<?= $quantity ?>">
               <span class="form__text">Stock</span>
             </label>
           </div>

@@ -13,6 +13,7 @@ class SneakerModel extends Model {
   protected $allowedFields = [
     'id_sneaker',
     'img',
+    'price_purchase',
     'price',
     'discount',
     'brand',
@@ -25,7 +26,33 @@ class SneakerModel extends Model {
   public function one_sneaker(string $id): ?array {
     $query = "SELECT * FROM sneakers WHERE id_sneaker = ?";
     $result = $this->db->query($query, $id);
-    return $result->getNumRows() > 0 ? $result->getResultArray() : null;
+    return $result->getNumRows() > 0 ? $result->getRowArray() : null;
+  }
+
+  public function one_sneaker_join(string $id): ?array {
+    $query = "SELECT sneakers.*, stock.size, stock.quantity FROM sneakers INNER JOIN stock ON stock.id_sneaker = sneakers.id_sneaker WHERE sneakers.id_sneaker = ?";
+    $result = $this->db->query($query, $id);
+    if ($result->getNumRows() > 0) {
+      $rows = $result->getResultArray();
+      $sneaker = [
+        'id_sneaker' => $rows[0]['id_sneaker'],
+        'img' => $rows[0]['img'],
+        'price' => $rows[0]['price'],
+        'discount' => $rows[0]['discount'],
+        'model' => $rows[0]['model'],
+        'brand' => $rows[0]['brand'],
+        'stars' => $rows[0]['stars'],
+        'description' => $rows[0]['description'],
+      ];
+      foreach ($rows as $row) {
+        $sneaker['stock'][] = [
+          'size' => $row['size'],
+          'quantity' => $row['quantity']
+        ];
+      }
+      return $sneaker;
+    }
+    return null;
   }
 
   public function all_sneakers(): ?array {

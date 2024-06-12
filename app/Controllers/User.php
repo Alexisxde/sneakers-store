@@ -85,7 +85,6 @@ class User extends BaseController {
       'email' => $email,
       'surname' => $surname,
       'password' => password_hash($password, PASSWORD_BCRYPT),
-      'token' => bin2hex(random_bytes(32))
     ];
     $this->model->add_user($data);
     return redirect()->to(base_url('login'))->with('msg', [
@@ -117,9 +116,26 @@ class User extends BaseController {
   }
 
   public function user_delete(): RedirectResponse {
-    $validationRules = getValidationRules('settings');
-    if (!$this->validate($validationRules)) {
-      return redirect()->back()->withInput();
-    }
+    $this->status_user(session('id_user'));
+    $this->logout();
+    return redirect()->to(base_url('login'));
+  }
+
+  public function status_user(string $id_user) {
+    $user_data = $this->model->user_data_id($id_user);
+    $is_active = $user_data['is_active'];
+    $this->model->edit_user($id_user, [
+      'is_active' => $is_active == "0" ? "1" : "0"
+    ]);
+    return redirect()->back();
+  }
+
+  public function rol_user(string $id_user) {
+    $user_data = $this->model->user_data_id($id_user);
+    $rol = $user_data['rol'];
+    $this->model->edit_user($id_user, [
+      'rol' => $rol == "admin" ? "user" : "admin"
+    ]);
+    return redirect()->back();
   }
 }

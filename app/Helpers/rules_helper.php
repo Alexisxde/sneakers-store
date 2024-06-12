@@ -94,11 +94,19 @@ function getValidationRules(string $form): array {
           'required' => 'El modelo no puede estar vacio.',
         ]
       ],
+      'sneaker_price_purchase' => [
+        'label' => 'sneaker_price_purchase',
+        'rules' => 'required|numeric',
+        'errors' => [
+          'required' => 'El precio de compra no puede estar vacio.',
+          'numeric' => 'Tiene que ser numerico.'
+        ]
+      ],
       'sneaker_price' => [
         'label' => 'sneaker_price',
         'rules' => 'required|numeric',
         'errors' => [
-          'required' => 'El precio no puede estar vacio.',
+          'required' => 'El precio de venta no puede estar vacio.',
           'numeric' => 'Tiene que ser numerico.'
         ]
       ],

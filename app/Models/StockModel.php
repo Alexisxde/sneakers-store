@@ -22,11 +22,11 @@ class StockModel extends Model {
   public function one_stock(string $id, string $size): ?array {
     $query = "SELECT id_sneaker, size, quantity FROM stock WHERE id_sneaker = ? AND size = ?";
     $result = $this->db->query($query, [$id, $size]);
-    return $result->getNumRows() > 0 ? $result->getResultArray() : null;
+    return $result->getNumRows() > 0 ? $result->getRowArray() : null;
   }
 
   public function add_stock(string $id_sneaker, int $size, int $quantity): void {
-    $query = "UPDATE stock SET quantity = ? WHERE id_sneaker = ? AND size = ?";
+    $query = "INSERT INTO stock (quantity, id_sneaker, size) VALUES (?, ?, ?)";
     $this->db->query($query, [$quantity, $id_sneaker, $size]);
   }
 

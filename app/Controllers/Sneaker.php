@@ -30,16 +30,8 @@ class Sneaker extends BaseController {
   }
 
   public function one_sneaker(string $id): string {
-    [$sneaker] = $this->modelSneaker->one_sneaker($id);
-    $stock = $this->modelStock->all_stock($id);
-
-    if ($sneaker == null) {
-      throw new PageNotFoundException("Sneaker no encontrado.");
-    }
-    $data = [
-      "sneaker" => $sneaker,
-      "stocks" => $stock,
-    ];
+    $sneaker = $this->modelSneaker->one_sneaker_join($id);
+    $data = ["sneaker" => $sneaker];
     return view('pages/Product', $data);
   }
 
@@ -48,7 +40,7 @@ class Sneaker extends BaseController {
   }
 
   public function form_edit_sneaker(string $id_sneaker): string {
-    [$sneaker] = $this->modelSneaker->one_sneaker($id_sneaker);
+    $sneaker = $this->modelSneaker->one_sneaker($id_sneaker);
     $stocks = $this->modelStock->all_stock($id_sneaker);
     return view("pages/FormEditSneaker", ["sneaker" => $sneaker, "stocks" => $stocks]);
   }
@@ -71,18 +63,28 @@ class Sneaker extends BaseController {
       'new_stock'
     ]));
     $sneaker_img = $this->request->getFile('sneaker_img');
+    $data = [
+      'brand' => $sneaker_brand,
+      'price' => $sneaker_price,
+      'discount' => $sneaker_discount,
+      'model' => $sneaker_model,
+      'stars' => $sneaker_stars,
+      'description' => $sneaker_description,
+      'is_active' => $sneaker_active == 'on' ? '1' : '0',
+    ];
     if ($sneaker_img->getClientName() === "") {
-      $data = [
-        'brand' => $sneaker_brand,
-        'price' => $sneaker_price,
-        'discount' => $sneaker_discount,
-        'model' => $sneaker_model,
-        'stars' => $sneaker_stars,
-        'description' => $sneaker_description,
-        'is_active' => $sneaker_active == 'on' ? '1' : '0',
-      ];
       $this->modelSneaker->edit_sneaker($sneaker_id, $data);
-      $this->modelStock->add_stock($sneaker_id, $new_size, $new_stock);
+      $all_sizes = $this->modelStock->all_stock($sneaker_id);
+      foreach ($all_sizes as ['size' => $size]) {
+        $this->modelStock->update_stock(
+          $sneaker_id,
+          (int) $this->request->getPost("size-$size"),
+          (int) $this->request->getPost("stock-$size")
+        );
+      }
+      if ($new_size) {
+        $this->modelStock->add_stock($sneaker_id, (int) $new_size, (int) $new_stock);
+      }
       return redirect()->to(base_url('sneakers'))->with('msg', [
         'type' => 'success',
         'body' => "$sneaker_brand $sneaker_model guardado correctamente..."
@@ -105,16 +107,7 @@ class Sneaker extends BaseController {
     sscanf($originalName, '%[^.].%s', $name, $extension);
     $nameFile = $sneaker_id . "." . $extension;
     $sneaker_img->move($path, $nameFile, true);
-    $data = [
-      'brand' => $sneaker_brand,
-      'price' => $sneaker_price,
-      'discount' => $sneaker_discount,
-      'model' => $sneaker_model,
-      'stars' => $sneaker_stars,
-      'description' => $sneaker_description,
-      'is_active' => $sneaker_active == 'on' ? '1' : '0',
-      'img' => $nameFile
-    ];
+    $data['img'] = $nameFile;
     $this->modelSneaker->edit_sneaker($sneaker_id, $data);
     return redirect()->to(base_url('sneakers'))->with('msg', [
       'type' => 'success',
@@ -140,13 +133,13 @@ class Sneaker extends BaseController {
     ]));
     $sneaker_img = $this->request->getFile('sneaker_img');
     if (!$sneaker_img->isValid()) {
-      return redirect()->to(base_url('add_sneaker'))->with('msg', [
+      return redirect()->back()->with('msg', [
         'type' => 'error',
         'body' => $sneaker_img->getErrorString()
       ]);
     }
     if ($sneaker_img->hasMoved()) {
-      return redirect()->to(base_url('add_sneaker'))->with('msg', [
+      return redirect()->back()->with('msg', [
         'type' => 'error',
         'body' => "La imagen se movió y ocurrió un error."
       ]);
@@ -167,8 +160,8 @@ class Sneaker extends BaseController {
       'img' => $nameFile
     ];
     $this->modelSneaker->add_sneaker($data);
-    $this->modelStock->add_stock($id_sneaker, $sneaker_size, $sneaker_stock);
-    return redirect()->to(base_url('add_sneaker'))->with('msg', [
+    $this->modelStock->add_stock($id_sneaker, (int) $sneaker_size, (int) $sneaker_stock);
+    return redirect()->back()->with('msg', [
       'type' => 'success',
       'body' => "$sneaker_brand $sneaker_model subido correctamente..."
     ]);
@@ -177,12 +170,12 @@ class Sneaker extends BaseController {
   public function status(string $id): RedirectResponse {
     $sneaker = $this->modelSneaker->one_sneaker($id);
     if ($sneaker !== null) {
-      extract($sneaker[0]);
-      $sneaker[0]["is_active"] = ($sneaker[0]["is_active"] == 0) ? 1 : 0;
-      $this->modelSneaker->edit_sneaker($id, $sneaker[0]);
-      return redirect()->to(base_url("sneakers"))->with("msg", [
-        "type" => $sneaker[0]["is_active"] == 0 ? "error" : "success",
-        "body" => $sneaker[0]["is_active"] == 0 ? "$brand $model Desactivado" : "$brand $model Activado",
+      extract($sneaker);
+      $is_active = $sneaker["is_active"] == 0 ? 1 : 0;
+      $this->modelSneaker->edit_sneaker($id, ['is_active' => $is_active]);
+      return redirect()->back()->with("msg", [
+        "type" => $is_active == 0 ? "error" : "success",
+        "body" => $is_active == 0 ? "$brand $model Desactivado" : "$brand $model Activado",
       ]);
     }
     throw new PageNotFoundException("Sneaker no encontrado.");

@@ -56,11 +56,11 @@
     }
   }
 
-  @media print {
+  /* @media print {
     .invoice__button-download {
       display: none;
     }
-  }
+  } */
 </style>
 <?= $this->endSection() ?>
 
@@ -68,7 +68,7 @@
 
 <?= $this->section('content') ?>
 <section class="sales">
-  <?php if ($sales === null) : ?>
+  <?php if ($header_sale === null) : ?>
     <div class="invoce text-center">
       <h1><strong>No posee historial de compras</strong></h1>
       <a href="<?= base_url('sneakers') ?>">Vea nuestro catalogo de zapatillas</a>
@@ -80,42 +80,38 @@
         <p><strong>Dirección:</strong> 123 Fake Street, Falselandia</p>
         <p><strong>Telefono:</strong> +123 456 7890 | +098 765 4321</p>
         <p><strong>Correo electrónico:</strong> sneakersstore@gmail.com | sneakersshop@hotmail.com</p>
+        <h2 class="text-center"><strong>HISTORIAL DE COMPRAS</strong></h2>
       </div>
       <hr>
-      <?php $total = 0; ?>
+      <?php $totalglobal = 0; ?>
       <table class="invoice__table">
         <thead>
           <tr>
-            <th>Marca y Modelo</th>
-            <th>Talle</th>
-            <th>Precio</th>
-            <th>Cantidad</th>
-            <th>Fecha de compra</th>
+            <th>Fecha</th>
+            <th>Total</th>
+            <th>Factura</th>
           </tr>
         </thead>
-        <?php foreach ($sneakers as $i => $sneaker) : ?>
-          <?php extract($sneaker)  ?>
-          <?php $total += $sales[$i]['price']; ?>
-          <tbody>
+        <tbody>
+          <?php foreach ($header_sale as $header) : ?>
+            <?php extract($header) ?>
             <tr>
-              <td><?= $brand . " " . $model ?></td>
-              <td><?= $sales[$i]['size'] ?></td>
-              <td>$<?= $sales[$i]['price'] ?></td>
-              <td><?= $sales[$i]['quantity'] ?></td>
-              <td>
-                <?php
-                $fecha_objeto = new DateTime($sales[$i]['date_sale']);
-                echo $fecha_formateada = $fecha_objeto->format('d/m/Y');
-                ?>
-              </td>
+              <?php $totalglobal += $total ?>
+              <td><?php
+                  $fecha = new DateTime($date);
+                  $formattedDate = $fecha->format('d/m/Y \a \l\a\s H:i');
+                  echo $formattedDate;
+                  ?></td>
+              <td>$<?= $total ?></td>
+              <td><a href="<?= base_url() . "invoice/" . $id_sale ?>">Ver</a></td>
             </tr>
-          </tbody>
-        <?php endforeach ?>
+          <?php endforeach ?>
+        </tbody>
       </table>
-      <div class="total"><strong>TOTAL: $<?= number_format($total, 3, '.', '') ?></strong></div>
+      <div class="total"><strong>TOTAL: $<?= number_format($totalglobal, 3, '.', '') ?></strong></div>
     </div>
     <div class="invoice__button-download">
-      <button onclick="imprimirPagina()">Descargar</button>
+      <!-- <button onclick="imprimirPagina()">Descargar</button> -->
     </div>
   <?php endif ?>
 </section>

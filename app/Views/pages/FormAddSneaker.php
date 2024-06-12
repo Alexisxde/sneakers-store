@@ -34,8 +34,15 @@
         <?php endif; ?>
       </label>
       <label class="form__label">
-        <input class="form__input" name="sneaker_price" min="0" type="number" placeholder=" " value="<?= set_value('sneaker_price') ?>">
-        <span class="form__text">Ingresa precio</span>
+        <input class="form__input" name="sneaker_price_purchase" min="0" placeholder=" " value="<?= set_value('sneaker_price_purchase') ?>">
+        <span class="form__text">Ingresa precio de compra</span>
+        <?php if (validation_show_error('sneaker_price_purchase')) : ?>
+          <span class="form__error"><?= validation_show_error('sneaker_price_purchase') ?></span>
+        <?php endif; ?>
+      </label>
+      <label class="form__label">
+        <input class="form__input" name="sneaker_price" min="0" placeholder=" " value="<?= set_value('sneaker_price') ?>">
+        <span class="form__text">Ingresa precio de venta</span>
         <?php if (validation_show_error('sneaker_price')) : ?>
           <span class="form__error"><?= validation_show_error('sneaker_price') ?></span>
         <?php endif; ?>

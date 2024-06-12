@@ -18,7 +18,6 @@ class UserModel extends Model {
     'email',
     'name',
     'surname',
-    'token',
     'register_date',
     'is_active',
     'rol'
@@ -27,6 +26,12 @@ class UserModel extends Model {
   public function user_data(string $username): ?array {
     $query = "SELECT id_user, email, username, name, surname, rol, is_active FROM users WHERE username = ?";
     $result = $this->db->query($query, [$username]);
+    return $result->getNumRows() > 0 ? $result->getRowArray() : null;
+  }
+
+  public function user_data_id(string $id_user): ?array {
+    $query = "SELECT id_user email, username, name, surname, rol, is_active FROM users WHERE id_user = ?";
+    $result = $this->db->query($query, [$id_user]);
     return $result->getNumRows() > 0 ? $result->getRowArray() : null;
   }
 

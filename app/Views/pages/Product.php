@@ -30,12 +30,12 @@
       <span class='price'>$ <?= number_format($price * (1 - $discount / 100), 0, ',', '.'); ?></span>
     </div>
     <p><?= $description ?></p>
-    <?php if ($stocks !== null) : ?>
+    <?php if ($stock !== null) : ?>
       <div class='sizes'>
         <label>
           <select name="size">
-            <?php foreach ($stocks as $stock) : ?>
-              <?php extract($stock) ?>
+            <?php foreach ($stock as $s) : ?>
+              <?php extract($s) ?>
               <?php if ($quantity > 0) : ?>
                 <option value="<?= $size ?>"><?= $size ?></option>
               <?php endif ?>

@@ -3,59 +3,76 @@
 namespace App\Controllers;
 
 use App\Models\SneakerModel;
-use App\Models\SaleModel;
+use App\Models\HeaderSaleModel;
+use App\Models\SaleDetailModel;
 use App\Models\StockModel;
 use CodeIgniter\HTTP\RedirectResponse;
 
 class Sale extends BaseController {
-  private SneakerModel $modelSneaker;
-  private SaleModel $modelSale;
+  private HeaderSaleModel $modelHeaderSale;
+  private SaleDetailModel $modelSaleDetail;
   private StockModel $modelStock;
   private $cart;
 
   public function __construct() {
-    $this->modelSneaker = new SneakerModel();
-    $this->modelSale = new SaleModel();
+    $this->modelHeaderSale = new HeaderSaleModel();
+    $this->modelSaleDetail = new SaleDetailModel();
     $this->modelStock = new StockModel();
     $this->cart = \Config\Services::cart();
   }
 
   public function shop_user(): RedirectResponse {
+    $total = 0;
     $id_sale = uniqid();
     foreach ($this->cart->contents() as $sneaker) {
       extract($sneaker);
-      $data = [
+      $total += number_format($price, 3, '.', '');
+      $stock = $this->modelStock->one_stock($id, $options['size']);
+      if ($stock['quantity'] <= 0) {
+        return redirect()->back()->with('msg', [
+          'type' => 'error',
+          'body' => "$name Talle " . $options['size'] . " sin stock."
+        ]);
+      }
+    }
+    $this->modelHeaderSale->add_header_sale([
+      'id_sale' => $id_sale,
+      'id_user' => session('id_user'),
+      'total' => number_format($total, 3, '.', '')
+    ]);
+    foreach ($this->cart->contents() as $sneaker) {
+      extract($sneaker);
+      $this->modelSaleDetail->add_sale_detail([
         'id_sale' => $id_sale,
-        'id_sneaker' => $id,
-        'size' => $options['size'],
+        'sneaker_id' => $id,
         'quantity' => $qty,
-        'price' => number_format($price, 3, '.', ''),
-        'id_user' => session('id_user')
-      ];
-      $this->modelSale->sale_sneaker($data);
-      [$stock] = $this->modelStock->one_stock($id, $options['size']);
+        'price' => number_format($price, 3, '.', '')
+      ]);
+      $stock = $this->modelStock->one_stock($id, $options['size']);
       $quantity = $stock['quantity'] - $qty;
-      $stock = $this->modelStock->update_stock($id, $options['size'], $quantity);
+      $this->modelStock->update_stock($id, $options['size'], $quantity);
     }
     $this->cart->destroy();
     return redirect()->to(base_url())->with('msg', [
       'type' => 'success',
-      'body' => "Compra realizada con exito!"
+      'body' => "Compra realizada con éxito!"
     ]);
   }
 
   public function sales(): string {
-    $sneakers = [];
-    $sales = $this->modelSale->sale_user(session('id_user'));
-    if ($sales !== null) {
-      foreach ($sales as $i => ['id_sneaker' => $id_sneaker]) {
-        [$sneaker] = $this->modelSneaker->one_sneaker($id_sneaker);
-        $sneakers[$i] = $sneaker;
-      }
-    }
-    return view('pages/SalesUser', [
-      'sneakers' => $sneakers,
-      'sales' => $sales
-    ]);
+    $header_sale = $this->modelHeaderSale->all_header_sale_user();
+    $data = [
+      "header_sale" => $header_sale
+    ];
+    return view('pages/SalesUser', $data);
+  }
+
+  public function invoice(string $id_sale): string {
+    $details = $this->modelSaleDetail->get_one_detail($id_sale);
+    $data = [
+      "details" => $details
+    ];
+    dd($details);
+    return view('pages/SalesUser', $data);
   }
 }

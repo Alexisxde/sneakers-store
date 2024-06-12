@@ -27,8 +27,8 @@ class Cart extends BaseController {
       ]);
     }
     extract($this->request->getPost(['id_sneaker', 'size']));
-    [$sneaker] = $this->modelSneaker->one_sneaker($id_sneaker);
-    [$stock] = $this->modelStock->one_stock($id_sneaker, $size);
+    $sneaker = $this->modelSneaker->one_sneaker($id_sneaker);
+    $stock = $this->modelStock->one_stock($id_sneaker, $size);
     if ($stock === null) {
       return redirect()->back()->with('msg', [
         'type' => 'error',
