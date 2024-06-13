@@ -24,7 +24,7 @@ class HeaderSaleModel extends Model {
   }
 
   public function all_header_sale_user() {
-    $query = "SELECT id_user, id_sale, date, total FROM header_sale";
+    $query = "SELECT id_user, id_sale, date, total FROM header_sale ORDER BY date DESC";
     $result = $this->db->query($query);
     return $result->getNumRows() > 0 ? $result->getResultArray() : null;
   }

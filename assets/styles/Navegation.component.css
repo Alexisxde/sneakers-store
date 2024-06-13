@@ -69,6 +69,82 @@ header {
           scale: 103%;
         }
       }
+
+      .dropdown {
+        position: relative;
+        perspective: 200px;
+
+        &:is(:hover, .open) > a {
+          background: rgb(0 0 0 / 35%);
+        }
+
+        button {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          color: white;
+          background: black;
+          border-radius: 8px;
+          border: 0;
+          padding: 8px 24px;
+        }
+
+        > button {
+          position: relative;
+          z-index: 2;
+          transition: 0.2s;
+        }
+
+        .menu {
+          position: absolute;
+          z-index: 1;
+          width: 100%;
+          padding-top: 10px;
+          opacity: 0;
+          scale: 0;
+          right: 0;
+          transform-origin: 100% 0;
+          visibility: hidden;
+          transition: 0.4s;
+
+          .menu__inner {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border-radius: 8px;
+            background: black;
+            gap: 2.5px;
+            padding: 5px;
+
+            a {
+              color: white;
+              text-decoration: none;
+            }
+          }
+
+          button {
+            border: 0;
+            width: 100%;
+            height: 56px;
+            border-radius: 0;
+
+            &:hover {
+              background: rgb(0 0 0 / 26%);
+            }
+          }
+        }
+
+        &.open .menu {
+          scale: 1;
+          opacity: 1;
+          visibility: visible;
+        }
+
+        &.open .chevron {
+          transition: rotate 0.4s ease;
+          rotate: -180deg;
+        }
+      }
     }
   }
 }
