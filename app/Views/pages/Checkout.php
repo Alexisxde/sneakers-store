@@ -1,4 +1,10 @@
 <?= $this->extend('LayoutTwo') ?>
+<?php
+
+use Config\Services;
+
+$cart = Services::cart();
+?>
 
 <?= $this->section('css') ?>
 <link rel='stylesheet' href='<?= base_url() ?>assets/styles/Checkout.component.css'>
@@ -7,12 +13,6 @@
 <?= $this->section('title') ?>Finalizar compra<?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-<?php
-
-use Config\Services;
-
-$cart = Services::cart();
-?>
 <section class="checkout">
   <?php if (session('msg')) : ?>
     <div class="notification <?= session('msg.type') ?>">
@@ -42,12 +42,17 @@ $cart = Services::cart();
       </article>
     <?php endforeach ?>
   </section>
-  <footer class="checkout__footer">
+  <form class="checkout__footer" action="<?= base_url('shop_user') ?>" method="post">
     <div class="sneaker__total">
       <span>Total:</span><span>$<?= number_format($cart->total(), 3, '.', '') ?></span>
     </div>
-    <a href="<?= base_url('shop_user') ?>" class="sale__button">Comprar</a>
+    <select class="form-select my-2" name="payment">
+      <option value="Mercado Pago">Mercado Pago</option>
+      <option value="Tarjeta de débíto">Tarjeta de débíto</option>
+      <option value="Tarjeta de crédito">Tarjeta de crédito</option>
+    </select>
+    <button class="sale__button">Comprar</button>
     <a href="<?= base_url() ?>" class="sale__button">Volver</a>
-  </footer>
+  </form>
 </section>
 <?= $this->endSection() ?>

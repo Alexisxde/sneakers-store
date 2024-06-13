@@ -1,0 +1,31 @@
+.sales {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 20px;
+
+  .sales__history {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    border: none;
+
+    .sales__table {
+      width: 100%;
+      text-align: center;
+
+      th {
+        background-color: #f5f5f5;
+      }
+
+      th,
+      tr,
+      td {
+        border: 1px solid black;
+      }
+    }
+  }
+}

@@ -27,12 +27,13 @@ $routes->group('/', ['filter' => 'auth'], static function ($routes) {
   $routes->post('/settings', 'User::user_settings');
   $routes->get('/user_delete', 'User::user_delete');
   $routes->get('/checkout', 'Cart::checkout');
-  $routes->get('/shop_user', 'Sale::shop_user');
+  $routes->post('/shop_user', 'Sale::shop_user');
   $routes->get('/sales', 'Sale::sales');
   $routes->get('/invoice/(:any)', 'Sale::invoice/$1');
 });
 
 $routes->group('/', ['filter' => 'authAdmin'], static function ($routes) {
+  $routes->get('/sales_admin', 'Sale::sales_admin');
   $routes->get('/users', 'User::all_users');
   $routes->get('/status_user/(:any)', 'User::status_user/$1');
   $routes->get('/rol_user/(:any)', 'User::rol_user/$1');

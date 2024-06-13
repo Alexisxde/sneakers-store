@@ -56,8 +56,6 @@
           <span class="form__error"><?= validation_show_error('sneaker_stars') ?></span>
         <?php endif; ?>
       </label>
-
-
       <?php if ($stocks !== null) : ?>
         <?php foreach ($stocks as $stock) : ?>
           <div style="display: flex; gap: 5px;">
@@ -73,9 +71,6 @@
           </div>
         <?php endforeach ?>
       <?php endif; ?>
-
-
-
       <div style="display: flex; gap: 5px;">
         <label class="form__label">
           <input class="form__input" name="new_size" type="text" placeholder=" " value="<?= set_value('sneaker_stars') ?>">

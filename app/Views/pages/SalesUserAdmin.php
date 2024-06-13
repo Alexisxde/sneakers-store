@@ -9,14 +9,14 @@
 
 <?= $this->section('content') ?>
 <section class="sales">
-  <?php if ($header_sale === null) : ?>
+  <?php if ($all_headers_sales === null) : ?>
     <div class="sales__history">
-      <h1><strong>No posee historial de compras</strong></h1>
-      <a href="<?= base_url('sneakers') ?>">Vea nuestro catalogo de zapatillas</a>
+      <h1><strong>No hay compras</strong></h1>
+      <p>Todavía nadie compró</p>
     </div>
   <?php else : ?>
     <div class="sales__history">
-      <h1><strong>HISTORIAL DE COMPRAS</strong></h1>
+      <h1><strong>HISTORIAL DE VENTAS</strong></h1>
       <hr>
       <table class="sales__table">
         <thead>
@@ -28,7 +28,7 @@
           </tr>
         </thead>
         <tbody>
-          <?php foreach ($header_sale as $header) : ?>
+          <?php foreach ($all_headers_sales as $header) : ?>
             <?php extract($header) ?>
             <tr>
               <td><?= $id_sale ?></td>

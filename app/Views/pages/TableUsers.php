@@ -8,9 +8,6 @@
 <?= $this->section('title') ?>Lista de Usuarios<?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-<div class="back">
-  <a class="ms-4 mt-4 btn btn-dark" href='<?= base_url() ?>'>VOLVER</a>
-</div>
 <table id="users" class="table table-hover" style="width: 100%;">
   <thead>
     <tr>

@@ -33,7 +33,7 @@
     <?php if ($stock !== null) : ?>
       <div class='sizes'>
         <label>
-          <select name="size">
+          <select class="form-select mb-2" name="size">
             <?php foreach ($stock as $s) : ?>
               <?php extract($s) ?>
               <?php if ($quantity > 0) : ?>

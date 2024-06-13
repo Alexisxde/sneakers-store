@@ -22,10 +22,13 @@ class Sneaker extends BaseController {
 
   public function all_sneakers(): string {
     $items_page = 10;
-    $data = [
-      'products' => $this->modelSneaker->paginate($items_page),
-      'pager' => $this->modelSneaker->pager,
-    ];
+    $data = [];
+    if (session('rol') === 'admin') {
+      $data['products'] = $this->modelSneaker->paginate($items_page);
+    } else {
+      $data['products'] = $this->modelSneaker->where('is_active =', 1)->paginate($items_page);
+    }
+    $data['pager'] = $this->modelSneaker->pager;
     return view('pages/Products', $data);
   }
 

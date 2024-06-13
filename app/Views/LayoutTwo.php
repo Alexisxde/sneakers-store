@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <main style="height: 100dvh;">
+  <main>
     <?= $this->renderSection('content') ?>
   </main>
 </body>

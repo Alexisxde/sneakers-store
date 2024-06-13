@@ -29,6 +29,9 @@
           <?php endif; ?>
           <?php if (session('logged_in') && session('rol') === 'admin') : ?>
             <li class='nav-item'>
+              <a class='nav-link' href='<?= base_url('sales_admin') ?>'>VENTAS</a>
+            </li>
+            <li class='nav-item'>
               <a class='nav-link' href='<?= base_url('users') ?>'>USUARIOS</a>
             </li>
           <?php endif; ?>
