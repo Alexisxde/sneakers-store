@@ -180,10 +180,6 @@ a {
   }
 }
 
-/* <div class="notification error">
-  <div class="notification__body">Algun Error</div>
-</div> */
-
 .card {
   display: flex;
   justify-content: center;
@@ -300,8 +296,4 @@ a {
 .page.active {
   border: none;
   background: #000;
-}
-
-.animation {
-  animation: fade-in 0.3s linear forwards;
 }
