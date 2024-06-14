@@ -2,7 +2,7 @@
 
 <?= $this->section('css') ?>
 <link href="<?= base_url() ?>assets/css/dataTables.bootstrap5.min.css" rel="stylesheet">
-<link href="<?= base_url() ?>assets/styles/TableUsers.components.css" rel="stylesheet">
+<link href="<?= base_url() ?>assets/styles/Table.components.css" rel="stylesheet">
 <link rel="stylesheet" href="<?= base_url() ?>assets/styles/SalesUsers.component.css">
 <?= $this->endSection() ?>
 

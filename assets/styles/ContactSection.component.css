@@ -37,10 +37,15 @@
     padding: 40px;
     width: 75%;
 
-    form {
+    .form {
       display: flex;
       justify-content: center;
       flex-direction: column;
+      padding: 0;
+
+      .form__inputs {
+        margin: 0;
+      }
 
       textarea {
         resize: none; /* No deja que se agrande el textarea */

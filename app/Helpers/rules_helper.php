@@ -238,6 +238,31 @@ function getValidationRules(string $form): array {
     'add_cart' => [
       'id_sneaker' => 'required|is_not_unique[sneakers.id_sneaker]'
     ],
+    'contact' => [
+      'lastname' => [
+        'label' => 'lastname',
+        'rules' => 'required',
+        'errors' => [
+          'required' => 'Ingrese su nombre completo por favor.',
+        ]
+      ],
+      'email' => [
+        'label' => 'email',
+        'rules' => 'required|valid_email',
+        'errors' => [
+          'required' => 'El correo electrónico no puede estar vacio.',
+          'valid_email' => 'Introduzca un correo electrónico valido.',
+        ],
+      ],
+      'message' => [
+        'label' => 'message',
+        'rules' => 'required|min_length[10]',
+        'errors' => [
+          'required' => 'Escriba su mensaje por favor.',
+          'min_length' => 'Escriba un mensaje un poco más detallado.'
+        ],
+      ],
+    ],
     default => []
   };
   return $rules;

@@ -38,9 +38,6 @@ $cart = Services::cart();
       <div class="sneaker__total">
         <span>Total:</span><span>$<?= number_format($cart->total(), 3, '.', '') ?></span>
       </div>
-      <?php if ($cart->total() > 215) : ?>
-        <span class="text-success fw-bold text-end w-100">ENVIO GRATIS</span> <!-- Sacar el bootstrap -->
-      <?php endif ?>
       <button class="sneaker__button" type="submit">Vaciar carrito</button>
       <a href="<?= base_url('checkout') ?>" class="sneaker__button">Finalizar la compra</a>
     </form>

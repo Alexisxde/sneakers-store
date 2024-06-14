@@ -11,10 +11,6 @@ class Home extends BaseController {
     return view('pages/AboutUs');
   }
 
-  public function contacts(): string {
-    return view('pages/Contact');
-  }
-
   public function termsConditions(): string {
     return view("pages/termsConditions");
   }

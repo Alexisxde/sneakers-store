@@ -7,7 +7,6 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::home');
 $routes->get('/about-us', 'Home::aboutUs');
-$routes->get('/contacts', 'Home::contacts');
 $routes->get('/terms-conditions', 'Home::termsConditions');
 $routes->get('/privacy-policy', 'Home::privacyPolicy');
 $routes->get('/commercialization', 'Home::commercialization');
@@ -20,6 +19,8 @@ $routes->post('/register', 'User::create_user');
 $routes->post('/add_cart', 'Cart::add_cart');
 $routes->post('/delete_sneaker_cart', 'Cart::delete_sneaker_cart');
 $routes->post('/destroy_sneakers_cart', 'Cart::destroy_sneakers_cart');
+$routes->get('/contacts', 'Message::contacts');
+$routes->post('/submit_message', 'Message::submit_message');
 
 $routes->group('/', ['filter' => 'auth'], static function ($routes) {
   $routes->get('/logout', 'User::logout');
@@ -38,6 +39,7 @@ $routes->group('/', ['filter' => 'authAdmin'], static function ($routes) {
   $routes->get('/status_user/(:any)', 'User::status_user/$1');
   $routes->get('/rol_user/(:any)', 'User::rol_user/$1');
   $routes->get('/messages', 'Message::all_messages');
+  $routes->get('/read_message/(:any)', 'Message::read_message/$1');
   $routes->get('/add_sneaker', 'Sneaker::form_add_sneaker');
   $routes->post('/add_sneaker', 'Sneaker::add_sneaker');
   $routes->get('/edit_sneaker/(:any)', 'Sneaker::form_edit_sneaker/$1');

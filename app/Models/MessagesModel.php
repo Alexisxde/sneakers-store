@@ -11,12 +11,15 @@ class MessagesModel extends Model {
   protected $returnType = 'array';
   protected $useSoftDeletes = false;
   protected bool $allowEmptyInserts = false;
-  protected $allowedFields = ['id_message', 'email', 'message', 'lastname'];
+  protected $allowedFields = ['id_message', 'email', 'message', 'lastname', 'message_read'];
 
-
-  public function all_messages() {
+  public function all_messages(): ?array {
     $query = "SELECT * FROM messages";
     $result = $this->db->query($query);
     return $result->getNumRows() > 0 ? $result->getResultArray() : null;
+  }
+
+  public function update_message(string $id_message, array $data): void {
+    $this->update($id_message, $data);
   }
 }

@@ -21,11 +21,6 @@
           <li class='nav-item'>
             <a class='nav-link' href='<?= base_url('commercialization') ?>'>COMERCIALIZACIÓN</a>
           </li>
-          <?php if (session('logged_in')) : ?>
-            <li class='nav-item'>
-              <a class='nav-link' href='<?= base_url('sales') ?>'>COMPRAS</a>
-            </li>
-          <?php endif; ?>
           <li class='nav-item'>
             <a class='nav-link' href='<?= base_url('sneakers') ?>'>SNEAKERS</a>
           </li>
@@ -56,6 +51,7 @@
             <div id="menu" class="menu">
               <div class="menu__inner">
                 <a href="<?= base_url('settings') ?>">Configuración</a>
+                <a href="<?= base_url('sales') ?>">Facturas</a>
                 <a href="<?= base_url('logout') ?>">Cerrar sesión</a>
               </div>
             </div>
