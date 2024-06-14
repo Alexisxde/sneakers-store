@@ -2,6 +2,26 @@
 
 <?= $this->section('css') ?>
 <link rel='stylesheet' href='<?= base_url() ?>assets/styles/Products.component.css'>
+<style>
+  .product__search {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+
+    .form {
+      .form__inputs {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      }
+
+      width: 300px;
+      padding: 0;
+    }
+  }
+</style>
 <?= $this->endSection() ?>
 
 <?= $this->section('title') ?>Catalogo<?= $this->endSection() ?>
@@ -13,10 +33,28 @@
       <div class="notification__body"><?= session('msg.body') ?></div>
     </div>
   <?php endif ?>
-  <div class="products__new">
-    <a href=<?= base_url("add_sneaker") ?> class="products__new-button">NUEVA ZAPATILLA</a>
+  <div class="product__search">
+    <form class="form" method="get">
+      <section class="form__inputs">
+        <label class="form__label">
+          <input required name="search" class="form__input" type="text" placeholder=" ">
+          <span class="form__text">Buscar</span>
+        </label>
+        <button class="btn btn-dark p-2"><i class="bi bi-search"></i></button>
+      </section>
+    </form>
+    <?php if (session()->rol === 'admin') : ?>
+      <div class="products__new">
+        <a href=<?= base_url("add_sneaker") ?> class="products__new-button">NUEVA ZAPATILLA</a>
+      </div>
+    <?php endif ?>
   </div>
   <div class='products-cards'>
+    <?php if (count($products) === 0) : ?>
+      <div style="height: 50dvh;">
+        <h1 class="text-center p-5">No hay zapatillas sobre busqueda.</h1>
+      </div>
+    <?php endif ?>
     <?php foreach ($products as $product) {
       extract($product);
     ?>

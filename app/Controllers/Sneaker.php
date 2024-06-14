@@ -21,12 +21,29 @@ class Sneaker extends BaseController {
   }
 
   public function all_sneakers(): string {
+    $search = $this->request->getGet('search') ?? "all";
     $items_page = 10;
     $data = [];
     if (session('rol') === 'admin') {
-      $data['products'] = $this->modelSneaker->paginate($items_page);
+      if ($search !== "all") {
+        $data['products'] = $this->modelSneaker
+          ->like('brand', $search, 'both')
+          ->orLike('model', $search, 'both')
+          ->orderBy('is_active', "ASC")
+          ->paginate($items_page);
+      } else {
+        $data['products'] = $this->modelSneaker->orderBy('is_active', "ASC")->paginate($items_page);
+      }
     } else {
-      $data['products'] = $this->modelSneaker->where('is_active =', 1)->paginate($items_page);
+      if ($search !== "all") {
+        $data['products'] = $this->modelSneaker
+          ->where('is_active =', 1)
+          ->like('brand', $search, 'both')
+          ->orLike('model', $search, 'both')
+          ->paginate($items_page);
+      } else {
+        $data['products'] = $this->modelSneaker->where('is_active =', 1)->paginate($items_page);
+      }
     }
     $data['pager'] = $this->modelSneaker->pager;
     return view('pages/Products', $data);

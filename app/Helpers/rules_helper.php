@@ -7,8 +7,8 @@ function getValidationRules(string $form): array {
         'label' => 'username',
         'rules' => 'required|alpha_dash|is_lowercase',
         'errors' => [
-          'required' => 'El nombre de usuario no puede estar vacio.',
-          'alpha_dash' => 'El nombre de usuario no puede contener espacios o simbolos.',
+          'required' => 'El nombre de usuario no puede estar vacío.',
+          'alpha_dash' => 'El nombre de usuario no puede contener espacios o símbolos.',
           'is_lowercase' => 'El nombre de usuario debe estar en minúsculas.',
         ]
       ],
@@ -26,11 +26,11 @@ function getValidationRules(string $form): array {
         'label' => 'username',
         'rules' => 'required|is_unique[users.username]|min_length[5]|max_length[30]|alpha_dash|is_lowercase',
         'errors' => [
-          'required' => 'El nombre de usuario no puede estar vacio.',
+          'required' => 'El nombre de usuario no puede estar vacío.',
           'is_unique' => 'El nombre de usuario ya está en uso. Por favor, elige otro nombre de usuario.',
-          'min_length' => 'El nombre de usuario tiene que tener minimo 5 caracteres.',
-          'max_length' => 'El nombre de usuario tiene que tener maximo 30 caracteres.',
-          'alpha_dash' => 'El nombre de usuario no puede contener espacios o simbolos.',
+          'min_length' => 'El nombre de usuario tiene que tener mínimo 5 caracteres.',
+          'max_length' => 'El nombre de usuario tiene que tener máximo 30 caracteres.',
+          'alpha_dash' => 'El nombre de usuario no puede contener espacios o símbolos.',
           'is_lowercase' => 'El nombre de usuario debe estar en minúsculas.'
         ]
       ],
@@ -39,7 +39,7 @@ function getValidationRules(string $form): array {
         'rules' => 'required|min_length[5]|alpha_dash',
         'errors' => [
           'required' => 'La contraseña no puede estar vacia.',
-          'min_length' => 'La contraseña tiene que tener minimo 8 caracteres.',
+          'min_length' => 'La contraseña tiene que tener mínimo 8 caracteres.',
           'alpha_dash' => 'La contraseña no puede contener espacios.',
         ]
       ],
@@ -55,16 +55,16 @@ function getValidationRules(string $form): array {
         'label' => 'name',
         'rules' => 'required|min_length[3]|max_length[30]',
         'errors' => [
-          'required' => 'El nombre no puede estar vacio.',
-          'max_length' => 'El nombre tiene que tener maximo 30 caracteres.',
-          'min_length' => 'El nombre tiene que tener minimo 3 caracteres.'
+          'required' => 'El nombre no puede estar vacío.',
+          'max_length' => 'El nombre tiene que tener máximo 30 caracteres.',
+          'min_length' => 'El nombre tiene que tener mínimo 3 caracteres.'
         ],
       ],
       'email' => [
         'label' => 'email',
         'rules' => 'required|valid_email|is_unique[users.email]',
         'errors' => [
-          'required' => 'El correo electrónico no puede estar vacio.',
+          'required' => 'El correo electrónico no puede estar vacío.',
           'valid_email' => 'Introduzca un correo electrónico valido.',
           'is_unique' => 'El correo electrónico ya está en uso. Por favor, elige otro.'
         ],
@@ -73,9 +73,9 @@ function getValidationRules(string $form): array {
         'label' => 'surname',
         'rules' => 'required|min_length[3]|max_length[30]',
         'errors' => [
-          'required' => 'El apellido no puede estar vacio.',
-          'max_length' => 'El apellido tiene que tener maximo 30 caracteres.',
-          'min_length' => 'El apellido tiene que tener minimo 3 caracteres.'
+          'required' => 'El apellido no puede estar vacío.',
+          'max_length' => 'El apellido tiene que tener máximo 30 caracteres.',
+          'min_length' => 'El apellido tiene que tener mínimo 3 caracteres.'
         ],
       ],
     ],
@@ -91,14 +91,14 @@ function getValidationRules(string $form): array {
         'label' => 'sneaker_model',
         'rules' => 'required',
         'errors' => [
-          'required' => 'El modelo no puede estar vacio.',
+          'required' => 'El modelo no puede estar vacío.',
         ]
       ],
       'sneaker_price_purchase' => [
         'label' => 'sneaker_price_purchase',
         'rules' => 'required|numeric',
         'errors' => [
-          'required' => 'El precio de compra no puede estar vacio.',
+          'required' => 'El precio de compra no puede estar vacío.',
           'numeric' => 'Tiene que ser numerico.'
         ]
       ],
@@ -106,7 +106,7 @@ function getValidationRules(string $form): array {
         'label' => 'sneaker_price',
         'rules' => 'required|numeric',
         'errors' => [
-          'required' => 'El precio de venta no puede estar vacio.',
+          'required' => 'El precio de venta no puede estar vacío.',
           'numeric' => 'Tiene que ser numerico.'
         ]
       ],
@@ -114,7 +114,7 @@ function getValidationRules(string $form): array {
         'label' => 'sneaker_discount',
         'rules' => 'required',
         'errors' => [
-          'required' => 'El descuento no puede estar vacio.',
+          'required' => 'El descuento no puede estar vacío.',
         ]
       ],
       'sneaker_stars' => [
@@ -168,14 +168,14 @@ function getValidationRules(string $form): array {
         'label' => 'sneaker_model',
         'rules' => 'required',
         'errors' => [
-          'required' => 'El modelo no puede estar vacio.',
+          'required' => 'El modelo no puede estar vacío.',
         ]
       ],
       'sneaker_price' => [
         'label' => 'sneaker_price',
         'rules' => 'required|numeric',
         'errors' => [
-          'required' => 'El precio no puede estar vacio.',
+          'required' => 'El precio no puede estar vacío.',
           'numeric' => 'Tiene que ser numerico.'
         ]
       ],
@@ -183,7 +183,7 @@ function getValidationRules(string $form): array {
         'label' => 'sneaker_discount',
         'rules' => 'required',
         'errors' => [
-          'required' => 'El descuento no puede estar vacio.',
+          'required' => 'El descuento no puede estar vacío.',
         ]
       ],
       'sneaker_stars' => [
@@ -206,10 +206,10 @@ function getValidationRules(string $form): array {
       'username' => 'is_not_unique[users.username]',
       'newpassword' => [
         'label' => 'newpassword',
-        'rules' => 'required|min_length[5]|alpha_dash',
+        'rules' => 'required|min_length[8]|alpha_dash',
         'errors' => [
           'required' => 'La contraseña no puede estar vacia.',
-          'min_length' => 'La contraseña tiene que tener minimo 8 caracteres.',
+          'min_length' => 'La contraseña tiene que tener mínimo 8 caracteres.',
           'alpha_dash' => 'La contraseña no puede contener espacios.',
         ]
       ],
@@ -250,7 +250,7 @@ function getValidationRules(string $form): array {
         'label' => 'email',
         'rules' => 'required|valid_email',
         'errors' => [
-          'required' => 'El correo electrónico no puede estar vacio.',
+          'required' => 'El correo electrónico no puede estar vacío.',
           'valid_email' => 'Introduzca un correo electrónico valido.',
         ],
       ],

@@ -301,3 +301,7 @@ a {
   border: none;
   background: #000;
 }
+
+.animation {
+  animation: fade-in 0.3s linear forwards;
+}
