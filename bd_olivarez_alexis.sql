@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-06-2024 a las 07:26:14
+-- Tiempo de generación: 15-06-2024 a las 00:43:10
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -168,7 +168,7 @@ CREATE TABLE `stock` (
 --
 
 INSERT INTO `stock` (`id_stock`, `id_sneaker`, `size`, `quantity`) VALUES
-(1, '66557049e15c6', 39, 9),
+(1, '66557049e15c6', 39, 10),
 (2, '66557049e15c6', 40, 10),
 (3, '66557049e15c6', 41, 10),
 (4, '66557049e15c6', 42, 10),
@@ -184,10 +184,10 @@ INSERT INTO `stock` (`id_stock`, `id_sneaker`, `size`, `quantity`) VALUES
 (14, '665579117b4a1', 39, 10),
 (15, '665579117b4a1', 40, 10),
 (16, '6668a5580311f', 39, 10),
-(17, '66540a38b0026', 39, 9),
+(17, '66540a38b0026', 39, 10),
 (18, '66540a38b0026', 41, 10),
-(19, '665407a3b88e4', 40, 9),
-(20, '665407a3b88e4', 41, 9),
+(19, '665407a3b88e4', 40, 10),
+(20, '665407a3b88e4', 41, 10),
 (21, '6654065a1111f', 40, 10),
 (22, '6668b92fcde46', 38, 10),
 (23, '6668bb25f2f82', 38, 10),
@@ -198,13 +198,14 @@ INSERT INTO `stock` (`id_stock`, `id_sneaker`, `size`, `quantity`) VALUES
 (28, '6668bec79fd79', 39, 10),
 (29, '6668c0a39afb0', 39, 10),
 (30, '6668c152bb195', 40, 10),
-(31, '6668c1bc3d3d9', 40, 9),
-(32, '6668cb5023fc3', 39, 8),
-(33, '6668cc34b498a', 40, 9),
+(31, '6668c1bc3d3d9', 40, 10),
+(32, '6668cb5023fc3', 39, 10),
+(33, '6668cc34b498a', 40, 10),
 (34, '6668cc6deafdc', 40, 10),
 (35, '6668ccf93104e', 39, 10),
 (36, '6668cd6cb9c6b', 40, 10),
-(37, '6668cf2baf6a1', 39, 10);
+(37, '6668cf2baf6a1', 39, 10),
+(38, '6668ccf93104e', 40, 10);
 
 -- --------------------------------------------------------
 
@@ -301,7 +302,7 @@ ALTER TABLE `sale_detail`
 -- AUTO_INCREMENT de la tabla `stock`
 --
 ALTER TABLE `stock`
-  MODIFY `id_stock` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id_stock` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- Restricciones para tablas volcadas
