@@ -4,18 +4,36 @@
   margin: 0 auto;
   background-color: #fff;
 
-  .products__new {
+  .product__search {
     display: flex;
+    justify-content: space-around;
     align-items: center;
-    justify-content: end;
-    padding: 10px;
+    flex-wrap: wrap;
+    width: 100%;
 
-    .products__new-button {
-      font-weight: bold;
-      text-decoration: none;
-      color: white;
-      background-color: black;
-      padding: 8px 24px;
+    .form {
+      .form__inputs {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      }
+
+      width: 300px;
+      padding: 0;
+    }
+    .products__new {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+
+      .products__new-button {
+        font-weight: bold;
+        text-decoration: none;
+        color: white;
+        background-color: black;
+        padding: 8px 24px;
+      }
     }
   }
 

@@ -61,7 +61,7 @@
           <div style="display: flex; gap: 5px;">
             <?php extract($stock) ?>
             <label class="form__label">
-              <input class="form__input" name="size-<?= $size ?>" type="text" placeholder=" " value="<?= $size ?>">
+              <input disabled class="form__input" name="size-<?= $size ?>" type="text" placeholder=" " value="<?= $size ?>">
               <span class="form__text">Talle</span>
             </label>
             <label class="form__label">

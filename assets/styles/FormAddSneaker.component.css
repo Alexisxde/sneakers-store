@@ -6,6 +6,10 @@
   padding: 40px;
   position: relative;
 
+  input:disabled {
+    background-color: #fff;
+  }
+
   .form__back {
     & > a {
       position: absolute;

@@ -30,7 +30,7 @@
       <span class='price'>$ <?= number_format($price * (1 - $discount / 100), 0, ',', '.'); ?></span>
     </div>
     <p><?= $description ?></p>
-    <?php if ($stock !== null) : ?>
+    <?php if (count($stock) > 0) : ?>
       <div class='sizes'>
         <label>
           <select class="form-select mb-2" name="size">

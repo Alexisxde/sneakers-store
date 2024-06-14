@@ -52,7 +52,7 @@ class Cart extends BaseController {
     ]);
     return redirect()->back()->with('msg', [
       'type' => 'success',
-      'body' => "Añadido al carrito correctamente."
+      'body' => "$brand  $model añadido al carrito."
     ]);
   }
 

@@ -99,7 +99,7 @@ function getValidationRules(string $form): array {
         'rules' => 'required|numeric',
         'errors' => [
           'required' => 'El precio de compra no puede estar vacío.',
-          'numeric' => 'Tiene que ser numerico.'
+          'numeric' => 'Tiene que ser numérico.'
         ]
       ],
       'sneaker_price' => [
@@ -107,21 +107,23 @@ function getValidationRules(string $form): array {
         'rules' => 'required|numeric',
         'errors' => [
           'required' => 'El precio de venta no puede estar vacío.',
-          'numeric' => 'Tiene que ser numerico.'
+          'numeric' => 'Tiene que ser numérico.'
         ]
       ],
       'sneaker_discount' => [
         'label' => 'sneaker_discount',
-        'rules' => 'required',
+        'rules' => 'required|numeric',
         'errors' => [
           'required' => 'El descuento no puede estar vacío.',
+          'numeric' => 'Tiene que ser numérico.'
         ]
       ],
       'sneaker_stars' => [
         'label' => 'sneaker_stars',
-        'rules' => 'required',
+        'rules' => 'required|numeric',
         'errors' => [
           'required' => 'La valoración no puede ser vacia.',
+          'numeric' => 'Tiene que ser numérico.'
         ]
       ],
       'sneaker_description' => [
@@ -133,7 +135,7 @@ function getValidationRules(string $form): array {
       ],
       'sneaker_img' => [
         'label' => 'sneaker_img',
-        'rules' => 'ext_in[sneaker_img,png,jpg,webp,jfif]',
+        'rules' => 'required|ext_in[sneaker_img,png,jpg,webp,jfif]',
         'errors' => [
           'required' => 'Se necesita la imagen.',
           'ext_in' => 'La extenciones solo pueden ser .png, .jpg, .webp y .jfif',
@@ -144,7 +146,7 @@ function getValidationRules(string $form): array {
         'rules' => 'required|numeric',
         'errors' => [
           'required' => 'Se necesita por lo menos un talle.',
-          'numeric' => 'Tiene que ser numerico el tipo de talle.',
+          'numeric' => 'Tiene que ser numérico de talle.',
         ]
       ],
       'sneaker_stock' => [
@@ -152,7 +154,7 @@ function getValidationRules(string $form): array {
         'rules' => 'required|numeric',
         'errors' => [
           'required' => 'Ponga 0 si no hay stock.',
-          'numeric' => 'Tiene que ser numerico el tipo el stock.',
+          'numeric' => 'Tiene que ser numérico el stock.',
         ]
       ],
     ],
@@ -176,21 +178,23 @@ function getValidationRules(string $form): array {
         'rules' => 'required|numeric',
         'errors' => [
           'required' => 'El precio no puede estar vacío.',
-          'numeric' => 'Tiene que ser numerico.'
+          'numeric' => 'Tiene que ser numérico.'
         ]
       ],
       'sneaker_discount' => [
         'label' => 'sneaker_discount',
-        'rules' => 'required',
+        'rules' => 'required|numeric',
         'errors' => [
           'required' => 'El descuento no puede estar vacío.',
+          'numeric' => 'Tiene que ser numérico.'
         ]
       ],
       'sneaker_stars' => [
         'label' => 'sneaker_stars',
-        'rules' => 'required',
+        'rules' => 'required|numeric',
         'errors' => [
           'required' => 'La valoración no puede ser vacia.',
+          'numeric' => 'Tiene que ser numérico.'
         ]
       ],
       'sneaker_description' => [

@@ -2,26 +2,6 @@
 
 <?= $this->section('css') ?>
 <link rel='stylesheet' href='<?= base_url() ?>assets/styles/Products.component.css'>
-<style>
-  .product__search {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-
-    .form {
-      .form__inputs {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-      }
-
-      width: 300px;
-      padding: 0;
-    }
-  }
-</style>
 <?= $this->endSection() ?>
 
 <?= $this->section('title') ?>Catalogo<?= $this->endSection() ?>

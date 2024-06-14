@@ -43,12 +43,15 @@ class SneakerModel extends Model {
         'brand' => $rows[0]['brand'],
         'stars' => $rows[0]['stars'],
         'description' => $rows[0]['description'],
+        'stock' => []
       ];
       foreach ($rows as $row) {
-        $sneaker['stock'][] = [
-          'size' => $row['size'],
-          'quantity' => $row['quantity']
-        ];
+        if ($row['quantity'] > 0) {
+          $sneaker['stock'][] = [
+            'size' => $row['size'],
+            'quantity' => $row['quantity']
+          ];
+        }
       }
       return $sneaker;
     }
