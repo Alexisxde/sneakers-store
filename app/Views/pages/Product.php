@@ -43,8 +43,12 @@
           </select>
         </label>
       </div>
+      <button class='btn-product px-4 py-2'><i class='bi bi-cart4'></i>Agregar al carrito</button>
+    <?php else : ?>
+      <div class="size text-center">
+        <strong>No hay talles disponibles</strong>
+      </div>
     <?php endif ?>
-    <button class='btn-product px-4 py-2'><i class='bi bi-cart4'></i>Agregar al carrito</button>
     <a href='<?= base_url('commercialization/#payments-methods') ?>' class='text-black py-4 text-center'>Ver metodos de pago</a>
   </form>
 </section>
