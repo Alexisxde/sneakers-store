@@ -135,9 +135,9 @@ function getValidationRules(string $form): array {
       ],
       'sneaker_img' => [
         'label' => 'sneaker_img',
-        'rules' => 'required|ext_in[sneaker_img,png,jpg,webp,jfif]',
+        'rules' => 'uploaded[sneaker_img]|ext_in[sneaker_img,png,jpg,webp,jfif]',
         'errors' => [
-          'required' => 'Se necesita la imagen.',
+          'uploaded' => 'Se necesita la imagen',
           'ext_in' => 'La extenciones solo pueden ser .png, .jpg, .webp y .jfif',
         ]
       ],
