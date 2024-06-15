@@ -8,6 +8,7 @@
 
   input:disabled {
     background-color: #fff;
+    cursor: not-allowed;
   }
 
   .form__back {

@@ -1,0 +1,14 @@
+Usuario Administrador
+nombre de usuario: admin
+contraseña: admin
+---
+Usuario Normal
+nombre de usuario: testuser1
+contraseña: testuser1
+
+Test para insertar una nueva zapatilla con el formulario de añadir nuevas zapatillas
+Marca: Nike
+Modelo: Zegama
+precio de compra: 185000
+precio de venta: 285000
+valoración es la estrellas que tiene 3.5 por ejemplo

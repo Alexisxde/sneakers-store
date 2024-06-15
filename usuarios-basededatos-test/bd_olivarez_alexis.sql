@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-06-2024 a las 22:07:00
+-- Tiempo de generación: 15-06-2024 a las 00:43:10
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -133,22 +133,22 @@ INSERT INTO `sneakers` (`id_sneaker`, `img`, `price_purchase`, `price`, `discoun
 ('665570cf6933e', '665570cf6933e.jpg', 75000.000, 100000.000, 15.00, 'Puma', 'Caven 2.0 White', 4.5, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi dolor blanditiis ducimus commodi reprehenderit, quod ipsum explicabo rerum expedita incidunt placeat at recusandae, porro sint, eum omnis iste quaerat rem.'),
 ('665579117b4a1', '665579117b4a1.jfif', 65000.000, 90000.000, 22.00, 'Under Armour', 'Hovr Sonic 5 Dotd', 3.0, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque possimus odio et ipsam accusantium quis, veniam cumque, esse debitis recusandae aliquid cum ipsum ad, quisquam optio animi nobis corporis necessitatibus.'),
 ('6668a5580311f', '6668a5580311f.jfif', 115000.000, 150000.000, 15.00, 'Adidas', 'Adistar 2 ', 3.5, 1, 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur quasi aliquid, dolorum vero quod numquam? Perferendis vel esse commodi accusantium labore nam illo ratione? Mollitia sequi atque ad doloribus sunt?'),
-('6668b92fcde46', '6668b92fcde46.jfif', 75000.000, 86000.000, 10.00, 'Under Armour', 'Buzzer', 3.0, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.'),
-('6668bb25f2f82', '6668bb25f2f82.jfif', 100000.000, 170000.000, 5.00, 'Adidas', 'Racer TR23', 4.0, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.'),
-('6668bd12ad9b7', '6668bd12ad9b7.jfif', 98000.000, 143000.000, 20.00, 'Nike', 'Air Max Sc', 3.5, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.'),
-('6668bd6e4c6bc', '6668bd6e4c6bc.jfif', 78000.000, 85000.000, 5.00, 'Adidas', 'Breaknet 2.0', 4.0, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.'),
-('6668bde389fea', '6668bde389fea.jfif', 100000.000, 115000.000, 2.00, 'Nike', 'Revolution 6 Next Nature', 3.0, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.'),
-('6668be5628c13', '6668be5628c13.jfif', 98000.000, 102000.000, 2.00, 'Adidas', 'Grand Court Cloudfoam', 4.0, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.'),
-('6668bec79fd79', '6668bec79fd79.jfif', 120000.000, 144000.000, 20.00, 'Adidas', 'Ultrabounce', 3.0, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.'),
-('6668c0a39afb0', '6668c0a39afb0.jfif', 100000.000, 120000.000, 5.00, 'Puma', 'Rbd Game Low', 4.5, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.'),
-('6668c152bb195', '6668c152bb195.jfif', 108000.000, 128000.000, 7.00, 'Nike', 'Waffle Debut Se', 4.0, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.'),
-('6668c1bc3d3d9', '6668c1bc3d3d9.jfif', 107000.000, 138000.000, 8.00, 'Adidas', 'Courtjam Control 3', 3.0, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.'),
-('6668cb5023fc3', '6668cb5023fc3.jfif', 300000.000, 314000.000, 7.00, 'Nike', 'Infinity Rn 4 Gore-tex', 5.0, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.'),
-('6668cc34b498a', '6668cc34b498a.jfif', 98500.000, 102600.000, 8.00, 'Adidas', 'Alphaedge', 3.5, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.'),
-('6668cc6deafdc', '6668cc6deafdc.jfif', 96000.000, 120000.000, 5.00, 'Puma', 'X-Ray 2 Square', 3.5, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.'),
-('6668ccf93104e', '6668ccf93104e.jfif', 98000.000, 120000.000, 6.00, 'Puma', 'Rbd Game Low White', 3.5, 0, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.'),
+('6668b92fcde46', '6668b92fcde46.jfif', NULL, 86000.000, 10.00, 'Under Armour', 'Buzzer', 3.0, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.'),
+('6668bb25f2f82', '6668bb25f2f82.jfif', NULL, 170000.000, 5.00, 'Adidas', 'Racer TR23', 4.0, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.'),
+('6668bd12ad9b7', '6668bd12ad9b7.jfif', NULL, 143000.000, 20.00, 'Nike', 'Air Max Sc', 3.5, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.'),
+('6668bd6e4c6bc', '6668bd6e4c6bc.jfif', NULL, 85000.000, 5.00, 'Adidas', 'Breaknet 2.0', 4.0, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.'),
+('6668bde389fea', '6668bde389fea.jfif', NULL, 115000.000, 2.00, 'Nike', 'Revolution 6 Next Nature', 3.0, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.'),
+('6668be5628c13', '6668be5628c13.jfif', NULL, 102000.000, 2.00, 'Adidas', 'Grand Court Cloudfoam', 4.0, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.'),
+('6668bec79fd79', '6668bec79fd79.jfif', NULL, 144000.000, 20.00, 'Adidas', 'Ultrabounce', 3.0, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.'),
+('6668c0a39afb0', '6668c0a39afb0.jfif', NULL, 120000.000, 5.00, 'Puma', 'Rbd Game Low', 4.5, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.'),
+('6668c152bb195', '6668c152bb195.jfif', NULL, 128000.000, 7.00, 'Nike', 'Waffle Debut Se', 4.0, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.'),
+('6668c1bc3d3d9', '6668c1bc3d3d9.jfif', NULL, 138000.000, 8.00, 'Adidas', 'Courtjam Control 3', 3.0, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.'),
+('6668cb5023fc3', '6668cb5023fc3.jfif', NULL, 314000.000, 7.00, 'Nike', 'Infinity Rn 4 Gore-tex', 5.0, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.'),
+('6668cc34b498a', '6668cc34b498a.jfif', NULL, 102600.000, 8.00, 'Adidas', 'Alphaedge', 3.5, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.'),
+('6668cc6deafdc', '6668cc6deafdc.jfif', NULL, 120000.000, 5.00, 'Puma', 'X-Ray 2 Square', 3.5, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.'),
+('6668ccf93104e', '6668ccf93104e.jfif', NULL, 120000.000, 6.00, 'Puma', 'Rbd Game Low White', 3.5, 0, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.'),
 ('6668cd6cb9c6b', '6668cd6cb9c6b.jfif', NULL, 141000.000, 10.00, 'Adidas', 'Terrex Soulstride ', 4.5, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.'),
-('6668cf2baf6a1', '6668cf2baf6a1.jfif', 98000.000, 120000.000, 10.00, 'Nike', 'Air Max Systm', 3.5, 0, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.');
+('6668cf2baf6a1', '6668cf2baf6a1.jfif', NULL, 120000.000, 10.00, 'Nike', 'Air Max Systm', 3.5, 0, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum odio, eaque optio aut quis placeat tempora voluptate nobis mollitia ducimus earum minus! Provident eum officia dolor, at nihil nemo accusantium.');
 
 -- --------------------------------------------------------
 
@@ -168,7 +168,7 @@ CREATE TABLE `stock` (
 --
 
 INSERT INTO `stock` (`id_stock`, `id_sneaker`, `size`, `quantity`) VALUES
-(1, '66557049e15c6', 39, 9),
+(1, '66557049e15c6', 39, 10),
 (2, '66557049e15c6', 40, 10),
 (3, '66557049e15c6', 41, 10),
 (4, '66557049e15c6', 42, 10),
@@ -184,11 +184,11 @@ INSERT INTO `stock` (`id_stock`, `id_sneaker`, `size`, `quantity`) VALUES
 (14, '665579117b4a1', 39, 10),
 (15, '665579117b4a1', 40, 10),
 (16, '6668a5580311f', 39, 10),
-(17, '66540a38b0026', 39, 9),
+(17, '66540a38b0026', 39, 10),
 (18, '66540a38b0026', 41, 10),
-(19, '665407a3b88e4', 40, 9),
-(20, '665407a3b88e4', 41, 9),
-(21, '6654065a1111f', 40, 9),
+(19, '665407a3b88e4', 40, 10),
+(20, '665407a3b88e4', 41, 10),
+(21, '6654065a1111f', 40, 10),
 (22, '6668b92fcde46', 38, 10),
 (23, '6668bb25f2f82', 38, 10),
 (24, '6668bd12ad9b7', 38, 10),
@@ -198,14 +198,14 @@ INSERT INTO `stock` (`id_stock`, `id_sneaker`, `size`, `quantity`) VALUES
 (28, '6668bec79fd79', 39, 10),
 (29, '6668c0a39afb0', 39, 10),
 (30, '6668c152bb195', 40, 10),
-(31, '6668c1bc3d3d9', 40, 9),
-(32, '6668cb5023fc3', 39, 8),
-(33, '6668cc34b498a', 40, 9),
+(31, '6668c1bc3d3d9', 40, 10),
+(32, '6668cb5023fc3', 39, 10),
+(33, '6668cc34b498a', 40, 10),
 (34, '6668cc6deafdc', 40, 10),
-(35, '6668ccf93104e', 39, 0),
+(35, '6668ccf93104e', 39, 10),
 (36, '6668cd6cb9c6b', 40, 10),
 (37, '6668cf2baf6a1', 39, 10),
-(38, '6668ccf93104e', 40, 0);
+(38, '6668ccf93104e', 40, 10);
 
 -- --------------------------------------------------------
 
@@ -230,7 +230,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `username`, `password`, `email`, `name`, `surname`, `register_date`, `is_active`, `rol`) VALUES
-('6647cacb34dab', 'test1', '$2y$10$fNpvnwBJerMwqIXjHkejIemzKKRn2ebtBOcm88byU5fPDW6dLb8B6', 'test1@test1.com', 'Test1', 'Test1', '2024-05-17 21:23:23', 1, 'admin'),
+('6647cacb34dab', 'test1', '$2y$10$fNpvnwBJerMwqIXjHkejIemzKKRn2ebtBOcm88byU5fPDW6dLb8B6', 'test1@test1.com', 'Test1', 'Test1', '2024-05-17 21:23:23', 0, 'user'),
 ('6647cb04f2a89', 'admin', '$2y$10$iIkGE3K74OuXv1WqJx1XoeT4A4Pg1ZjhDNPr6gVLhr.Qd5miPtXaW', 'admin@admin.com', 'Admin', 'Admin', '2024-05-17 21:24:21', 1, 'admin'),
 ('6659edf9989c9', 'testuser', '$2y$10$3ECBKWUP0vh6Sst0vTcPhOGBHYDEbBWnM6IYCYcQhVKltnP9D6Bh2', 'testuser@testuser.com', 'Test', 'User', '2024-05-31 15:34:17', 1, 'user'),
 ('665b77e1e2018', 'testuser1', '$2y$10$k721Qn1sjwUCQHx35aOjgeBuxMrcSXyRnG0llD6RUcxlKD0YT0heW', 'testuser1@testuser1.com', 'TestUser1', 'TestUser1', '2024-06-01 19:34:58', 1, 'user');
@@ -302,7 +302,7 @@ ALTER TABLE `sale_detail`
 -- AUTO_INCREMENT de la tabla `stock`
 --
 ALTER TABLE `stock`
-  MODIFY `id_stock` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id_stock` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- Restricciones para tablas volcadas

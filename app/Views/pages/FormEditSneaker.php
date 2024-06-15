@@ -36,6 +36,10 @@
         <?php endif; ?>
       </label>
       <label class="form__label">
+        <input disabled class="form__input" name="sneaker_price" min="0" type="number" placeholder=" " value="<?= $price_purchase ?>">
+        <span class="form__text">Precio de compra</span>
+      </label>
+      <label class="form__label">
         <input class="form__input" name="sneaker_price" min="0" type="number" placeholder=" " value="<?= $price ?>">
         <span class="form__text">Ingresa precio</span>
         <?php if (validation_show_error('sneaker_price')) : ?>

@@ -63,6 +63,7 @@ body {
 
         &:is(:focus, :not(:placeholder-shown)) {
           + .form__text {
+            height: max-content;
             background-color: white;
             transform: translateY(-50%) scale(0.7);
           }

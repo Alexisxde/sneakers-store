@@ -14,6 +14,11 @@
 <?= $this->section('title') ?>Configuración<?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
+<?php if (session('msg')) : ?>
+  <div class="notification <?= session('msg.type') ?>">
+    <div class="notification__body"><?= session('msg.body') ?></div>
+  </div>
+<?php endif ?>
 <?php if (validation_show_error('id_user')) : ?>
   <div class="notification error">
     <div class="notification__body"><?= validation_show_error('id_user') ?></div>

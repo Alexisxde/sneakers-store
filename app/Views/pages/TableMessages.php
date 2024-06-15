@@ -5,7 +5,7 @@
 <link href="<?= base_url() ?>assets/styles/Table.components.css" rel="stylesheet">
 <?= $this->endSection() ?>
 
-<?= $this->section('title') ?>Lista de Usuarios<?= $this->endSection() ?>
+<?= $this->section('title') ?>Lista de Mensajes<?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
 <section>

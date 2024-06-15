@@ -144,6 +144,7 @@ class Sneaker extends BaseController {
     extract($this->request->getPost([
       'sneaker_brand',
       'sneaker_model',
+      'sneaker_price_purchase',
       'sneaker_price',
       'sneaker_discount',
       'sneaker_stars',
@@ -172,6 +173,7 @@ class Sneaker extends BaseController {
     $data = [
       'id_sneaker' => $id_sneaker,
       'brand' => $sneaker_brand,
+      'price_purchase' => $sneaker_price_purchase,
       'price' => $sneaker_price,
       'discount' => $sneaker_discount,
       'model' => $sneaker_model,

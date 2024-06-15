@@ -116,6 +116,12 @@ class User extends BaseController {
   }
 
   public function user_delete(): RedirectResponse {
+    if (session('rol') == 'admin') {
+      return redirect()->back()->with('msg', [
+        "type" => "error",
+        "body" => "Usuario administrador no puede eliminar su cuenta."
+      ]);
+    }
     $this->status_user(session('id_user'));
     $this->logout();
     return redirect()->to(base_url('login'));
