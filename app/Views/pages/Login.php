@@ -39,7 +39,7 @@
       <button class="button__black">Iniciar Sesión</button>
     </form>
     <footer>
-      <span>¿Quieres ver la pagina sin <strong>Iniciar sesión</strong>? <a href=<?= base_url() ?>>Click aquí</a></span>
+      <span>¿Quieres ver la página sin <strong>Iniciar sesión</strong>? <a href=<?= base_url() ?>>Click aquí</a></span>
       <span>¿Aún no tienes cuenta? <a href=<?= base_url("register") ?>>Registrate aquí</a></span>
     </footer>
   </div>

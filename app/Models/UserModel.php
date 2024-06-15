@@ -43,7 +43,7 @@ class UserModel extends Model {
   }
 
   public function all_users(): ?array {
-    $query = "SELECT id_user, username, email, name, surname, rol, is_active FROM users";
+    $query = "SELECT id_user, username, email, name, surname, rol, is_active FROM users WHERE username <> 'admin'";
     $result = $this->db->query($query);
     return $result->getNumRows() > 0 ? $result->getResultArray() : null;
   }

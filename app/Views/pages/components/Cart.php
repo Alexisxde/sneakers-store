@@ -43,7 +43,7 @@ $cart = Services::cart();
     </form>
   <?php else : ?>
     <section class="offcanvas__notsneakers">
-      <span class="offcanvas__notsneakers-title">Carrito Vacio</span>
+      <span class="offcanvas__notsneakers-title">Carrito Vacío</span>
       <a href="<?= base_url('sneakers') ?>">Ver zapatillas</a>
     </section>
   <?php endif ?>

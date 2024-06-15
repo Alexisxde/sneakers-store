@@ -59,7 +59,7 @@
       <button class="button__black">Registrarte</button>
     </form>
     <footer>
-      <span>¿Quieres ver la pagina sin <strong>Registrarte</strong>? <a href=<?= base_url() ?>>Click aquí</a></span>
+      <span>¿Quieres ver la página sin <strong>Registrarte</strong>? <a href=<?= base_url() ?>>Click aquí</a></span>
       <span>¿Ya tienes cuenta? <a href=<?= base_url("login") ?>>Iniciá sesión aquí</a></span>
     </footer>
   </div>
