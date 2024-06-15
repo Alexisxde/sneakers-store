@@ -42,9 +42,9 @@ class UserModel extends Model {
     return password_verify($passwordUser, $result->password);
   }
 
-  public function all_users(): ?array {
-    $query = "SELECT id_user, username, email, name, surname, rol, is_active FROM users WHERE username <> 'admin'";
-    $result = $this->db->query($query);
+  public function all_users(string $id_user): ?array {
+    $query = "SELECT id_user, username, email, name, surname, rol, is_active FROM users WHERE username <> 'admin' AND id_user <> ?";
+    $result = $this->db->query($query, [$id_user]);
     return $result->getNumRows() > 0 ? $result->getResultArray() : null;
   }
 

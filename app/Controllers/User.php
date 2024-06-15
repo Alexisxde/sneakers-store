@@ -36,7 +36,7 @@ class User extends BaseController {
   }
 
   public function all_users(): string {
-    $data = ['users' => $this->model->all_users()];
+    $data = ['users' => $this->model->all_users(session('id_user'))];
     return view('pages/TableUsers', $data);
   }
 
